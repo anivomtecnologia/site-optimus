@@ -169,16 +169,14 @@ p{margin:0}
 .hero[data-mode=focus] .soft{color:var(--faint)}
 @media (max-width:900px){.hero-grid{grid-template-columns:1fr}.hero .lead{max-width:46ch}}
 
-/* SINTONIA: uma régua de dial; o ponteiro azul "sintoniza" um princípio por vez (sinal no ruído). Só CSS. */
-.tune{--step:2.7s;--T:calc(var(--step)*6);border-block:1px solid var(--line);background:var(--surface);padding-block:28px 30px}
+/* SINTONIA: uma barrinha azul desliza sobre um fio e "sintoniza" um princípio por vez (sinal no ruído). Só CSS. */
+.tune{--step:2.2s;--T:calc(var(--step)*6);border-block:1px solid var(--line);background:var(--surface);padding-block:24px 28px}
 .tune-dial{position:relative}
-.tune-list{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));margin:0;padding:0;list-style:none;border-top:1px solid var(--faint);background:repeating-linear-gradient(90deg,var(--faint) 0 1px,transparent 1px calc(100%/60)) 0 0/100% 7px no-repeat}
-.tune-list li{position:relative;padding:28px 10px 0;text-align:center;font:600 clamp(17px,1.7vw,21px)/1.2 var(--f-display);letter-spacing:-.01em;color:var(--muted);text-wrap:balance;animation:tuneLit var(--T) linear calc(var(--i)*var(--step)) infinite}
-.tune-list li::before{content:"";position:absolute;left:50%;top:0;width:1px;height:14px;background-color:var(--faint);animation:tuneTick var(--T) linear calc(var(--i)*var(--step)) infinite}
+.tune-list{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));margin:0;padding:0;list-style:none;border-top:2px solid var(--line)}
+.tune-list li{position:relative;padding:22px 10px 0;text-align:center;font:600 clamp(17px,1.7vw,21px)/1.2 var(--f-display);letter-spacing:-.01em;color:var(--muted);text-wrap:balance;animation:tuneLit var(--T) linear calc(var(--i)*var(--step)) infinite}
 .tune-list li span{padding-inline:.14em;margin-inline:-.14em;border-radius:3px;background:linear-gradient(transparent 62%,var(--mark) 62%,var(--mark) 94%,transparent 94%) no-repeat 0 0/0% 100%;-webkit-box-decoration-break:clone;box-decoration-break:clone;animation:tuneMark var(--T) linear calc(var(--i)*var(--step)) infinite}
-.tune-needle{position:absolute;left:0;top:-5px;width:calc(100%/6);height:30px;pointer-events:none;animation:tuneNeedle var(--T) cubic-bezier(.6,0,.2,1) infinite}
-.tune-needle::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;margin-left:-1px;border-radius:2px;background:var(--accent)}
-.tune-needle::after{content:"";position:absolute;left:50%;top:-6px;width:9px;height:9px;margin-left:-4.5px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 18%,transparent)}
+.tune-needle{position:absolute;left:0;top:-3px;width:calc(100%/6);height:4px;pointer-events:none;animation:tuneNeedle var(--T) cubic-bezier(.6,0,.2,1) infinite}
+.tune-needle::before{content:"";position:absolute;left:50%;top:0;width:56px;height:4px;margin-left:-28px;border-radius:4px;background:var(--accent)}
 @keyframes tuneNeedle{
   0%,13%{transform:translateX(0)}
   16.67%,29.67%{transform:translateX(100%)}
@@ -199,9 +197,9 @@ p{margin:0}
 @media (max-width:860px){
   .tune{padding-block:22px}
   .tune-needle{display:none}
-  .tune-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 12px;border-top:0;background:none}
+  .tune-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 12px;border-top:0}
   .tune-list li{padding:0 0 0 22px;text-align:left}
-  .tune-list li::before{left:2px;top:.5em;width:9px;height:9px;border-radius:50%}
+  .tune-list li::before{content:"";position:absolute;left:2px;top:.5em;width:9px;height:9px;border-radius:50%;background-color:var(--faint);animation:tuneTick var(--T) linear calc(var(--i)*var(--step)) infinite}
 }
 @media (prefers-reduced-motion:reduce){.tune-needle{display:none}}
 
