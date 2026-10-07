@@ -38,7 +38,7 @@ src/check.py                       conferência rápida (ids, âncoras, labels, 
 ## Regras técnicas (aprendidas na prática, não quebrar)
 
 - **Tudo que é essencial funciona sem JavaScript.** No navegador do dono do site, o JavaScript chegou a não rodar. Por isso:
-  - A página do Marca-texto Web abre **dentro do site** por um checkbox oculto (`#mtw-open`) e `label for="mtw-open"`. O CSS é `.mtw-cb:checked + .product-panel{display:block}`. Não usar `:target`, Shadow DOM, `fetch` nem `<template>` para isso.
+  - O botão "Conhecer o Marca-texto Web" é um **link comum** para a página própria `marca-texto-web.html` (pedido do dono em out/2026, para ter um endereço só do Marca-texto, usado no Google Ads). O painel embutido no `index.html` (`#mtw-open`) continua sendo gerado pelo build, mas não tem mais botão que o abra; o endereço antigo `/#marca-texto` redireciona para `marca-texto-web.html`.
   - A galeria de 4 abas usa radios (`.m-gr`) e labels. O zoom das fotos dos post-its usa checkbox (`.zcb`), e Ajuda e Termos também (`.dcb`). A **Política de Privacidade não abre em sobreposição**: o link do rodapé do Marca-texto Web abre em nova aba a página avulsa `privacidade-marca-texto-web.html`, que tem URL própria para o dono colar em formulários (Chrome Web Store etc.).
   - As animações (o topo "ruído → foco", "Uma hora de estudo, dois jeitos" e o marca-texto azul animado da missão) são **só CSS**.
   - **Não há faixa de frases (letreiro/ticker) entre o topo e a seção "Origem".** O letreiro rolante foi trocado por uma faixa de "sintonia" e, depois, a faixa inteira foi removida a pedido do dono. Não recolocar sem ele pedir.
