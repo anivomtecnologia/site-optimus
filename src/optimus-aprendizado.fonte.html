@@ -486,9 +486,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
           <p>Grife qualquer site como você grifa no papel e leve seus grifos organizados para onde você estuda. Nas leis do Planalto, ganha sumário navegável, busca por artigo e impressão em A4 com os grifos coloridos.</p>
           <div class="feats"><span class="chip">8 cores de marca-texto</span><span class="chip">post-its STF e STJ</span><span class="chip">sumário das leis</span><span class="chip">pastas em A4</span></div>
           <div class="built-actions">
-            <label class="btn brand" for="mtw-open" role="button" tabindex="0" data-panel="marca-texto">Conhecer o Marca-texto Web
+            <a class="btn brand" href="marca-texto-web.html">Conhecer o Marca-texto Web
               <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M8.5 3.5 13 8l-4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </label>
+            </a>
             <a class="ig" href="https://www.instagram.com/marcatextoweb/" target="_blank" rel="noopener">Instagram @marcatextoweb</a>
           </div>
         </div>
@@ -986,7 +986,7 @@ if(!reduce){
     if((e.key==='Enter'||e.key===' ') && t && t.matches && t.matches('label[for="mtw-open"]')){ e.preventDefault(); cb.checked=!cb.checked; }
   });
   cb.addEventListener('change',()=>{ if(cb.checked && panel) panel.scrollTop=0; });
-  if(location.hash==='#marca-texto') cb.checked=true;
+  if(location.hash==='#marca-texto') location.replace('marca-texto-web.html');
 })();
 
 /* COPIAR E-MAIL */
