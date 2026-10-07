@@ -169,40 +169,6 @@ p{margin:0}
 .hero[data-mode=focus] .soft{color:var(--faint)}
 @media (max-width:900px){.hero-grid{grid-template-columns:1fr}.hero .lead{max-width:46ch}}
 
-/* SINTONIA: uma barrinha azul desliza sobre um fio e "sintoniza" um princípio por vez (sinal no ruído). Só CSS. */
-.tune{--step:2.2s;--T:calc(var(--step)*6);border-block:1px solid var(--line);background:var(--surface);padding-block:24px 28px}
-.tune-dial{position:relative}
-.tune-list{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));margin:0;padding:0;list-style:none;border-top:2px solid var(--line)}
-.tune-list li{position:relative;padding:22px 10px 0;text-align:center;font:600 clamp(17px,1.7vw,21px)/1.2 var(--f-display);letter-spacing:-.01em;color:var(--muted);text-wrap:balance;animation:tuneLit var(--T) linear calc(var(--i)*var(--step)) infinite}
-.tune-list li span{padding-inline:.14em;margin-inline:-.14em;border-radius:3px;background:linear-gradient(transparent 62%,var(--mark) 62%,var(--mark) 94%,transparent 94%) no-repeat 0 0/0% 100%;-webkit-box-decoration-break:clone;box-decoration-break:clone;animation:tuneMark var(--T) linear calc(var(--i)*var(--step)) infinite}
-.tune-needle{position:absolute;left:0;top:-3px;width:calc(100%/6);height:4px;pointer-events:none;animation:tuneNeedle var(--T) cubic-bezier(.6,0,.2,1) infinite}
-.tune-needle::before{content:"";position:absolute;left:50%;top:0;width:56px;height:4px;margin-left:-28px;border-radius:4px;background:var(--accent)}
-@keyframes tuneNeedle{
-  0%,13%{transform:translateX(0)}
-  16.67%,29.67%{transform:translateX(100%)}
-  33.33%,46.33%{transform:translateX(200%)}
-  50%,63%{transform:translateX(300%)}
-  66.67%,79.67%{transform:translateX(400%)}
-  83.33%,96.33%{transform:translateX(500%)}
-  100%{transform:translateX(0)}
-}
-@keyframes tuneLit{0%{color:var(--muted)}4%,13%{color:var(--ink)}17%,100%{color:var(--muted)}}
-@keyframes tuneTick{0%{background-color:var(--faint)}4%,13%{background-color:var(--accent)}17%,100%{background-color:var(--faint)}}
-@keyframes tuneMark{
-  0%{background-size:0% 100%;background-position:0 0}
-  6%{background-size:100% 100%;background-position:0 0}
-  13%{background-size:100% 100%;background-position:100% 0}
-  17%,100%{background-size:0% 100%;background-position:100% 0}
-}
-@media (max-width:860px){
-  .tune{padding-block:22px}
-  .tune-needle{display:none}
-  .tune-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 12px;border-top:0}
-  .tune-list li{padding:0 0 0 22px;text-align:left}
-  .tune-list li::before{content:"";position:absolute;left:2px;top:.5em;width:9px;height:9px;border-radius:50%;background-color:var(--faint);animation:tuneTick var(--T) linear calc(var(--i)*var(--step)) infinite}
-}
-@media (prefers-reduced-motion:reduce){.tune-needle{display:none}}
-
 /* SECTIONS */
 section{padding-block:clamp(72px,10vw,136px)}
 .sec-head{display:grid;gap:16px;max-width:760px}
@@ -452,22 +418,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
             <span class="meter" aria-hidden="true"><span class="m-n">sinal <b>5</b> / ruído <b>30</b></span><span class="m-f">sinal <b>5</b> / ruído <b>0</b></span></span>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="tune" aria-hidden="true">
-    <div class="wrap">
-      <div class="tune-dial">
-        <i class="tune-needle"></i>
-        <ul class="tune-list">
-          <li style="--i:0"><span>Foco no essencial</span></li>
-          <li style="--i:1"><span>Aprender com prazer</span></li>
-          <li style="--i:2"><span>Prática ativa</span></li>
-          <li style="--i:3"><span>Métodos que funcionam</span></li>
-          <li style="--i:4"><span>Ferramentas simples</span></li>
-          <li style="--i:5"><span>Tempo bem investido</span></li>
-        </ul>
       </div>
     </div>
   </div>
