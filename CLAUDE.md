@@ -63,12 +63,14 @@ src/check.py                       conferência rápida (ids, âncoras, labels, 
 - Removidos a pedido do dono: seção "Como pensamos o aprendizado", selo "NOVO" e Instagram no rodapé do site principal (ele fica só no Marca-texto).
 - E-mails: **educa@optimusaprendizado.com** (site) e **marcatextoweb@optimusaprendizado.com** (suporte do Marca-texto). Atenção: os e-mails são `.com`, e o site é `.com.br`.
 - Termos de Uso **sem** seção de direito de arrependimento, por escolha do dono. A Política de Privacidade **não** nomeia encarregado (DPO).
-- Preços do Marca-texto Web: teste de 48h; R$ 9,90/mês; R$ 89,90/ano. O pagamento é feito via ExtensionPay/Stripe, e as marcações ficam só no navegador do usuário.
+- Preços do Marca-texto Web: teste de 48h (um clique, sem cadastro); R$ 9,90 por 30 dias; R$ 89,90 por ano. Desde a versão 5.9.0 (out/2026) o pagamento é pela **Stone** (links de pagamento, Pix ou cartão), **pré-pago e sem renovação automática**. ExtensionPay e Stripe foram desativados: não citar mais. O plano fica ligado ao e-mail; quem paga por link libera no computador em “já paguei” (até 3 computadores por e-mail). As marcações ficam só no navegador do usuário.
+- Os botões “Assinar o mensal/anual” da seção de preço apontam para os links de pagamento da Stone (os mesmos de LINK_MENSAL e LINK_ANUAL do servidor da extensão).
+- Firefox: a extensão foi enviada para a loja do Firefox, mas só deve aparecer no site quando o dono pedir (depois da aprovação).
 - Tom: direto, prático, sem jargão, em português do Brasil.
 
 ## Pendências
 
-- [ ] Trocar os 3 links "Testar grátis" e "Começar o teste grátis" (hoje `https://chromewebstore.google.com/search/Marca-texto%20Web`) pelo link real da extensão na Chrome Web Store.
+- [x] Links "Testar grátis" e "Começar o teste grátis" apontam para a página da extensão: https://chromewebstore.google.com/detail/marca-texto-web/fdcjcaonndmhomapbncnaeglaoingboj
 - [ ] Revisão jurídica da Política de Privacidade e dos Termos de Uso.
 - [ ] Quando o Gabarita PDF puder ser divulgado, adicionar um card na seção "Uma ferramenta para cada área de estudo".
 - [ ] Opcional: limpar CSS sem uso na fonte (blocos `/* MÉTODO */` e `/* FUNDADOR */`, de seções que foram removidas).
