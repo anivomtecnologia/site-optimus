@@ -39,8 +39,9 @@ src/check.py                       conferência rápida (ids, âncoras, labels, 
 
 - **Tudo que é essencial funciona sem JavaScript.** No navegador do dono do site, o JavaScript chegou a não rodar. Por isso:
   - A página do Marca-texto Web abre **dentro do site** por um checkbox oculto (`#mtw-open`) e `label for="mtw-open"`. O CSS é `.mtw-cb:checked + .product-panel{display:block}`. Não usar `:target`, Shadow DOM, `fetch` nem `<template>` para isso.
-  - A galeria de 4 abas usa radios (`.m-gr`) e labels. O zoom das fotos dos post-its usa checkbox (`.zcb`), e Ajuda, Privacidade e Termos também (`.dcb`).
+  - A galeria de 4 abas usa radios (`.m-gr`) e labels. O zoom das fotos dos post-its usa checkbox (`.zcb`), e Ajuda e Termos também (`.dcb`). A **Política de Privacidade não abre em sobreposição**: o link do rodapé do Marca-texto Web abre em nova aba a página avulsa `privacidade-marca-texto-web.html`, que tem URL própria para o dono colar em formulários (Chrome Web Store etc.).
   - As animações (o topo "ruído → foco", "Uma hora de estudo, dois jeitos" e o marca-texto azul animado da missão) são **só CSS**.
+  - **Não há faixa de frases (letreiro/ticker) entre o topo e a seção "Origem".** O letreiro rolante foi trocado por uma faixa de "sintonia" e, depois, a faixa inteira foi removida a pedido do dono. Não recolocar sem ele pedir.
   - O JavaScript existe apenas como melhoria: botões Ruído/Foco, tecla Esc, palavras da missão acendendo na rolagem, copiar e-mail.
 - **Animações com `prefers-reduced-motion`:** as seções com classe `km` (hero, "Uma hora de estudo" e a frase da missão) continuam animando de propósito, porque são lentas e decorativas. O resto respeita a preferência.
 - **Nunca deixe a sequência `</` dentro do `<script>`.** O build já escapa para `<\/`, mas não reintroduza na mão. Um `</body>` dentro de string chegou a cortar o script inteiro.
@@ -56,7 +57,7 @@ src/check.py                       conferência rápida (ids, âncoras, labels, 
 
 ## Decisões de conteúdo já tomadas pelo dono
 
-- Missão: "Facilitar o processo de **aprendizagem**, para que **seu tempo de estudo renda mais**…" A frase em negrito tem o marca-texto azul animado.
+- Missão: "Facilitar o processo de **aprendizagem**, para que **seu tempo de estudo renda mais**…" O marca-texto azul animado cobre de "para que" até "renda mais." (decisão do dono).
 - Público ("Para"): estudantes · quem aprende ao longo da vida · concurseiros · vestibulandos · professores.
 - Lista do topo: Objetivo claro, Fonte confiável, Prática ativa, Métodos que funcionam, Progresso visível.
 - Removidos a pedido do dono: seção "Como pensamos o aprendizado", selo "NOVO" e Instagram no rodapé do site principal (ele fica só no Marca-texto).

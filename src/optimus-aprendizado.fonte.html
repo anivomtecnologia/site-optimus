@@ -133,13 +133,6 @@ p{margin:0}
 .hero[data-mode=focus] .soft{color:var(--faint)}
 @media (max-width:900px){.hero-grid{grid-template-columns:1fr}.hero .lead{max-width:46ch}}
 
-/* MARQUEE */
-.ticker{border-block:1px solid var(--line);overflow:hidden;padding-block:16px;background:var(--surface)}
-.ticker-track{display:flex;gap:40px;width:max-content;animation:tick 48s linear infinite;font-family:var(--f-display);font-weight:600;font-size:clamp(20px,2.4vw,28px);letter-spacing:-.01em}
-.ticker-track span{display:inline-flex;align-items:center;gap:40px;white-space:nowrap;color:var(--muted)}
-.ticker-track span::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--mark)}
-@keyframes tick{to{transform:translateX(-50%)}}
-
 /* SECTIONS */
 section{padding-block:clamp(72px,10vw,136px)}
 .sec-head{display:grid;gap:16px;max-width:760px}
@@ -393,13 +386,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
     </div>
   </div>
 
-  <div class="ticker" aria-hidden="true">
-    <div class="ticker-track">
-      <span>Foco no essencial</span><span>Aprender com prazer</span><span>Prática ativa</span><span>Métodos que funcionam</span><span>Ferramentas simples</span><span>Tempo bem investido</span>
-      <span>Foco no essencial</span><span>Aprender com prazer</span><span>Prática ativa</span><span>Métodos que funcionam</span><span>Ferramentas simples</span><span>Tempo bem investido</span>
-    </div>
-  </div>
-
   <!-- ORIGEM -->
   <section class="origin" id="origem">
     <div class="wrap">
@@ -425,7 +411,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
           </div>
           <div class="hora-row">
             <div class="hora-lab"><span>Com método e foco</span><em class="res res-b">cada minuto com propósito</em></div>
-            <ul class="hora-blocks good"><li class="blk l" style="--i:0"><span>objetivo</span></li><li class="blk l" style="--i:1"><span>ferramenta prática</span></li><li class="blk l" style="--i:2"><span>método eficiente</span></li><li class="blk l" style="--i:3"><span>prática</span></li><li class="blk l fin" style="--i:4;grid-column:span 2"><span>aprendizagem potencializada</span></li></ul>
+            <ul class="hora-blocks good"><li class="blk l" style="--i:0"><span>objetivo</span></li><li class="blk l" style="--i:1"><span>ferramenta prática</span></li><li class="blk l" style="--i:2"><span>método eficiente</span></li><li class="blk l fin" style="--i:3;grid-column:span 3"><span>aprendizagem potencializada</span></li></ul>
           </div>
           <div class="hora-axis" aria-hidden="true"><span>0 min</span><span>60 min</span></div>
           <p class="hora-note">A hora é a mesma. O que muda é o caminho. É esse caminho que nossas ferramentas buscam criar, em qualquer área de estudo.</p>
@@ -438,7 +424,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
   <section id="missao">
     <div class="wrap">
       <span class="label">Nossa missão</span>
-      <p class="manifesto km" id="manifesto"><span class="key">Facilitar</span> o processo de aprendizagem, para que <span class="mk">seu tempo de estudo renda mais.</span> Organizamos o que importa, tiramos o que atrapalha e deixamos você livre para <span class="key">aprender, praticar</span> e <span class="key">lembrar.</span></p>
+      <p class="manifesto km" id="manifesto"><span class="key">Facilitar</span> o processo de aprendizagem, <span class="mk">para que seu tempo de estudo renda mais.</span> Organizamos o que importa, tiramos o que atrapalha e deixamos você livre para <span class="key">aprender, praticar</span> e <span class="key">lembrar.</span></p>
       <div class="mission-foot">
         <span class="label">Para</span>
         <span>estudantes</span><span>·</span><span>quem aprende ao longo da vida</span><span>·</span><span>concurseiros</span><span>·</span><span>vestibulandos</span><span>·</span><span>professores</span>

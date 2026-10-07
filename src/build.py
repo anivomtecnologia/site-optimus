@@ -33,8 +33,9 @@ if '<!--HELP-->' in s: s=re.sub(r'<!--HELP-->.*?<!--/HELP-->\s*',lambda _:help_h
 else: s=s.replace('<p class="disclaimer">',help_html+'<p class="disclaimer">',1)
 # links no rodapé
 old='<a href="https://www.instagram.com/marcatextoweb/" target="_blank" rel="noopener">Instagram @marcatextoweb</a><a href="./">Voltar para o site</a>'
-new='<label for="doc-priv" class="doclink">Política de Privacidade</label><label for="doc-termos" class="doclink">Termos de Uso</label><label for="doc-ajuda" class="doclink">Ajuda</label><a href="https://www.instagram.com/marcatextoweb/" target="_blank" rel="noopener">Instagram @marcatextoweb</a><a href="./">Voltar para o site</a>'
-if old in s and 'for="doc-priv" class="doclink"' not in s: s=s.replace(old,new)
+# a Política de Privacidade abre a página avulsa (URL própria, para colar em formulários); Termos e Ajuda abrem em sobreposição
+new='<a href="privacidade-marca-texto-web.html" target="_blank" rel="noopener" class="doclink">Política de Privacidade</a><label for="doc-termos" class="doclink">Termos de Uso</label><label for="doc-ajuda" class="doclink">Ajuda</label><a href="https://www.instagram.com/marcatextoweb/" target="_blank" rel="noopener">Instagram @marcatextoweb</a><a href="./">Voltar para o site</a>'
+if old in s and 'class="doclink"' not in s: s=s.replace(old,new)
 # sobreposições dos documentos
 def ov(i,title,body):
     return (f'<input type="checkbox" id="{i}" class="dcb" aria-label="Abrir {title}">'
@@ -42,7 +43,7 @@ def ov(i,title,body):
             f'<div class="dochead"><span>Marca-texto Web · {title}</span><label for="{i}" class="docclose" role="button" tabindex="0">Fechar ✕</label></div>'
             f'<article class="doc">{body}</article>'
             f'<div class="docfoot"><label for="{i}" class="btn ghost" role="button" tabindex="0">Fechar</label></div></div></div>')
-docs='<!--DOCS-->\n'+ov('doc-priv','Política de Privacidade',priv)+'\n'+ov('doc-termos','Termos de Uso',termos)+'\n'+ov('doc-ajuda','Ajuda',ajuda)+'\n<!--/DOCS-->'
+docs='<!--DOCS-->\n'+ov('doc-termos','Termos de Uso',termos)+'\n'+ov('doc-ajuda','Ajuda',ajuda)+'\n<!--/DOCS-->'
 if '<!--DOCS-->' in s: s=re.sub(r'<!--DOCS-->.*?<!--/DOCS-->',lambda _:docs,s,flags=re.S)
 else: s=s.replace('</footer>','</footer>\n'+docs,1)
 css='''/*DOCCSS*/
