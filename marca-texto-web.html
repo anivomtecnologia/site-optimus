@@ -541,6 +541,20 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   tabs.forEach((t,i)=>t.addEventListener('click',()=>{auto=false;show(i)}));
   setInterval(()=>{if(auto&&!document.getElementById('gzoom').checked)show((cur+1)%tabs.length)},5000);
 })();
+/* Google Ads: conversão "Clique em Testar grátis" (clique em qualquer link para a Chrome Web Store).
+   Os links abrem na mesma aba: a página só segue depois de o Google registrar o clique (ou em 600 ms). */
+(function(){
+  const ID='AW-18473282453/7kSdCMKMmJYdEJXX3-hE';
+  const link=e=>e.target.closest&&e.target.closest('a[href^="https://chromewebstore.google.com/"]');
+  document.addEventListener('click',function(e){
+    const a=link(e); if(!a||typeof gtag!=='function'||e.defaultPrevented) return;
+    const parte=a.target==='_blank'||e.ctrlKey||e.metaKey||e.shiftKey||e.altKey||e.button!==0;
+    if(parte||!window.google_tag_manager){ gtag('event','conversion',{send_to:ID}); return; }   // outra aba, ou tag bloqueada: não segura a navegação
+    e.preventDefault(); let foi=false; const vai=function(){ if(foi) return; foi=true; location.href=a.href; };
+    gtag('event','conversion',{send_to:ID,event_callback:vai}); setTimeout(vai,600);
+  });
+  document.addEventListener('auxclick',function(e){ if(e.button===1&&link(e)&&typeof gtag==='function') gtag('event','conversion',{send_to:ID}); });   // clique do meio
+})();
 </script>
 </body>
 </html>
