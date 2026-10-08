@@ -164,6 +164,11 @@ section{padding-block:clamp(56px,8vw,104px)}
 .amount{font:800 clamp(40px,5vw,52px)/1 var(--f-display);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
 .amount small{font:500 16px var(--f-body);color:var(--muted);letter-spacing:0}
 .price p{color:var(--muted);font-size:15px}
+.price .btn{justify-self:start;margin-top:6px}
+.paybox{margin-top:24px;background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:clamp(20px,3vw,32px);max-width:820px;display:grid;gap:10px}
+.paybox ol{margin:4px 0 0;padding-left:22px;display:grid;gap:6px;font-size:16px}
+.paybox p{color:var(--muted);font-size:15px;max-width:68ch}
+.paybox strong{color:var(--ink)}
 .trial{margin-top:24px;display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center}
 .trial p{color:var(--muted);font-size:15px;max-width:60ch}
 .igbox{margin-top:40px;display:flex;flex-wrap:wrap;gap:16px 24px;align-items:center;justify-content:space-between;background:#1E3A6E;color:#FFFFFF;border-radius:24px;padding:clamp(20px,3vw,32px)}
@@ -209,7 +214,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 </head>
 <body>
 <div class="pg-wrap"><div class="docbox"><div class="dochead"><span>Marca-texto Web · Política de Privacidade</span><a class="docclose" href="marca-texto-web.html" style="text-decoration:none">Voltar</a></div><article class="doc"><h2>Política de Privacidade</h2>
-<p class="doc-meta">Marca-texto Web · Última atualização: 3 de outubro de 2026</p>
+<p class="doc-meta">Marca-texto Web · Última atualização: 7 de outubro de 2026</p>
 <p>Esta política explica como a extensão <strong>Marca-texto Web</strong> trata dados pessoais. Ela segue a Lei Geral de Proteção de Dados (Lei nº 13.709/2018, LGPD).</p>
 
 <h3>1. Quem é o responsável</h3>
@@ -219,9 +224,13 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 <p>Grifos, sublinhados, colchetes, post-its, notas de julgados, marcações de “Revisar” e pastas exportadas são salvos <strong>apenas no armazenamento local do seu navegador</strong>, no seu computador. Esse conteúdo não é enviado para servidores da ANIVOM nem de terceiros, e nós não temos acesso a ele.</p>
 <p>Para aplicar as marcações, a extensão lê o texto das páginas que você abre. Essa leitura acontece no seu computador e serve só para mostrar e guardar as suas marcações.</p>
 
-<h3>3. Dados da assinatura</h3>
-<p>Ao iniciar o teste grátis ou assinar, você informa seu e-mail e seus dados de pagamento numa página dos serviços <strong>ExtensionPay</strong> e <strong>Stripe</strong>, que processam o pagamento. Os dados do cartão são tratados por esses serviços e <strong>nunca passam pela ANIVOM</strong>.</p>
-<p>A ANIVOM pode ter acesso ao seu <strong>e-mail</strong> e à <strong>situação da sua assinatura</strong> (ativa, em teste ou cancelada), informados por esses serviços. Usamos esses dados apenas para liberar os recursos pagos, gerenciar a assinatura e prestar suporte. A base legal é a execução do contrato (art. 7º, V, da LGPD).</p>
+<h3>3. Dados que tratamos para liberar a assinatura</h3>
+<ul>
+  <li><strong>Identificador da instalação:</strong> um número aleatório criado pela extensão, que não identifica você nem o seu computador. Ele é enviado ao nosso servidor para conferir se aquela instalação tem um plano ativo.</li>
+  <li><strong>E-mail:</strong> quando você assina ou usa “já paguei”, o e-mail que você informa é enviado ao nosso servidor e ligado ao identificador da instalação.</li>
+  <li><strong>Dados do pagamento:</strong> o pagamento é feito no ambiente da <strong>Stone</strong>, por Pix ou cartão. A Stone nos informa o e-mail do comprador, o plano, o valor, a data e a situação do pedido (pago ou estornado). <strong>Nunca recebemos nem guardamos número de cartão ou dados bancários.</strong></li>
+</ul>
+<p>Usamos esses dados apenas para liberar e manter o acesso ao plano contratado, prestar suporte, prevenir fraudes (por exemplo, o limite de computadores por e-mail) e cumprir obrigações legais e fiscais. A base legal é a execução do contrato (art. 7º, V, da LGPD).</p>
 
 <h3>4. Mensagens de suporte</h3>
 <p>Se você escrever para o nosso e-mail, usaremos seu endereço e o conteúdo da mensagem só para responder e resolver o seu pedido.</p>
@@ -230,14 +239,20 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 <ul>
   <li>Não vendemos nem alugamos dados pessoais.</li>
   <li>Não lemos, coletamos ou guardamos o conteúdo das suas marcações e notas.</li>
+  <li>Não enviamos propaganda para o seu e-mail.</li>
   <li>Não usamos o conteúdo das páginas que você visita para publicidade.</li>
 </ul>
 
 <h3>6. Compartilhamento</h3>
-<p>Os dados da assinatura são compartilhados apenas com os serviços que processam o pagamento (ExtensionPay e Stripe), que podem tratá-los fora do Brasil conforme as próprias políticas de privacidade. Também podemos compartilhar dados quando a lei ou uma autoridade competente exigir.</p>
+<p>Compartilhamos dados apenas com os fornecedores necessários para o serviço funcionar:</p>
+<ul>
+  <li><strong>Stone</strong> (Stone Instituição de Pagamento): processamento do pagamento e links de pagamento.</li>
+  <li><strong>Cloudflare</strong>: hospedagem do servidor e do banco de dados que guardam o e-mail e a validade do plano. Esse serviço pode tratar dados fora do Brasil, conforme a própria política de privacidade.</li>
+</ul>
+<p>Esses fornecedores tratam os dados apenas para prestar o serviço contratado. Também podemos compartilhar dados quando a lei ou uma autoridade competente exigir.</p>
 
 <h3>7. Por quanto tempo guardamos</h3>
-<p>Os dados da assinatura são mantidos enquanto ela existir e, depois, pelo prazo necessário para cumprir obrigações legais, fiscais e de defesa de direitos. As marcações ficam no seu navegador até você apagá-las.</p>
+<p>Os registros de pagamento são mantidos enquanto o plano estiver ativo e, depois, pelo prazo exigido pela legislação fiscal e para eventual defesa de direitos (em regra, 5 anos). As marcações ficam no seu navegador até você apagá-las.</p>
 
 <h3>8. Como apagar as suas marcações</h3>
 <p>Você pode remover marcações a qualquer momento pela própria extensão. Esse recurso nunca é bloqueado, mesmo depois do fim do teste. Desinstalar a extensão ou limpar os dados de navegação do Chrome também apaga as marcações. Como elas ficam só no seu computador, não conseguimos recuperá-las.</p>

@@ -40,8 +40,8 @@ src/check.py                       conferência rápida (ids, âncoras, labels, 
 ## Regras técnicas (aprendidas na prática, não quebrar)
 
 - **Tudo que é essencial funciona sem JavaScript.** No navegador do dono do site, o JavaScript chegou a não rodar. Por isso:
-  - A página do Marca-texto Web abre **dentro do site** por um checkbox oculto (`#mtw-open`) e `label for="mtw-open"`. O CSS é `.mtw-cb:checked + .product-panel{display:block}`. Não usar `:target`, Shadow DOM, `fetch` nem `<template>` para isso.
-  - A galeria de 4 abas usa radios (`.m-gr`) e labels. O zoom das fotos dos post-its usa checkbox (`.zcb`), o da galeria de telas também (`#gzoom`, `.gzcb`: abre a captura em tamanho real, 1280px, com rolagem), e Ajuda e Termos também (`.dcb`). A **Política de Privacidade não abre em sobreposição**: o link do rodapé do Marca-texto Web abre em nova aba a página avulsa `privacidade-marca-texto-web.html`, que tem URL própria para o dono colar em formulários (Chrome Web Store etc.).
+  - O botão "Conhecer o Marca-texto Web" é um **link comum** para a página própria `marca-texto-web.html` (pedido do dono em out/2026, para ter um endereço só do Marca-texto, usado no Google Ads). O painel embutido no `index.html` (`#mtw-open`) continua sendo gerado pelo build, mas não tem mais botão que o abra; o endereço antigo `/#marca-texto` redireciona para `marca-texto-web.html`.
+  - A galeria de 4 abas usa radios (`.m-gr`) e labels. O zoom das fotos dos post-its usa checkbox (`.zcb`), o da galeria de telas também (`#gzoom`, `.gzcb`: abre a captura em tamanho real, até 2048px de largura, com rolagem), e Ajuda e Termos também (`.dcb`). A **Política de Privacidade não abre em sobreposição**: o link do rodapé do Marca-texto Web abre em nova aba a página avulsa `privacidade-marca-texto-web.html`, que tem URL própria para o dono colar em formulários (Chrome Web Store etc.).
   - As animações (o topo "ruído → foco", "Uma hora de estudo, dois jeitos" e o marca-texto azul animado da missão) são **só CSS**.
   - **Não há faixa de frases (letreiro/ticker) entre o topo e a seção "Origem".** O letreiro rolante foi trocado por uma faixa de "sintonia" e, depois, a faixa inteira foi removida a pedido do dono. Não recolocar sem ele pedir.
   - O JavaScript existe apenas como melhoria: botões Ruído/Foco, tecla Esc, palavras da missão acendendo na rolagem, copiar e-mail.
@@ -54,7 +54,7 @@ src/check.py                       conferência rápida (ids, âncoras, labels, 
 ## Google Ads (medição)
 
 - A **tag do Google** (gtag.js, conta `AW-18473282453`) está em `src/head.html` (vai para o `index.html`) e no `<head>` de `marca-texto-web.html`, entre `<!--GTAG-->` e `<!--/GTAG-->`. O build **remove** esse bloco das páginas legais (`privacidade-…` e `termos-…`). Só pode haver **uma** tag por página: o corpo do Marca-texto embutido no `index.html` não leva `<head>`, então não duplica.
-- **Não instalar o trecho de evento "Compra" (`AW-18473282453/F_JNCKCYsoQdEJXX3-hE`) como o Google entrega.** O site não vende nada: a compra acontece na extensão (ExtensionPay/Stripe). Em carregamento de página ele contaria uma "compra" a cada visita e sujaria o lance automático da campanha. A medição certa no site é o **clique** nos botões "Testar grátis" / "Começar o teste grátis", com uma ação de conversão própria criada no Google Ads (o código dela é diferente do da "Compra").
+- **Não instalar o trecho de evento "Compra" (`AW-18473282453/F_JNCKCYsoQdEJXX3-hE`) como o Google entrega.** O site não vende nada: o pagamento é feito na Stone, por links de pagamento, e a compra não volta para o site. Em carregamento de página ele contaria uma "compra" a cada visita e sujaria o lance automático da campanha. A medição certa no site é o **clique** nos botões "Testar grátis" / "Começar o teste grátis", com uma ação de conversão própria criada no Google Ads (o código dela é diferente do da "Compra").
 - **Decisão do dono (8/out/2026): sem banner de cookies e sem botões de aceitar/recusar.** A transparência é feita pela Política de Privacidade do site (`src/docs/privacidade-site.html` → `privacidade-optimus.html`, com link no rodapé do site e do Marca-texto), que informa o uso da tag do Google, das fontes do Google e da hospedagem, e adota o **legítimo interesse** (art. 7º, IX, LGPD) como base legal, com instruções para limitar a medição. A tag carrega sempre. O texto diz que o site não grava cookies próprios: se isso mudar, ou se passar a usar remarketing, outra ferramenta de medição ou novo serviço de terceiros, **atualize essa política**.
 
 ## Identidade visual
@@ -72,12 +72,14 @@ src/check.py                       conferência rápida (ids, âncoras, labels, 
 - Removidos a pedido do dono: seção "Como pensamos o aprendizado", selo "NOVO" e Instagram no rodapé do site principal (ele fica só no Marca-texto).
 - E-mails: **educa@optimusaprendizado.com** (site) e **marcatextoweb@optimusaprendizado.com** (suporte do Marca-texto). Atenção: os e-mails são `.com`, e o site é `.com.br`.
 - Termos de Uso **sem** seção de direito de arrependimento, por escolha do dono. A Política de Privacidade **não** nomeia encarregado (DPO).
-- Preços do Marca-texto Web: teste de 48h; R$ 9,90/mês; R$ 89,90/ano. O pagamento é feito via ExtensionPay/Stripe, e as marcações ficam só no navegador do usuário.
+- Preços do Marca-texto Web: teste de 48h (um clique, sem cadastro); R$ 9,90 por 30 dias; R$ 89,90 por ano. Desde a versão 5.9.0 (out/2026) o pagamento é pela **Stone** (links de pagamento, Pix ou cartão), **pré-pago e sem renovação automática**. ExtensionPay e Stripe foram desativados: não citar mais. O plano fica ligado ao e-mail; quem paga por link libera no computador em “já paguei” (até 3 computadores por e-mail). As marcações ficam só no navegador do usuário.
+- Os botões “Assinar o mensal/anual” da seção de preço apontam para os links de pagamento da Stone (os mesmos de LINK_MENSAL e LINK_ANUAL do servidor da extensão).
+- Firefox: a extensão foi enviada para a loja do Firefox, mas só deve aparecer no site quando o dono pedir (depois da aprovação).
 - Tom: direto, prático, sem jargão, em português do Brasil.
 
 ## Pendências
 
-- [ ] Trocar os 3 links "Testar grátis" e "Começar o teste grátis" (hoje `https://chromewebstore.google.com/search/Marca-texto%20Web`) pelo link real da extensão na Chrome Web Store.
+- [x] Links "Testar grátis" e "Começar o teste grátis" apontam para a página da extensão: https://chromewebstore.google.com/detail/marca-texto-web/fdcjcaonndmhomapbncnaeglaoingboj
 - [ ] Refazer a captura de **Grifos** (`img/mtw-grifos.webp`, ainda 1280×800 e borrada) como as outras: salvar `src/capturas/grifos.png`, incluir `grifos` em `gerar.py` (lista NOMES) e em `compor.js` (TELAS, com título e subtítulo) e rodar `python3 src/capturas/gerar.py`. Para refazer qualquer outra captura, troque o `.png` da pasta e rode o mesmo comando.
 - [ ] Revisão jurídica da Política de Privacidade e dos Termos de Uso.
 - [ ] Google Ads: revisão jurídica da escolha de legítimo interesse sem banner de cookies e do texto de `privacidade-site.html` (se o jurídico exigir consentimento, o próximo passo é um aviso com aceitar/recusar e carregar a tag só após aceitar); criar a conversão por clique e ligá-la aos botões "Testar grátis".

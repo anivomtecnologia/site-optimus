@@ -175,6 +175,11 @@ section{padding-block:clamp(56px,8vw,104px)}
 .amount{font:800 clamp(40px,5vw,52px)/1 var(--f-display);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
 .amount small{font:500 16px var(--f-body);color:var(--muted);letter-spacing:0}
 .price p{color:var(--muted);font-size:15px}
+.price .btn{justify-self:start;margin-top:6px}
+.paybox{margin-top:24px;background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:clamp(20px,3vw,32px);max-width:820px;display:grid;gap:10px}
+.paybox ol{margin:4px 0 0;padding-left:22px;display:grid;gap:6px;font-size:16px}
+.paybox p{color:var(--muted);font-size:15px;max-width:68ch}
+.paybox strong{color:var(--ink)}
 .trial{margin-top:24px;display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center}
 .trial p{color:var(--muted);font-size:15px;max-width:60ch}
 .igbox{margin-top:40px;display:flex;flex-wrap:wrap;gap:16px 24px;align-items:center;justify-content:space-between;background:#1E3A6E;color:#FFFFFF;border-radius:24px;padding:clamp(20px,3vw,32px)}
@@ -225,7 +230,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13 8H3M7.5 3.5 3 8l4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
       Optimus Aprendizado
     </a>
-    <span style="display:flex;gap:16px;align-items:center"><a class="back" href="https://www.instagram.com/marcatextoweb/" target="_blank" rel="noopener">Instagram</a><a class="btn green" href="https://chromewebstore.google.com/search/Marca-texto%20Web" id="install-top">Testar grátis</a></span>
+    <span style="display:flex;gap:16px;align-items:center"><a class="back" href="https://www.instagram.com/marcatextoweb/" target="_blank" rel="noopener">Instagram</a><a class="btn green" href="https://chromewebstore.google.com/detail/marca-texto-web/fdcjcaonndmhomapbncnaeglaoingboj" id="install-top">Testar grátis</a></span>
   </div>
 </header>
 
@@ -237,7 +242,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         <h1>Marca-texto <span class="hl">Web</span></h1>
         <p class="lead">Grife qualquer site como você grifa no papel e leve seus grifos organizados para onde você estuda.</p>
         <div class="actions">
-          <a class="btn green" href="https://chromewebstore.google.com/search/Marca-texto%20Web">Testar 48 horas grátis</a>
+          <a class="btn green" href="https://chromewebstore.google.com/detail/marca-texto-web/fdcjcaonndmhomapbncnaeglaoingboj">Testar 48 horas grátis</a>
           <a class="btn ghost" href="#preco">Ver preços</a>
           <small>Tudo liberado durante o teste</small>
         </div>
@@ -396,7 +401,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         <div class="privacy-body">
           <p><strong>Tudo fica salvo no seu próprio navegador, neste computador.</strong> Nada é enviado para servidor nenhum: nem os trechos que você grifa, nem o que você escreve nas notas.</p>
           <p>Em troca dessa privacidade, vale saber: suas pastas não aparecem sozinhas em outro computador, e limpar os dados de navegação do Chrome apaga as marcações.</p>
-          <p>Ao iniciar o teste ou assinar, você informa e-mail e dados de pagamento numa página da ExtensionPay/Stripe; os dados do cartão nunca passam pelo desenvolvedor da extensão.</p>
+          <p>O teste grátis começa com um clique, sem cadastro. Para assinar, você informa seu e-mail e paga pela Stone, com Pix ou cartão; os dados do cartão nunca passam pela Anivom. Guardamos só o e-mail e a validade do plano, para liberar a extensão.</p>
         </div>
       </div>
     </div>
@@ -413,19 +418,30 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <div class="prices">
         <div class="price">
           <h3>Mensal</h3>
-          <div class="amount">R$ 9,90 <small>/ mês</small></div>
-          <p>Cancele quando quiser.</p>
+          <div class="amount">R$ 9,90 <small>/ 30 dias</small></div>
+          <p>30 dias de acesso.</p>
+          <a class="btn ghost" href="https://payment-link-v3.stone.com.br/pl_wkvqyZLEaXlnvqPhDlSJG9QmbBAxW1p3" target="_blank" rel="noopener">Assinar o mensal</a>
         </div>
         <div class="price best">
           <span class="badge">MAIS VANTAJOSO</span>
           <h3>Anual</h3>
           <div class="amount">R$ 89,90 <small>/ ano</small></div>
           <p>Sai a R$ 7,49 por mês.</p>
+          <a class="btn green" href="https://payment-link-v3.stone.com.br/pl_BE6pWvaQlb7Rb25uxDhqRe2ZMoqj0NKV" target="_blank" rel="noopener">Assinar o anual</a>
         </div>
       </div>
       <div class="trial">
-        <a class="btn green" href="https://chromewebstore.google.com/search/Marca-texto%20Web">Começar o teste grátis</a>
-        <p>As assinaturas renovam automaticamente e podem ser canceladas quando você quiser. Remover marcações nunca é bloqueado, mesmo depois do teste acabar.</p>
+        <a class="btn green" href="https://chromewebstore.google.com/detail/marca-texto-web/fdcjcaonndmhomapbncnaeglaoingboj">Começar o teste grátis</a>
+        <p>Pix ou cartão, pela Stone. <strong>Não renova sozinho</strong>: perto do fim, a extensão avisa, e renovar antes de vencer soma os dias que faltavam. Remover marcações nunca é bloqueado, mesmo depois do teste acabar.</p>
+      </div>
+      <div class="paybox">
+        <span class="label">Pagou pelo site, pelo Instagram ou pelo celular?</span>
+        <ol>
+          <li>Instale a extensão no Chrome do computador.</li>
+          <li>Clique no ícone do Marca-texto Web e em <strong>“já paguei”</strong>.</li>
+          <li>Digite <strong>o mesmo e-mail</strong> que você usou no pagamento. Pronto: libera na hora.</li>
+        </ol>
+        <p>Vale em até 3 computadores com o mesmo e-mail. No Pix, o pagamento aparece em nome de <strong>Anivom Tecnologia</strong> (CNPJ 69.199.407/0001-96), a empresa que faz o Marca-texto Web.</p>
       </div>
       <div class="igbox">
         <div><span class="label">Siga no Instagram</span><p>Dicas de estudo, novidades e tutoriais da extensão.</p></div>
@@ -450,7 +466,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 </footer>
 <!--DOCS-->
 <input type="checkbox" id="doc-termos" class="dcb" aria-label="Abrir Termos de Uso"><div class="docov" role="dialog" aria-label="Termos de Uso"><div class="docbox"><div class="dochead"><span>Marca-texto Web · Termos de Uso</span><label for="doc-termos" class="docclose" role="button" tabindex="0">Fechar ✕</label></div><article class="doc"><h2>Termos de Uso</h2>
-<p class="doc-meta">Marca-texto Web · Última atualização: 3 de outubro de 2026</p>
+<p class="doc-meta">Marca-texto Web · Última atualização: 7 de outubro de 2026</p>
 <p>Estes termos regem o uso da extensão <strong>Marca-texto Web</strong>, oferecida pela <strong>ANIVOM TECNOLOGIA LTDA</strong>, CNPJ 69.199.407/0001-96, responsável pela marca Optimus Aprendizado. Ao instalar ou usar a extensão, você concorda com eles.</p>
 
 <h3>1. O que é o serviço</h3>
@@ -458,35 +474,37 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
 <h3>2. Teste grátis e planos</h3>
 <ul>
-  <li><strong>Teste grátis:</strong> 48 horas, com todos os recursos liberados.</li>
-  <li><strong>Plano mensal:</strong> R$ 9,90 por mês.</li>
-  <li><strong>Plano anual:</strong> R$ 89,90 por ano.</li>
+  <li><strong>Teste grátis:</strong> 48 horas, com todos os recursos liberados. Começa com um clique na extensão, sem cadastro e sem cartão.</li>
+  <li><strong>Plano mensal:</strong> R$ 9,90 por 30 dias de acesso.</li>
+  <li><strong>Plano anual:</strong> R$ 89,90 por 12 meses de acesso (sai a R$ 7,49 por mês).</li>
 </ul>
-<p>Os preços podem mudar. Se mudarem, avisaremos com antecedência, e o novo valor só vale a partir da renovação seguinte. O pagamento é processado pelos serviços ExtensionPay e Stripe.</p>
+<p>O pagamento é feito à vista, por Pix ou cartão de crédito, e processado pela <strong>Stone</strong>. Ele aparece em nome de ANIVOM TECNOLOGIA LTDA. Os preços podem mudar; se mudarem, o novo valor vale só para compras feitas depois da mudança, e os planos já pagos não são afetados.</p>
 
-<h3>3. Renovação e cancelamento</h3>
-<p>As assinaturas renovam automaticamente ao fim de cada período. Você pode cancelar quando quiser, pelo gerenciamento da assinatura ou pelo e-mail <a href="mailto:marcatextoweb@optimusaprendizado.com">marcatextoweb@optimusaprendizado.com</a>. O cancelamento evita as próximas cobranças, e o acesso pago continua até o fim do período já pago.</p>
+<h3>3. Sem renovação automática</h3>
+<p>Os planos são <strong>pré-pagos e não renovam sozinhos</strong>: não existe cobrança recorrente. Perto do fim do plano, a extensão avisa. Para continuar, basta pagar de novo; quem renova antes do vencimento não perde nada, porque os dias que faltavam são somados. Quando o plano acaba, os recursos de marcação ficam bloqueados até uma nova compra. Dúvidas sobre cobrança: <a href="mailto:marcatextoweb@optimusaprendizado.com">marcatextoweb@optimusaprendizado.com</a>.</p>
 
+<h3>4. Liberação do plano e computadores</h3>
+<p>O plano fica ligado ao <strong>e-mail informado no pagamento</strong>. Quem paga pela própria extensão tem o plano liberado automaticamente, em segundos. Quem paga por um link de pagamento (pelo site, pelo Instagram ou pelo celular) deve abrir a extensão no computador, clicar em <strong>“já paguei”</strong> e informar o mesmo e-mail. Cada e-mail pode ser liberado em <strong>até 3 computadores ou navegadores</strong>. Para trocar de computador, escreva para o suporte.</p>
 
-<h3>4. Suas marcações</h3>
+<h3>5. Suas marcações</h3>
 <p>As marcações e notas ficam salvas só no seu navegador (veja a Política de Privacidade). Você é responsável por elas e pelo seu armazenamento. Desinstalar a extensão, trocar de computador ou limpar os dados do Chrome pode apagá-las, e não conseguimos recuperá-las. <strong>Remover marcações nunca é bloqueado</strong>, mesmo depois do fim do teste ou da assinatura.</p>
 
-<h3>5. Conteúdo jurídico</h3>
+<h3>6. Conteúdo jurídico</h3>
 <p>O Marca-texto Web é uma ferramenta de estudo independente, <strong>sem vínculo</strong> com o Planalto, a Presidência da República, o STF, o STJ ou outros tribunais. A extensão não altera o texto oficial das leis: as marcações aparecem só para você. Os post-its de julgados são escritos por você, e a ANIVOM não garante a exatidão nem a atualização desse conteúdo. Sempre confira a fonte oficial.</p>
 
-<h3>6. Uso permitido</h3>
+<h3>7. Uso permitido</h3>
 <p>A licença de uso é pessoal e não exclusiva. Não é permitido copiar, revender, modificar, fazer engenharia reversa ou usar a extensão para fins ilegais ou que prejudiquem terceiros.</p>
 
-<h3>7. Propriedade intelectual</h3>
+<h3>8. Propriedade intelectual</h3>
 <p>A marca, o código, o design e os materiais do Marca-texto Web e da Optimus Aprendizado pertencem à ANIVOM. O conteúdo que você cria (marcações e notas) é seu.</p>
 
-<h3>8. Disponibilidade e responsabilidade</h3>
+<h3>9. Disponibilidade e responsabilidade</h3>
 <p>Buscamos manter a extensão funcionando bem, mas ela depende do Chrome e das páginas visitadas. Mudanças nesses sites podem afetar recursos temporariamente. Na medida permitida pela lei, a ANIVOM não responde por perdas indiretas decorrentes do uso da extensão, sem prejuízo dos direitos garantidos pelo Código de Defesa do Consumidor.</p>
 
-<h3>9. Mudanças nestes termos</h3>
+<h3>10. Mudanças nestes termos</h3>
 <p>Podemos atualizar estes termos. A data da última atualização aparece no topo, e mudanças relevantes serão comunicadas.</p>
 
-<h3>10. Contato e foro</h3>
+<h3>11. Contato e foro</h3>
 <p>Suporte: <a href="mailto:marcatextoweb@optimusaprendizado.com">marcatextoweb@optimusaprendizado.com</a>. Estes termos seguem a lei brasileira. Fica eleito o foro do domicílio do consumidor.</p>
 </article><div class="docfoot"><label for="doc-termos" class="btn ghost" role="button" tabindex="0">Fechar</label></div></div></div>
 <input type="checkbox" id="doc-ajuda" class="dcb" aria-label="Abrir Ajuda"><div class="docov" role="dialog" aria-label="Ajuda"><div class="docbox"><div class="dochead"><span>Marca-texto Web · Ajuda</span><label for="doc-ajuda" class="docclose" role="button" tabindex="0">Fechar ✕</label></div><article class="doc"><h2>Ajuda</h2>
@@ -498,10 +516,16 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 <ul>
   <li>Dúvidas sobre como usar a extensão e os seus recursos.</li>
   <li>Problemas técnicos, como marcações que não aparecem ou erro ao exportar uma pasta.</li>
-  <li>Questões sobre o teste grátis, a assinatura, a cobrança ou o cancelamento.</li>
+  <li>Questões sobre o teste grátis, o pagamento ou a liberação do plano.</li>
   <li>Pedidos sobre os seus dados pessoais, conforme a Política de Privacidade.</li>
   <li>Sugestões de melhoria.</li>
 </ul>
+
+<h3>Paguei e a extensão não liberou</h3>
+<p>Se você pagou pelo link do site, do Instagram ou pelo celular, abra a extensão no computador, clique em <strong>“já paguei”</strong> e digite <strong>o mesmo e-mail</strong> usado no pagamento. No Pix, a confirmação leva segundos; no cartão, pode levar alguns minutos.</p>
+
+<h3>Troquei de computador</h3>
+<p>Cada e-mail pode ser liberado em até 3 computadores. Se você já usou os 3 e trocou de máquina, escreva para o e-mail acima informando o e-mail do pagamento, e nós liberamos o novo computador.</p>
 
 <h3>Para agilizar o atendimento</h3>
 <p>Conte o que aconteceu e em qual site (por exemplo, a lei do Planalto que você estava lendo). Se puder, mande um print da tela. Se o assunto for a assinatura, informe o e-mail usado na compra.</p>
