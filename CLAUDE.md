@@ -13,14 +13,16 @@ Site institucional da **Optimus Aprendizado**, marca da **ANIVOM TECNOLOGIA LTDA
 ## Estrutura
 
 ```
-index.html                         GERADO: site completo (imagens e página do Marca-texto embutidas)
+index.html                         GERADO: site completo (página do Marca-texto e imagens pequenas embutidas; as 4 capturas grandes ficam em img/)
 marca-texto-web.html               FONTE e página avulsa do Marca-texto Web (também é servida)
-privacidade-marca-texto-web.html   GERADO: Política de Privacidade avulsa (URL usada na Chrome Web Store)
+privacidade-marca-texto-web.html   GERADO: Política de Privacidade avulsa da EXTENSÃO (URL usada na Chrome Web Store)
+privacidade-optimus.html           GERADO: Política de Privacidade do SITE (tag do Google, fontes do Google, hospedagem); link no rodapé do site
 termos-marca-texto-web.html        GERADO: Termos de Uso avulsos
-img/                               imagens .webp (galeria 1280x800 e prints dos post-its)
+img/                               imagens .webp (galeria: sumário, busca e margens em 2560x1600, grifos ainda em 1280x800; prints dos post-its)
 src/optimus-aprendizado.fonte.html FONTE da página principal
-src/docs/                          FONTE dos textos: privacidade.html, termos.html, ajuda.html
-src/head.html                      FONTE do <head> do index.html (title, description, og, favicon)
+src/docs/                          FONTE dos textos: privacidade.html (extensão), privacidade-site.html (site), termos.html, ajuda.html
+src/head.html                      FONTE do <head> do index.html (title, description, og, favicon, tag do Google)
+src/capturas/                      FONTE das imagens da galeria: capturas originais (.png) + gerar.py (monta img/mtw-sumario|busca|margens.webp)
 src/build.py                       monta tudo (só usa a biblioteca padrão do Python)
 src/check.py                       conferência rápida (ids, âncoras, labels, imagens)
 .vercelignore                      impede que src/, CLAUDE.md e README.md sejam publicados
@@ -39,14 +41,21 @@ src/check.py                       conferência rápida (ids, âncoras, labels, 
 
 - **Tudo que é essencial funciona sem JavaScript.** No navegador do dono do site, o JavaScript chegou a não rodar. Por isso:
   - O botão "Conhecer o Marca-texto Web" é um **link comum** para a página própria `marca-texto-web.html` (pedido do dono em out/2026, para ter um endereço só do Marca-texto, usado no Google Ads). O painel embutido no `index.html` (`#mtw-open`) continua sendo gerado pelo build, mas não tem mais botão que o abra; o endereço antigo `/#marca-texto` redireciona para `marca-texto-web.html`.
-  - A galeria de 4 abas usa radios (`.m-gr`) e labels. O zoom das fotos dos post-its usa checkbox (`.zcb`), e Ajuda e Termos também (`.dcb`). A **Política de Privacidade não abre em sobreposição**: o link do rodapé do Marca-texto Web abre em nova aba a página avulsa `privacidade-marca-texto-web.html`, que tem URL própria para o dono colar em formulários (Chrome Web Store etc.).
+  - A galeria de 4 abas usa radios (`.m-gr`) e labels. O zoom das fotos dos post-its usa checkbox (`.zcb`), o da galeria de telas também (`#gzoom`, `.gzcb`: abre a captura em tamanho real, até 2048px de largura, com rolagem), e Ajuda e Termos também (`.dcb`). A **Política de Privacidade não abre em sobreposição**: o link do rodapé do Marca-texto Web abre em nova aba a página avulsa `privacidade-marca-texto-web.html`, que tem URL própria para o dono colar em formulários (Chrome Web Store etc.).
   - As animações (o topo "ruído → foco", "Uma hora de estudo, dois jeitos" e o marca-texto azul animado da missão) são **só CSS**.
   - **Não há faixa de frases (letreiro/ticker) entre o topo e a seção "Origem".** O letreiro rolante foi trocado por uma faixa de "sintonia" e, depois, a faixa inteira foi removida a pedido do dono. Não recolocar sem ele pedir.
   - O JavaScript existe apenas como melhoria: botões Ruído/Foco, tecla Esc, palavras da missão acendendo na rolagem, copiar e-mail.
 - **Animações com `prefers-reduced-motion`:** as seções com classe `km` (hero, "Uma hora de estudo" e a frase da missão) continuam animando de propósito, porque são lentas e decorativas. O resto respeita a preferência.
 - **Nunca deixe a sequência `</` dentro do `<script>`.** O build já escapa para `<\/`, mas não reintroduza na mão. Um `</body>` dentro de string chegou a cortar o script inteiro.
 - A página do Marca-texto embutida no `index.html` tem o CSS escopado em `#marca-texto`, classes com prefixo `m-` e ids com prefixo `mtw-`. Quem faz isso é o build: escreva a fonte com nomes normais.
-- Fontes (Google Fonts): Bricolage Grotesque (títulos), Instrument Sans (texto) e JetBrains Mono (rótulos).
+- **Imagens:** o build embute em base64 só as imagens pequenas. As capturas grandes (`SOLTAS` em `src/build.py`: grifos, sumário, busca, margens) ficam como arquivos em `img/`, com `loading="lazy"`; embuti-las levava o `index.html` a mais de 4 MB. Texto que aparece numa captura não vira nítido por CSS: a captura precisa ter resolução alta (hoje 2560 px de largura).
+- Fontes (Google Fonts): Bricolage Grotesque (títulos), Instrument Sans (texto) e JetBrains Mono (rótulos). Só use pesos que estão no link das fontes (Bricolage 400/600/800, Instrument Sans 400/500/600, JetBrains Mono 400/500/600): peso que não é carregado vira negrito falso e embaça as letras.
+
+## Google Ads (medição)
+
+- A **tag do Google** (gtag.js, conta `AW-18473282453`) está em `src/head.html` (vai para o `index.html`) e no `<head>` de `marca-texto-web.html`, entre `<!--GTAG-->` e `<!--/GTAG-->`. O build **remove** esse bloco das páginas legais (`privacidade-…` e `termos-…`). Só pode haver **uma** tag por página: o corpo do Marca-texto embutido no `index.html` não leva `<head>`, então não duplica.
+- **Não instalar o trecho de evento "Compra" (`AW-18473282453/F_JNCKCYsoQdEJXX3-hE`) como o Google entrega.** O site não vende nada: o pagamento é feito na Stone, por links de pagamento, e a compra não volta para o site. Em carregamento de página ele contaria uma "compra" a cada visita e sujaria o lance automático da campanha. A medição certa no site é o **clique** nos botões "Testar grátis" / "Começar o teste grátis", com uma ação de conversão própria criada no Google Ads (o código dela é diferente do da "Compra").
+- **Decisão do dono (8/out/2026): sem banner de cookies e sem botões de aceitar/recusar.** A transparência é feita pela Política de Privacidade do site (`src/docs/privacidade-site.html` → `privacidade-optimus.html`, com link no rodapé do site e do Marca-texto), que informa o uso da tag do Google, das fontes do Google e da hospedagem, e adota o **legítimo interesse** (art. 7º, IX, LGPD) como base legal, com instruções para limitar a medição. A tag carrega sempre. O texto diz que o site não grava cookies próprios: se isso mudar, ou se passar a usar remarketing, outra ferramenta de medição ou novo serviço de terceiros, **atualize essa política**.
 
 ## Identidade visual
 
@@ -71,7 +80,9 @@ src/check.py                       conferência rápida (ids, âncoras, labels, 
 ## Pendências
 
 - [x] Links "Testar grátis" e "Começar o teste grátis" apontam para a página da extensão: https://chromewebstore.google.com/detail/marca-texto-web/fdcjcaonndmhomapbncnaeglaoingboj
+- [ ] Refazer a captura de **Grifos** (`img/mtw-grifos.webp`, ainda 1280×800 e borrada) como as outras: salvar `src/capturas/grifos.png`, incluir `grifos` em `gerar.py` (lista NOMES) e em `compor.js` (TELAS, com título e subtítulo) e rodar `python3 src/capturas/gerar.py`. Para refazer qualquer outra captura, troque o `.png` da pasta e rode o mesmo comando.
 - [ ] Revisão jurídica da Política de Privacidade e dos Termos de Uso.
+- [ ] Google Ads: revisão jurídica da escolha de legítimo interesse sem banner de cookies e do texto de `privacidade-site.html` (se o jurídico exigir consentimento, o próximo passo é um aviso com aceitar/recusar e carregar a tag só após aceitar); criar a conversão por clique e ligá-la aos botões "Testar grátis".
 - [ ] Quando o Gabarita PDF puder ser divulgado, adicionar um card na seção "Uma ferramenta para cada área de estudo".
 - [ ] Opcional: limpar CSS sem uso na fonte (blocos `/* MÉTODO */` e `/* FUNDADOR */`, de seções que foram removidas).
 

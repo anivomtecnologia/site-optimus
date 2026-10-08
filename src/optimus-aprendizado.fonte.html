@@ -1,7 +1,7 @@
 <title>Optimus Aprendizado</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <style>
 /* Layout: "sinal no ruído" — hero com campo de fragmentos que se organizam; seções alternam texto largo e painéis interativos. */
 :root{
@@ -38,7 +38,7 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.6;overflow-x:hidden}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
 .wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter)}
@@ -166,33 +166,34 @@ section{padding-block:clamp(72px,10vw,136px)}
 .hora{background:color-mix(in srgb,var(--bg) 6%,var(--ink));border:1px solid color-mix(in srgb,var(--bg) 14%,var(--ink));border-radius:22px;padding:clamp(18px,2.2vw,26px);display:grid;gap:20px;--cy:12s}
 .hora-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
 .hora-top h3{font-size:clamp(20px,2vw,24px);color:var(--bg)}
-.hora-tag{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:5px 10px;border-radius:999px;border:1px solid color-mix(in srgb,var(--bg) 24%,var(--ink));color:color-mix(in srgb,var(--bg) 70%,var(--ink))}
+.hora-tag{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:5px 10px;border-radius:999px;border:1px solid color-mix(in srgb,var(--bg) 24%,var(--ink));color:color-mix(in srgb,var(--bg) 70%,var(--ink))}
 .hora-row{display:grid;gap:8px}
 .hora-lab{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:color-mix(in srgb,var(--bg) 70%,var(--ink))}
 .hora-lab em{font-style:normal;text-transform:none;letter-spacing:0;color:var(--bg);opacity:0;animation:resShow var(--cy) ease infinite}
 @keyframes resShow{0%,56%{opacity:0;transform:translateY(4px)}64%,90%{opacity:1;transform:none}98%,100%{opacity:0;transform:translateY(4px)}}
 .hora-blocks{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;list-style:none;margin:0;padding:0}
-.blk{position:relative;height:clamp(46px,5vw,56px);border-radius:10px;border:1px dashed color-mix(in srgb,var(--bg) 22%,var(--ink));display:grid;place-items:center;font:500 clamp(10px,1.05vw,12px) var(--f-mono);overflow:hidden;color:color-mix(in srgb,var(--bg) 62%,var(--ink));isolation:isolate}
+.hora-blocks.good{grid-template-columns:repeat(3,minmax(0,1fr)) minmax(0,1.5fr)}
+/* Rótulos dos blocos: fonte de texto (Instrument Sans) em 13px+ e só pesos carregados (600), para ficar nítido. O preenchimento anima por transform, não por clip-path, para não redesenhar o texto. */
+.blk{position:relative;height:clamp(52px,5.4vw,60px);border-radius:10px;border:1px dashed color-mix(in srgb,var(--bg) 26%,var(--ink));display:grid;place-items:center;font:600 13px/1.15 var(--f-body);overflow:hidden;color:color-mix(in srgb,var(--bg) 74%,var(--ink));isolation:isolate}
 .blk span{position:relative;z-index:1;padding:0 4px;white-space:nowrap;overflow:hidden;text-overflow:clip;max-width:100%}
-.blk::before{content:"";position:absolute;inset:0;z-index:0;clip-path:inset(0 100% 0 0);animation:blkFill var(--cy) cubic-bezier(.3,.7,.2,1) calc(var(--i)*.55s) infinite backwards}
+.blk::before{content:"";position:absolute;inset:0;z-index:0;transform:scaleX(0);transform-origin:left center;animation:blkFill var(--cy) cubic-bezier(.3,.7,.2,1) calc(var(--i)*.55s) infinite backwards}
 .blk.w::before{background:color-mix(in srgb,var(--bg) 14%,var(--ink))}
 .blk.p::before{background:color-mix(in srgb,var(--bg) 8%,var(--ink));border-radius:inherit}
 .blk.l::before{background:var(--green)}
 .blk.l{color:var(--green-ink)}
 .good .blk.l{animation:none}
 .blk.w{animation:blkWaste var(--cy) ease calc(var(--i)*.55s) infinite backwards}
-@keyframes blkFill{0%{clip-path:inset(0 100% 0 0)}14%,84%{clip-path:inset(0 0 0 0)}94%,100%{clip-path:inset(0 100% 0 0)}}
-@keyframes blkWaste{0%{color:color-mix(in srgb,var(--bg) 62%,var(--ink))}14%,84%{color:color-mix(in srgb,var(--bg) 46%,var(--ink))}}
-.hora-axis{display:flex;justify-content:space-between;font:500 11px var(--f-mono);color:color-mix(in srgb,var(--bg) 52%,var(--ink));margin-top:-10px}
-@media (max-width:520px){.blk{font-size:9px;letter-spacing:-.02em}.blk span{padding:0 1px}.hora-blocks{gap:4px;grid-template-columns:repeat(3,minmax(0,1fr))}.blk{font-size:10px}}
-.good .blk{font-size:clamp(10px,.92vw,11px);letter-spacing:-.03em}
+@keyframes blkFill{0%{transform:scaleX(0)}14%,84%{transform:scaleX(1)}94%,100%{transform:scaleX(0)}}
+@keyframes blkWaste{0%{color:color-mix(in srgb,var(--bg) 74%,var(--ink))}14%,84%{color:color-mix(in srgb,var(--bg) 62%,var(--ink))}}
+.hora-axis{display:flex;justify-content:space-between;font:500 12px var(--f-mono);color:color-mix(in srgb,var(--bg) 66%,var(--ink));margin-top:-10px}
+@media (max-width:520px){.blk span{padding:0 2px}.hora-blocks,.hora-blocks.good{gap:4px;grid-template-columns:repeat(3,minmax(0,1fr))}.good .blk.fin{grid-column:1/-1}}
 .good .blk span{white-space:normal;text-align:center;line-height:1.15;overflow:visible}
 .blk.fin::before{background:#1B3FA6}
 .blk.fin{border-style:solid;border-color:#fff;box-shadow:0 0 0 3px color-mix(in srgb,#2B5BD7 55%,transparent),0 10px 26px -10px #2B5BD7}
-.good .blk.fin{font-size:clamp(12px,1.15vw,14px);line-height:1.2;letter-spacing:0;color:#fff;animation:none}
-.blk.fin span{font-weight:700;text-shadow:none;line-height:1.25}
+.good .blk.fin{font-size:clamp(14px,1.3vw,16px);line-height:1.2;color:#fff;animation:none}
+.blk.fin span{font-weight:600;text-shadow:none;line-height:1.25}
 .hora-note{font-size:14px;color:color-mix(in srgb,var(--bg) 72%,var(--ink));max-width:52ch}
-@media (max-width:900px){.origin-grid{grid-template-columns:1fr}}
+@media (max-width:1024px){.origin-grid{grid-template-columns:1fr}}
 
 /* PRINCÍPIOS */
 .principles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:32px}
@@ -288,6 +289,8 @@ body.panel-open{overflow:hidden}
 
 footer{padding-block:40px 56px;color:var(--muted);font-size:14px}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+footer .wrap>a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+footer .wrap>a:hover{color:var(--ink)}
 
 /* reveal: o estado de repouso é visível; só desloca levemente */
 .rv{transition:transform .9s cubic-bezier(.2,.7,.1,1)}
@@ -411,7 +414,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
           </div>
           <div class="hora-row">
             <div class="hora-lab"><span>Com método e foco</span><em class="res res-b">cada minuto com propósito</em></div>
-            <ul class="hora-blocks good"><li class="blk l" style="--i:0"><span>objetivo</span></li><li class="blk l" style="--i:1"><span>ferramenta prática</span></li><li class="blk l" style="--i:2"><span>método eficiente</span></li><li class="blk l fin" style="--i:3;grid-column:span 3"><span>aprendizagem potencializada</span></li></ul>
+            <ul class="hora-blocks good"><li class="blk l" style="--i:0"><span>objetivo</span></li><li class="blk l" style="--i:1"><span>ferramenta prática</span></li><li class="blk l" style="--i:2"><span>método eficiente</span></li><li class="blk l fin" style="--i:3"><span>aprendizagem potencializada</span></li></ul>
           </div>
           <div class="hora-axis" aria-hidden="true"><span>0 min</span><span>60 min</span></div>
           <p class="hora-note">A hora é a mesma. O que muda é o caminho. É esse caminho que nossas ferramentas buscam criar, em qualquer área de estudo.</p>
@@ -523,6 +526,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 <footer>
   <div class="wrap">
     <span style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><span style="display:inline-flex;align-items:center;gap:6px;color:var(--ink)"><svg class="sym" style="width:20px;height:20px" viewBox="0 0 30 30" aria-hidden="true"><circle cx="13" cy="17" r="9" fill="none" stroke="currentColor" stroke-width="4.6"/><circle cx="25" cy="5.5" r="3.4" fill="#2B5BD7"/></svg><span class="wm" style="font-size:18px">Optimus</span></span>© 2026 Optimus Aprendizado · uma iniciativa ANIVOM TECNOLOGIA LTDA · CNPJ 69.199.407/0001-96</span>
+    <a href="privacidade-optimus.html">Política de Privacidade</a>
   </div>
 </footer>
 
@@ -981,7 +985,7 @@ if(!reduce){
   const cb=document.getElementById('mtw-open'); if(!cb) return;
   const panel=document.getElementById('marca-texto');
   document.addEventListener('keydown',e=>{
-    if(e.key==='Escape'){ const z=document.querySelector('#marca-texto .m-zcb:checked, #marca-texto .m-dcb:checked'); if(z){ z.checked=false; return; } if(cb.checked){ cb.checked=false; return; } }
+    if(e.key==='Escape'){ const z=document.querySelector('#marca-texto .m-zcb:checked, #marca-texto .m-dcb:checked, #marca-texto .m-gzcb:checked'); if(z){ z.checked=false; return; } if(cb.checked){ cb.checked=false; return; } }
     const t=e.target;
     if((e.key==='Enter'||e.key===' ') && t && t.matches && t.matches('label[for="mtw-open"]')){ e.preventDefault(); cb.checked=!cb.checked; }
   });

@@ -3,11 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!--GTAG-->
+<!-- Google tag (gtag.js): conta Google Ads da ANIVOM (AW-18473282453) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18473282453"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-18473282453');
+</script>
+<!--/GTAG-->
 <title>Marca-texto Web · Optimus Aprendizado</title>
 <meta name="description" content="Grife qualquer site como você grifa no papel e leve seus grifos organizados para onde você estuda. Sumário navegável nas leis do Planalto, pastas em A4 e post-its do STF e STJ.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <style>
 /* Layout: página de produto — hero com galeria de telas, depois blocos de recursos, privacidade e preço. */
 :root{
@@ -26,7 +37,7 @@
 :root[data-theme="dark"]{--bg:#0F1720;--surface:#16212C;--ink:#E6EDF3;--muted:#93A2B2;--faint:#475666;--line:#243241;--accent:#9DB8E8;--accent-ink:#0B1622;--shadow:0 1px 0 rgba(0,0,0,.2),0 18px 40px -24px rgba(0,0,0,.8);color-scheme:dark}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.6;overflow-x:hidden}
 img{max-width:100%}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
@@ -62,6 +73,18 @@ p{margin:0}
 .frame img{grid-area:1/1;display:block;width:100%;height:auto;transition:opacity .5s}
 .frame img[aria-hidden="true"]{opacity:0}
 .caption{color:var(--muted);font-size:15px;min-height:1.6em}
+/* Ampliar a tela da galeria: abre a captura em tamanho real (até 2048px de largura), com rolagem, para ler o texto. CSS puro (checkbox), como o zoom dos post-its. */
+.gzcb{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;pointer-events:none}
+.gzhit{position:absolute;inset:0;z-index:2;cursor:zoom-in}
+.gzhit .zhint{top:auto;bottom:14px;right:14px}
+.gzhit:hover .zhint{background:#132131}
+.gzcb:focus-visible ~ .frame .gzhit{outline:3px solid var(--accent);outline-offset:-3px}
+.gzcb:checked ~ .frame{position:fixed;inset:0;z-index:300;display:grid;justify-content:safe center;justify-items:center;align-content:start;grid-template-columns:max-content;padding:clamp(56px,7vw,72px) clamp(12px,3vw,40px) clamp(12px,3vw,40px);border:0;border-radius:0;box-shadow:none;max-width:none;background:rgba(8,13,22,.92);overflow:auto;overscroll-behavior:contain}
+.gzcb:checked ~ .frame img{width:auto;max-width:2048px;height:auto;border-radius:12px;box-shadow:0 30px 80px -20px rgba(0,0,0,.6)}
+.gzcb:checked ~ .frame .gzhit{position:fixed;inset:auto;top:16px;right:16px;cursor:zoom-out}
+.gzcb:checked ~ .frame .gzhit .zhint{position:static;display:block;background:#fff;color:#132131;font-size:14px}
+.gzcb:checked ~ .frame .gzhit .zin{display:none}
+.gzcb:checked ~ .frame .gzhit .zout{display:inline}
 
 section{padding-block:clamp(56px,8vw,104px)}
 .sec-head{display:grid;gap:14px;max-width:760px}
@@ -232,11 +255,13 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           <button type="button" role="tab" id="g2" aria-selected="false" aria-controls="frame">Busca de artigo</button>
           <button type="button" role="tab" id="g3" aria-selected="false" aria-controls="frame">Margem de leitura</button>
         </div>
+        <input type="checkbox" id="gzoom" class="gzcb" aria-label="Ampliar a tela mostrada">
         <div class="frame" id="frame" role="tabpanel">
           <img src="img/mtw-grifos.webp" alt="Artigos do Código Civil grifados em amarelo e laranja, com sublinhado, círculo, retângulo e a barra de ferramentas aberta" width="1280" height="800">
           <img src="img/mtw-sumario.webp" alt="Sumário navegável da lei ao lado do texto, destacando o artigo 1.240" width="1280" height="800" aria-hidden="true" loading="lazy">
-          <img src="img/mtw-busca.webp" alt="Busca pela palavra usucapião com três resultados no sumário" width="1280" height="800" aria-hidden="true" loading="lazy">
+          <img src="img/mtw-busca.webp" alt="Busca por “promessa de fato” com dois resultados no sumário" width="1280" height="800" aria-hidden="true" loading="lazy">
           <img src="img/mtw-margens.webp" alt="Painel de margem com as opções Estreita, Normal e Larga" width="1280" height="800" aria-hidden="true" loading="lazy">
+          <label for="gzoom" class="gzhit"><span class="zhint"><span class="zin">Clique para ampliar</span><span class="zout">Fechar</span></span></label>
         </div>
         <p class="caption" id="caption" aria-live="polite">8 cores, sublinhado, círculo, colchetes, “Revisar” e post-its do STF e STJ. Tudo fica salvo na página.</p>
       </div>
@@ -436,7 +461,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 <footer>
   <div class="wrap">
     <a class="seal" href="./" aria-label="Um produto Optimus Aprendizado"><span>um produto</span><span style="display:inline-flex;align-items:center;gap:5px;align-self:center;color:var(--ink)"><svg style="width:18px;height:18px;display:block" viewBox="0 0 30 30" aria-hidden="true"><circle cx="13" cy="17" r="9" fill="none" stroke="currentColor" stroke-width="4.6"/><circle cx="25" cy="5.5" r="3.4" fill="#2B5BD7"/></svg><span class="wm">Optimus</span></span><span>· © 2026 ANIVOM TECNOLOGIA LTDA · CNPJ 69.199.407/0001-96</span></a>
-    <span style="display:flex;gap:20px;flex-wrap:wrap"><a href="privacidade-marca-texto-web.html" target="_blank" rel="noopener" class="doclink">Política de Privacidade</a><label for="doc-termos" class="doclink">Termos de Uso</label><label for="doc-ajuda" class="doclink">Ajuda</label><a href="https://www.instagram.com/marcatextoweb/" target="_blank" rel="noopener">Instagram @marcatextoweb</a><a href="./">Voltar para o site</a></span>
+    <span style="display:flex;gap:20px;flex-wrap:wrap"><a href="privacidade-marca-texto-web.html" target="_blank" rel="noopener" class="doclink">Política de Privacidade</a><a href="privacidade-optimus.html" target="_blank" rel="noopener" class="doclink">Privacidade do site</a><label for="doc-termos" class="doclink">Termos de Uso</label><label for="doc-ajuda" class="doclink">Ajuda</label><a href="https://www.instagram.com/marcatextoweb/" target="_blank" rel="noopener">Instagram @marcatextoweb</a><a href="./">Voltar para o site</a></span>
   </div>
 </footer>
 <!--DOCS-->
@@ -509,12 +534,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
 <script>
 (function(){
-  const caps=['8 cores, sublinhado, círculo, colchetes, “Revisar” e post-its do STF e STJ. Tudo fica salvo na página.','Livros, títulos, capítulos e artigos ao lado do texto, e um “você está em” que acompanha a leitura.','Busque pelo número (1.238, 44-A) ou por palavra (usucapião) e vá direto ao dispositivo.','Estreita, Normal ou Larga. A mesma margem vale na hora de imprimir em A4.'];
+  const caps=['8 cores, sublinhado, círculo, colchetes, “Revisar” e post-its do STF e STJ. Tudo fica salvo na página.','Livros, títulos, capítulos e artigos ao lado do texto, e um “você está em” que acompanha a leitura.','Busque pelo número (1.238, 44-A) ou por palavra (promessa de fato) e vá direto ao dispositivo.','Estreita, Normal ou Larga. A mesma margem vale na hora de imprimir em A4.'];
   const tabs=[...document.querySelectorAll('#gtabs button')], imgs=[...document.querySelectorAll('#frame img')], cap=document.getElementById('caption');
   let cur=0, auto=!matchMedia('(prefers-reduced-motion: reduce)').matches;
   function show(i){cur=i;tabs.forEach((t,j)=>t.setAttribute('aria-selected',j===i));imgs.forEach((im,j)=>im.setAttribute('aria-hidden',j!==i));document.getElementById('frame').setAttribute('aria-labelledby','g'+i);cap.textContent=caps[i];}
   tabs.forEach((t,i)=>t.addEventListener('click',()=>{auto=false;show(i)}));
-  setInterval(()=>{if(auto)show((cur+1)%tabs.length)},5000);
+  setInterval(()=>{if(auto&&!document.getElementById('gzoom').checked)show((cur+1)%tabs.length)},5000);
 })();
 </script>
 </body>

@@ -7,7 +7,7 @@
 <meta name="description" content="Grife qualquer site como você grifa no papel e leve seus grifos organizados para onde você estuda. Sumário navegável nas leis do Planalto, pastas em A4 e post-its do STF e STJ.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <style>
 /* Layout: página de produto — hero com galeria de telas, depois blocos de recursos, privacidade e preço. */
 :root{
@@ -26,7 +26,7 @@
 :root[data-theme="dark"]{--bg:#0F1720;--surface:#16212C;--ink:#E6EDF3;--muted:#93A2B2;--faint:#475666;--line:#243241;--accent:#9DB8E8;--accent-ink:#0B1622;--shadow:0 1px 0 rgba(0,0,0,.2),0 18px 40px -24px rgba(0,0,0,.8);color-scheme:dark}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.6;overflow-x:hidden}
 img{max-width:100%}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
@@ -62,6 +62,18 @@ p{margin:0}
 .frame img{grid-area:1/1;display:block;width:100%;height:auto;transition:opacity .5s}
 .frame img[aria-hidden="true"]{opacity:0}
 .caption{color:var(--muted);font-size:15px;min-height:1.6em}
+/* Ampliar a tela da galeria: abre a captura em tamanho real (até 2048px de largura), com rolagem, para ler o texto. CSS puro (checkbox), como o zoom dos post-its. */
+.gzcb{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;pointer-events:none}
+.gzhit{position:absolute;inset:0;z-index:2;cursor:zoom-in}
+.gzhit .zhint{top:auto;bottom:14px;right:14px}
+.gzhit:hover .zhint{background:#132131}
+.gzcb:focus-visible ~ .frame .gzhit{outline:3px solid var(--accent);outline-offset:-3px}
+.gzcb:checked ~ .frame{position:fixed;inset:0;z-index:300;display:grid;justify-content:safe center;justify-items:center;align-content:start;grid-template-columns:max-content;padding:clamp(56px,7vw,72px) clamp(12px,3vw,40px) clamp(12px,3vw,40px);border:0;border-radius:0;box-shadow:none;max-width:none;background:rgba(8,13,22,.92);overflow:auto;overscroll-behavior:contain}
+.gzcb:checked ~ .frame img{width:auto;max-width:2048px;height:auto;border-radius:12px;box-shadow:0 30px 80px -20px rgba(0,0,0,.6)}
+.gzcb:checked ~ .frame .gzhit{position:fixed;inset:auto;top:16px;right:16px;cursor:zoom-out}
+.gzcb:checked ~ .frame .gzhit .zhint{position:static;display:block;background:#fff;color:#132131;font-size:14px}
+.gzcb:checked ~ .frame .gzhit .zin{display:none}
+.gzcb:checked ~ .frame .gzhit .zout{display:inline}
 
 section{padding-block:clamp(56px,8vw,104px)}
 .sec-head{display:grid;gap:14px;max-width:760px}

@@ -21,7 +21,7 @@ def wr(rel,txt): open(os.path.join(ROOT,rel),'w',encoding='utf-8').write(txt)
 
 # ===================== 1. documentos =====================
 p=os.path.join(ROOT,'marca-texto-web.html'); s=open(p,encoding='utf-8').read()
-priv=rd('src/docs/privacidade.html'); termos=rd('src/docs/termos.html'); ajuda=rd('src/docs/ajuda.html')
+priv=rd('src/docs/privacidade.html'); termos=rd('src/docs/termos.html'); ajuda=rd('src/docs/ajuda.html'); psite=rd('src/docs/privacidade-site.html')
 EMAIL='marcatextoweb@optimusaprendizado.com'
 # bloco de ajuda
 help_html=f'''<!--HELP--><div class="help">
@@ -34,7 +34,7 @@ else: s=s.replace('<p class="disclaimer">',help_html+'<p class="disclaimer">',1)
 # links no rodapé
 old='<a href="https://www.instagram.com/marcatextoweb/" target="_blank" rel="noopener">Instagram @marcatextoweb</a><a href="./">Voltar para o site</a>'
 # a Política de Privacidade abre a página avulsa (URL própria, para colar em formulários); Termos e Ajuda abrem em sobreposição
-new='<a href="privacidade-marca-texto-web.html" target="_blank" rel="noopener" class="doclink">Política de Privacidade</a><label for="doc-termos" class="doclink">Termos de Uso</label><label for="doc-ajuda" class="doclink">Ajuda</label><a href="https://www.instagram.com/marcatextoweb/" target="_blank" rel="noopener">Instagram @marcatextoweb</a><a href="./">Voltar para o site</a>'
+new='<a href="privacidade-marca-texto-web.html" target="_blank" rel="noopener" class="doclink">Política de Privacidade</a><a href="privacidade-optimus.html" target="_blank" rel="noopener" class="doclink">Privacidade do site</a><label for="doc-termos" class="doclink">Termos de Uso</label><label for="doc-ajuda" class="doclink">Ajuda</label><a href="https://www.instagram.com/marcatextoweb/" target="_blank" rel="noopener">Instagram @marcatextoweb</a><a href="./">Voltar para o site</a>'
 if old in s and 'class="doclink"' not in s: s=s.replace(old,new)
 # sobreposições dos documentos
 def ov(i,title,body):
@@ -76,6 +76,7 @@ open(p,'w',encoding='utf-8').write(s)
 
 # páginas avulsas (para o link da Chrome Web Store)
 head=s.split('<style>')[0]
+head=re.sub(r'<!--GTAG-->.*?<!--/GTAG-->\s*','',head,flags=re.S)  # a tag do Google Ads não vai nas páginas legais (Privacidade e Termos)
 style=re.search(r'<style>.*?</style>',s,re.S).group(0)
 for fn,title,body in [('privacidade-marca-texto-web.html','Política de Privacidade',priv),('termos-marca-texto-web.html','Termos de Uso',termos)]:
     h=head.replace('<title>Marca-texto Web · Optimus Aprendizado</title>',f'<title>{title} · Marca-texto Web</title>')
@@ -83,13 +84,31 @@ for fn,title,body in [('privacidade-marca-texto-web.html','Política de Privacid
           f'<div class="dochead"><span>Marca-texto Web · {title}</span><a class="docclose" href="marca-texto-web.html" style="text-decoration:none">Voltar</a></div>'
           f'<article class="doc">{body}</article><div class="docfoot"></div></div></div>\n</body>\n</html>\n')
     wr(fn,page)
+# política de privacidade do SITE (tag do Google Ads, fontes do Google): página avulsa com as cores da Optimus e "Voltar" para o site
+SITE_CSS=('<style>:root{--bg:#F4F5F7;--surface:#FCFCFD;--ink:#15192B;--muted:#626A7A;--faint:#B4BAC6;--line:#DEE2E9;--accent:#2B5BD7}'
+          '@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10131C;--surface:#181C28;--ink:#E8ECF4;--muted:#98A2B5;--faint:#485165;--line:#262C3A;--accent:#86A6F7}}'
+          '.docbox{margin:clamp(16px,4vw,48px) auto}.pg-wrap{padding:0 12px}</style>')
+h=head.replace('<title>Marca-texto Web · Optimus Aprendizado</title>','<title>Política de Privacidade do site · Optimus Aprendizado</title>')
+h=re.sub(r'<meta name="description" content="[^"]*">','<meta name="description" content="Política de Privacidade do site da Optimus Aprendizado: cookies, Google Ads e seus direitos.">',h)
+wr('privacidade-optimus.html',h+style+'\n'+SITE_CSS+'\n</head>\n<body>\n<div class="pg-wrap"><div class="docbox">'
+   '<div class="dochead"><span>Optimus Aprendizado · Política de Privacidade do site</span><a class="docclose" href="./" style="text-decoration:none">Voltar</a></div>'
+   f'<article class="doc">{psite}</article><div class="docfoot"></div></div></div>\n</body>\n</html>\n')
 print('documentos: ok')
 
 # ===================== 2. montagem =====================
 def uri(name):
     return 'data:image/webp;base64,'+base64.b64encode(open(os.path.join(ROOT,'img',name),'rb').read()).decode()
+# As capturas grandes da galeria ficam como arquivos em img/ (loading=lazy: só baixam quando precisam)
+# em vez de embutidas em base64; senão o index.html passa de 4 MB. As imagens pequenas continuam embutidas.
+SOLTAS={'mtw-grifos.webp','mtw-sumario.webp','mtw-busca.webp','mtw-margens.webp'}
 def inline_imgs(t):
-    return re.sub(r'src="img/([\w-]+\.webp)"',lambda m:'src="'+uri(m.group(1))+'"',t)
+    def tag(m):
+        im=m.group(0); n=re.search(r'src="img/([\w-]+\.webp)"',im)
+        if not n: return im
+        if n.group(1) in SOLTAS:
+            return im if 'loading=' in im else re.sub(r'\s*/?>$',' loading="lazy" decoding="async">',im)
+        return im.replace(n.group(0),'src="'+uri(n.group(1))+'"').replace(' loading="lazy"','')
+    return re.sub(r'<img\b[^>]*>',tag,t)
 
 P='#marca-texto'
 def split_top(css):
@@ -140,7 +159,7 @@ m=rd('marca-texto-web.html')
 style=re.search(r'<style>(.*?)</style>',m,re.S).group(1)
 body=re.search(r'<body>(.*)</body>',m,re.S).group(1)
 body=re.sub(r'<script>.*?</script>','',body,flags=re.S)
-body=inline_imgs(body).replace(' loading="lazy"','')
+body=inline_imgs(body)
 
 # ---- HTML: classes, ids, fechar, galeria
 body=re.sub(r'class="([^"]*)"',lambda mm:'class="'+' '.join('m-'+c for c in mm.group(1).split())+'"',body)
@@ -158,7 +177,7 @@ radios=''.join(f'<input type="radio" name="mtwg" id="mtwg{i}" class="m-gr"'+(' c
 body=re.sub(r'<div class="m-tabs"[^>]*>.*?</div>','<div class="m-tabs" aria-label="Telas do Marca-texto Web">'+''.join(f'<label for="mtwg{i}" class="m-gt">{t}</label>' for i,t in enumerate(tabs))+'</div>',body,count=1,flags=re.S)
 body=body.replace('<div class="m-gallery">','<div class="m-gallery">'+radios,1)
 body=re.sub(r' aria-hidden="true"( width="1280" height="800")',r'\1',body)
-CAPS=['8 cores, sublinhado, círculo, colchetes, “Revisar” e post-its do STF e STJ. Tudo fica salvo na página.','Livros, títulos, capítulos e artigos ao lado do texto, e um “você está em” que acompanha a leitura.','Busque pelo número (1.238, 44-A) ou por palavra (usucapião) e vá direto ao dispositivo.','Estreita, Normal ou Larga. A mesma margem vale na hora de imprimir em A4.']
+CAPS=['8 cores, sublinhado, círculo, colchetes, “Revisar” e post-its do STF e STJ. Tudo fica salvo na página.','Livros, títulos, capítulos e artigos ao lado do texto, e um “você está em” que acompanha a leitura.','Busque pelo número (1.238, 44-A) ou por palavra (promessa de fato) e vá direto ao dispositivo.','Estreita, Normal ou Larga. A mesma margem vale na hora de imprimir em A4.']
 body=re.sub(r'<p class="m-caption"[^>]*>.*?</p>','<p class="m-caption">'+''.join(f'<span>{c}</span>' for c in CAPS)+'</p>',body,count=1,flags=re.S)
 body=re.sub(r'<div class="m-frame"[^>]*>','<div class="m-frame">',body,count=1)
 
