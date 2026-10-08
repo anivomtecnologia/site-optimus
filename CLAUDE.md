@@ -15,11 +15,12 @@ Site institucional da **Optimus Aprendizado**, marca da **ANIVOM TECNOLOGIA LTDA
 ```
 index.html                         GERADO: site completo (página do Marca-texto e imagens pequenas embutidas; as 4 capturas grandes ficam em img/)
 marca-texto-web.html               FONTE e página avulsa do Marca-texto Web (também é servida)
-privacidade-marca-texto-web.html   GERADO: Política de Privacidade avulsa (URL usada na Chrome Web Store)
+privacidade-marca-texto-web.html   GERADO: Política de Privacidade avulsa da EXTENSÃO (URL usada na Chrome Web Store)
+privacidade-optimus.html           GERADO: Política de Privacidade do SITE (tag do Google, fontes do Google, hospedagem); link no rodapé do site
 termos-marca-texto-web.html        GERADO: Termos de Uso avulsos
 img/                               imagens .webp (galeria: sumário, busca e margens em 2560x1600, grifos ainda em 1280x800; prints dos post-its)
 src/optimus-aprendizado.fonte.html FONTE da página principal
-src/docs/                          FONTE dos textos: privacidade.html, termos.html, ajuda.html
+src/docs/                          FONTE dos textos: privacidade.html (extensão), privacidade-site.html (site), termos.html, ajuda.html
 src/head.html                      FONTE do <head> do index.html (title, description, og, favicon, tag do Google)
 src/capturas/                      FONTE das imagens da galeria: capturas originais (.png) + gerar.py (monta img/mtw-sumario|busca|margens.webp)
 src/build.py                       monta tudo (só usa a biblioteca padrão do Python)
@@ -54,7 +55,7 @@ src/check.py                       conferência rápida (ids, âncoras, labels, 
 
 - A **tag do Google** (gtag.js, conta `AW-18473282453`) está em `src/head.html` (vai para o `index.html`) e no `<head>` de `marca-texto-web.html`, entre `<!--GTAG-->` e `<!--/GTAG-->`. O build **remove** esse bloco das páginas legais (`privacidade-…` e `termos-…`). Só pode haver **uma** tag por página: o corpo do Marca-texto embutido no `index.html` não leva `<head>`, então não duplica.
 - **Não instalar o trecho de evento "Compra" (`AW-18473282453/F_JNCKCYsoQdEJXX3-hE`) como o Google entrega.** O site não vende nada: a compra acontece na extensão (ExtensionPay/Stripe). Em carregamento de página ele contaria uma "compra" a cada visita e sujaria o lance automático da campanha. A medição certa no site é o **clique** nos botões "Testar grátis" / "Começar o teste grátis", com uma ação de conversão própria criada no Google Ads (o código dela é diferente do da "Compra").
-- A tag usa cookies de publicidade. Enquanto não houver aviso de cookies e texto sobre o site na política de privacidade, isso é uma pendência jurídica (ver Pendências).
+- **Decisão do dono (8/out/2026): sem banner de cookies e sem botões de aceitar/recusar.** A transparência é feita pela Política de Privacidade do site (`src/docs/privacidade-site.html` → `privacidade-optimus.html`, com link no rodapé do site e do Marca-texto), que informa o uso da tag do Google, das fontes do Google e da hospedagem, e adota o **legítimo interesse** (art. 7º, IX, LGPD) como base legal, com instruções para limitar a medição. A tag carrega sempre. O texto diz que o site não grava cookies próprios: se isso mudar, ou se passar a usar remarketing, outra ferramenta de medição ou novo serviço de terceiros, **atualize essa política**.
 
 ## Identidade visual
 
@@ -79,7 +80,7 @@ src/check.py                       conferência rápida (ids, âncoras, labels, 
 - [ ] Trocar os 3 links "Testar grátis" e "Começar o teste grátis" (hoje `https://chromewebstore.google.com/search/Marca-texto%20Web`) pelo link real da extensão na Chrome Web Store.
 - [ ] Refazer a captura de **Grifos** (`img/mtw-grifos.webp`, ainda 1280×800 e borrada) como as outras: salvar `src/capturas/grifos.png`, incluir `grifos` em `gerar.py` (lista NOMES) e em `compor.js` (TELAS, com título e subtítulo) e rodar `python3 src/capturas/gerar.py`. Para refazer qualquer outra captura, troque o `.png` da pasta e rode o mesmo comando.
 - [ ] Revisão jurídica da Política de Privacidade e dos Termos de Uso.
-- [ ] Google Ads: decidir o aviso de cookies do site e incluir na política (ou numa política do site) o uso da tag do Google; criar a conversão por clique e ligá-la aos botões "Testar grátis".
+- [ ] Google Ads: revisão jurídica da escolha de legítimo interesse sem banner de cookies e do texto de `privacidade-site.html` (se o jurídico exigir consentimento, o próximo passo é um aviso com aceitar/recusar e carregar a tag só após aceitar); criar a conversão por clique e ligá-la aos botões "Testar grátis".
 - [ ] Quando o Gabarita PDF puder ser divulgado, adicionar um card na seção "Uma ferramenta para cada área de estudo".
 - [ ] Opcional: limpar CSS sem uso na fonte (blocos `/* MÉTODO */` e `/* FUNDADOR */`, de seções que foram removidas).
 

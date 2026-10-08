@@ -21,7 +21,7 @@ def wr(rel,txt): open(os.path.join(ROOT,rel),'w',encoding='utf-8').write(txt)
 
 # ===================== 1. documentos =====================
 p=os.path.join(ROOT,'marca-texto-web.html'); s=open(p,encoding='utf-8').read()
-priv=rd('src/docs/privacidade.html'); termos=rd('src/docs/termos.html'); ajuda=rd('src/docs/ajuda.html')
+priv=rd('src/docs/privacidade.html'); termos=rd('src/docs/termos.html'); ajuda=rd('src/docs/ajuda.html'); psite=rd('src/docs/privacidade-site.html')
 EMAIL='marcatextoweb@optimusaprendizado.com'
 # bloco de ajuda
 help_html=f'''<!--HELP--><div class="help">
@@ -34,7 +34,7 @@ else: s=s.replace('<p class="disclaimer">',help_html+'<p class="disclaimer">',1)
 # links no rodapé
 old='<a href="https://www.instagram.com/marcatextoweb/" target="_blank" rel="noopener">Instagram @marcatextoweb</a><a href="./">Voltar para o site</a>'
 # a Política de Privacidade abre a página avulsa (URL própria, para colar em formulários); Termos e Ajuda abrem em sobreposição
-new='<a href="privacidade-marca-texto-web.html" target="_blank" rel="noopener" class="doclink">Política de Privacidade</a><label for="doc-termos" class="doclink">Termos de Uso</label><label for="doc-ajuda" class="doclink">Ajuda</label><a href="https://www.instagram.com/marcatextoweb/" target="_blank" rel="noopener">Instagram @marcatextoweb</a><a href="./">Voltar para o site</a>'
+new='<a href="privacidade-marca-texto-web.html" target="_blank" rel="noopener" class="doclink">Política de Privacidade</a><a href="privacidade-optimus.html" target="_blank" rel="noopener" class="doclink">Privacidade do site</a><label for="doc-termos" class="doclink">Termos de Uso</label><label for="doc-ajuda" class="doclink">Ajuda</label><a href="https://www.instagram.com/marcatextoweb/" target="_blank" rel="noopener">Instagram @marcatextoweb</a><a href="./">Voltar para o site</a>'
 if old in s and 'class="doclink"' not in s: s=s.replace(old,new)
 # sobreposições dos documentos
 def ov(i,title,body):
@@ -84,6 +84,15 @@ for fn,title,body in [('privacidade-marca-texto-web.html','Política de Privacid
           f'<div class="dochead"><span>Marca-texto Web · {title}</span><a class="docclose" href="marca-texto-web.html" style="text-decoration:none">Voltar</a></div>'
           f'<article class="doc">{body}</article><div class="docfoot"></div></div></div>\n</body>\n</html>\n')
     wr(fn,page)
+# política de privacidade do SITE (tag do Google Ads, fontes do Google): página avulsa com as cores da Optimus e "Voltar" para o site
+SITE_CSS=('<style>:root{--bg:#F4F5F7;--surface:#FCFCFD;--ink:#15192B;--muted:#626A7A;--faint:#B4BAC6;--line:#DEE2E9;--accent:#2B5BD7}'
+          '@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10131C;--surface:#181C28;--ink:#E8ECF4;--muted:#98A2B5;--faint:#485165;--line:#262C3A;--accent:#86A6F7}}'
+          '.docbox{margin:clamp(16px,4vw,48px) auto}.pg-wrap{padding:0 12px}</style>')
+h=head.replace('<title>Marca-texto Web · Optimus Aprendizado</title>','<title>Política de Privacidade do site · Optimus Aprendizado</title>')
+h=re.sub(r'<meta name="description" content="[^"]*">','<meta name="description" content="Política de Privacidade do site da Optimus Aprendizado: cookies, Google Ads e seus direitos.">',h)
+wr('privacidade-optimus.html',h+style+'\n'+SITE_CSS+'\n</head>\n<body>\n<div class="pg-wrap"><div class="docbox">'
+   '<div class="dochead"><span>Optimus Aprendizado · Política de Privacidade do site</span><a class="docclose" href="./" style="text-decoration:none">Voltar</a></div>'
+   f'<article class="doc">{psite}</article><div class="docfoot"></div></div></div>\n</body>\n</html>\n')
 print('documentos: ok')
 
 # ===================== 2. montagem =====================

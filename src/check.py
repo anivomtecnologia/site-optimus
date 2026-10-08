@@ -34,7 +34,7 @@ def check(name):
         if t in html: problems.append(f'{name}: contém "{t}"')
     if re.search(r'\bTODO\b', html): problems.append(f'{name}: contém "TODO"')
 
-for n in ('index.html', 'marca-texto-web.html', 'privacidade-marca-texto-web.html', 'termos-marca-texto-web.html'):
+for n in ('index.html', 'marca-texto-web.html', 'privacidade-marca-texto-web.html', 'termos-marca-texto-web.html', 'privacidade-optimus.html'):
     check(n)
 
 if problems:
