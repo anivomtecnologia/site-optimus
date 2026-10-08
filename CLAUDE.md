@@ -13,14 +13,15 @@ Site institucional da **Optimus Aprendizado**, marca da **ANIVOM TECNOLOGIA LTDA
 ## Estrutura
 
 ```
-index.html                         GERADO: site completo (imagens e página do Marca-texto embutidas)
+index.html                         GERADO: site completo (página do Marca-texto e imagens pequenas embutidas; as 4 capturas grandes ficam em img/)
 marca-texto-web.html               FONTE e página avulsa do Marca-texto Web (também é servida)
 privacidade-marca-texto-web.html   GERADO: Política de Privacidade avulsa (URL usada na Chrome Web Store)
 termos-marca-texto-web.html        GERADO: Termos de Uso avulsos
-img/                               imagens .webp (galeria 1280x800 e prints dos post-its)
+img/                               imagens .webp (galeria: sumário, busca e margens em 2560x1600, grifos ainda em 1280x800; prints dos post-its)
 src/optimus-aprendizado.fonte.html FONTE da página principal
 src/docs/                          FONTE dos textos: privacidade.html, termos.html, ajuda.html
-src/head.html                      FONTE do <head> do index.html (title, description, og, favicon)
+src/head.html                      FONTE do <head> do index.html (title, description, og, favicon, tag do Google)
+src/capturas/                      FONTE das imagens da galeria: capturas originais (.png) + gerar.py (monta img/mtw-sumario|busca|margens.webp)
 src/build.py                       monta tudo (só usa a biblioteca padrão do Python)
 src/check.py                       conferência rápida (ids, âncoras, labels, imagens)
 .vercelignore                      impede que src/, CLAUDE.md e README.md sejam publicados
@@ -46,7 +47,8 @@ src/check.py                       conferência rápida (ids, âncoras, labels, 
 - **Animações com `prefers-reduced-motion`:** as seções com classe `km` (hero, "Uma hora de estudo" e a frase da missão) continuam animando de propósito, porque são lentas e decorativas. O resto respeita a preferência.
 - **Nunca deixe a sequência `</` dentro do `<script>`.** O build já escapa para `<\/`, mas não reintroduza na mão. Um `</body>` dentro de string chegou a cortar o script inteiro.
 - A página do Marca-texto embutida no `index.html` tem o CSS escopado em `#marca-texto`, classes com prefixo `m-` e ids com prefixo `mtw-`. Quem faz isso é o build: escreva a fonte com nomes normais.
-- Fontes (Google Fonts): Bricolage Grotesque (títulos), Instrument Sans (texto) e JetBrains Mono (rótulos).
+- **Imagens:** o build embute em base64 só as imagens pequenas. As capturas grandes (`SOLTAS` em `src/build.py`: grifos, sumário, busca, margens) ficam como arquivos em `img/`, com `loading="lazy"`; embuti-las levava o `index.html` a mais de 4 MB. Texto que aparece numa captura não vira nítido por CSS: a captura precisa ter resolução alta (hoje 2560 px de largura).
+- Fontes (Google Fonts): Bricolage Grotesque (títulos), Instrument Sans (texto) e JetBrains Mono (rótulos). Só use pesos que estão no link das fontes (Bricolage 400/600/800, Instrument Sans 400/500/600, JetBrains Mono 400/500/600): peso que não é carregado vira negrito falso e embaça as letras.
 
 ## Google Ads (medição)
 
@@ -75,7 +77,7 @@ src/check.py                       conferência rápida (ids, âncoras, labels, 
 ## Pendências
 
 - [ ] Trocar os 3 links "Testar grátis" e "Começar o teste grátis" (hoje `https://chromewebstore.google.com/search/Marca-texto%20Web`) pelo link real da extensão na Chrome Web Store.
-- [ ] Refazer as capturas de tela da galeria do Marca-texto Web (Sumário, Busca e Margem; `img/mtw-*.webp`) em **2×** (2560×1600). Hoje são 1280×800: no desktop aparecem a 85% do tamanho, em tela retina são esticadas a 169% e no celular ficam a 28%, então o texto dentro delas fica borrado. Ao trocar, parar de embutir as imagens em base64 no `index.html` (já tem ~2,7 MB) e usar `srcset`.
+- [ ] Refazer a captura de **Grifos** (`img/mtw-grifos.webp`, ainda 1280×800 e borrada) como as outras: salvar `src/capturas/grifos.png`, incluir `grifos` em `gerar.py` (lista NOMES) e em `compor.js` (TELAS, com título e subtítulo) e rodar `python3 src/capturas/gerar.py`. Para refazer qualquer outra captura, troque o `.png` da pasta e rode o mesmo comando.
 - [ ] Revisão jurídica da Política de Privacidade e dos Termos de Uso.
 - [ ] Google Ads: decidir o aviso de cookies do site e incluir na política (ou numa política do site) o uso da tag do Google; criar a conversão por clique e ligá-la aos botões "Testar grátis".
 - [ ] Quando o Gabarita PDF puder ser divulgado, adicionar um card na seção "Uma ferramenta para cada área de estudo".
