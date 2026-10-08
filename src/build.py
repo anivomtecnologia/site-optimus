@@ -76,6 +76,7 @@ open(p,'w',encoding='utf-8').write(s)
 
 # páginas avulsas (para o link da Chrome Web Store)
 head=s.split('<style>')[0]
+head=re.sub(r'<!--GTAG-->.*?<!--/GTAG-->\s*','',head,flags=re.S)  # a tag do Google Ads não vai nas páginas legais (Privacidade e Termos)
 style=re.search(r'<style>.*?</style>',s,re.S).group(0)
 for fn,title,body in [('privacidade-marca-texto-web.html','Política de Privacidade',priv),('termos-marca-texto-web.html','Termos de Uso',termos)]:
     h=head.replace('<title>Marca-texto Web · Optimus Aprendizado</title>',f'<title>{title} · Marca-texto Web</title>')

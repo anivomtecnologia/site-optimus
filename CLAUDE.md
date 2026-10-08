@@ -48,6 +48,12 @@ src/check.py                       conferência rápida (ids, âncoras, labels, 
 - A página do Marca-texto embutida no `index.html` tem o CSS escopado em `#marca-texto`, classes com prefixo `m-` e ids com prefixo `mtw-`. Quem faz isso é o build: escreva a fonte com nomes normais.
 - Fontes (Google Fonts): Bricolage Grotesque (títulos), Instrument Sans (texto) e JetBrains Mono (rótulos).
 
+## Google Ads (medição)
+
+- A **tag do Google** (gtag.js, conta `AW-18473282453`) está em `src/head.html` (vai para o `index.html`) e no `<head>` de `marca-texto-web.html`, entre `<!--GTAG-->` e `<!--/GTAG-->`. O build **remove** esse bloco das páginas legais (`privacidade-…` e `termos-…`). Só pode haver **uma** tag por página: o corpo do Marca-texto embutido no `index.html` não leva `<head>`, então não duplica.
+- **Não instalar o trecho de evento "Compra" (`AW-18473282453/F_JNCKCYsoQdEJXX3-hE`) como o Google entrega.** O site não vende nada: a compra acontece na extensão (ExtensionPay/Stripe). Em carregamento de página ele contaria uma "compra" a cada visita e sujaria o lance automático da campanha. A medição certa no site é o **clique** nos botões "Testar grátis" / "Começar o teste grátis", com uma ação de conversão própria criada no Google Ads (o código dela é diferente do da "Compra").
+- A tag usa cookies de publicidade. Enquanto não houver aviso de cookies e texto sobre o site na política de privacidade, isso é uma pendência jurídica (ver Pendências).
+
 ## Identidade visual
 
 - **Site da Optimus:** azul `#2B5BD7`, cinza `#626A7A`, off-white `#F4F5F7`, texto `#15192B`, azul-claro de grifo `#C4D6FF`. Tem modo escuro (tokens em `:root`). O visual deve ser sóbrio e tecnológico, nunca infantil, e sem cores demais.
@@ -70,6 +76,7 @@ src/check.py                       conferência rápida (ids, âncoras, labels, 
 
 - [ ] Trocar os 3 links "Testar grátis" e "Começar o teste grátis" (hoje `https://chromewebstore.google.com/search/Marca-texto%20Web`) pelo link real da extensão na Chrome Web Store.
 - [ ] Revisão jurídica da Política de Privacidade e dos Termos de Uso.
+- [ ] Google Ads: decidir o aviso de cookies do site e incluir na política (ou numa política do site) o uso da tag do Google; criar a conversão por clique e ligá-la aos botões "Testar grátis".
 - [ ] Quando o Gabarita PDF puder ser divulgado, adicionar um card na seção "Uma ferramenta para cada área de estudo".
 - [ ] Opcional: limpar CSS sem uso na fonte (blocos `/* MÉTODO */` e `/* FUNDADOR */`, de seções que foram removidas).
 
