@@ -39,7 +39,7 @@ src/check.py                       conferência rápida (ids, âncoras, labels, 
 
 - **Tudo que é essencial funciona sem JavaScript.** No navegador do dono do site, o JavaScript chegou a não rodar. Por isso:
   - A página do Marca-texto Web abre **dentro do site** por um checkbox oculto (`#mtw-open`) e `label for="mtw-open"`. O CSS é `.mtw-cb:checked + .product-panel{display:block}`. Não usar `:target`, Shadow DOM, `fetch` nem `<template>` para isso.
-  - A galeria de 4 abas usa radios (`.m-gr`) e labels. O zoom das fotos dos post-its usa checkbox (`.zcb`), e Ajuda e Termos também (`.dcb`). A **Política de Privacidade não abre em sobreposição**: o link do rodapé do Marca-texto Web abre em nova aba a página avulsa `privacidade-marca-texto-web.html`, que tem URL própria para o dono colar em formulários (Chrome Web Store etc.).
+  - A galeria de 4 abas usa radios (`.m-gr`) e labels. O zoom das fotos dos post-its usa checkbox (`.zcb`), o da galeria de telas também (`#gzoom`, `.gzcb`: abre a captura em tamanho real, 1280px, com rolagem), e Ajuda e Termos também (`.dcb`). A **Política de Privacidade não abre em sobreposição**: o link do rodapé do Marca-texto Web abre em nova aba a página avulsa `privacidade-marca-texto-web.html`, que tem URL própria para o dono colar em formulários (Chrome Web Store etc.).
   - As animações (o topo "ruído → foco", "Uma hora de estudo, dois jeitos" e o marca-texto azul animado da missão) são **só CSS**.
   - **Não há faixa de frases (letreiro/ticker) entre o topo e a seção "Origem".** O letreiro rolante foi trocado por uma faixa de "sintonia" e, depois, a faixa inteira foi removida a pedido do dono. Não recolocar sem ele pedir.
   - O JavaScript existe apenas como melhoria: botões Ruído/Foco, tecla Esc, palavras da missão acendendo na rolagem, copiar e-mail.
@@ -75,6 +75,7 @@ src/check.py                       conferência rápida (ids, âncoras, labels, 
 ## Pendências
 
 - [ ] Trocar os 3 links "Testar grátis" e "Começar o teste grátis" (hoje `https://chromewebstore.google.com/search/Marca-texto%20Web`) pelo link real da extensão na Chrome Web Store.
+- [ ] Refazer as capturas de tela da galeria do Marca-texto Web (Sumário, Busca e Margem; `img/mtw-*.webp`) em **2×** (2560×1600). Hoje são 1280×800: no desktop aparecem a 85% do tamanho, em tela retina são esticadas a 169% e no celular ficam a 28%, então o texto dentro delas fica borrado. Ao trocar, parar de embutir as imagens em base64 no `index.html` (já tem ~2,7 MB) e usar `srcset`.
 - [ ] Revisão jurídica da Política de Privacidade e dos Termos de Uso.
 - [ ] Google Ads: decidir o aviso de cookies do site e incluir na política (ou numa política do site) o uso da tag do Google; criar a conversão por clique e ligá-la aos botões "Testar grátis".
 - [ ] Quando o Gabarita PDF puder ser divulgado, adicionar um card na seção "Uma ferramenta para cada área de estudo".

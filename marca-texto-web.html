@@ -73,6 +73,18 @@ p{margin:0}
 .frame img{grid-area:1/1;display:block;width:100%;height:auto;transition:opacity .5s}
 .frame img[aria-hidden="true"]{opacity:0}
 .caption{color:var(--muted);font-size:15px;min-height:1.6em}
+/* Ampliar a tela da galeria: abre a captura em tamanho real (1280px), com rolagem, para ler o texto. CSS puro (checkbox), como o zoom dos post-its. */
+.gzcb{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;pointer-events:none}
+.gzhit{position:absolute;inset:0;z-index:2;cursor:zoom-in}
+.gzhit .zhint{top:auto;bottom:14px;right:14px}
+.gzhit:hover .zhint{background:#132131}
+.gzcb:focus-visible ~ .frame .gzhit{outline:3px solid var(--accent);outline-offset:-3px}
+.gzcb:checked ~ .frame{position:fixed;inset:0;z-index:300;display:grid;justify-content:safe center;align-content:start;grid-template-columns:1280px;padding:clamp(56px,7vw,72px) clamp(12px,3vw,40px) clamp(12px,3vw,40px);border:0;border-radius:0;box-shadow:none;max-width:none;background:rgba(8,13,22,.92);overflow:auto;overscroll-behavior:contain}
+.gzcb:checked ~ .frame img{width:1280px;max-width:none;height:auto;border-radius:12px;box-shadow:0 30px 80px -20px rgba(0,0,0,.6)}
+.gzcb:checked ~ .frame .gzhit{position:fixed;inset:auto;top:16px;right:16px;cursor:zoom-out}
+.gzcb:checked ~ .frame .gzhit .zhint{position:static;display:block;background:#fff;color:#132131;font-size:14px}
+.gzcb:checked ~ .frame .gzhit .zin{display:none}
+.gzcb:checked ~ .frame .gzhit .zout{display:inline}
 
 section{padding-block:clamp(56px,8vw,104px)}
 .sec-head{display:grid;gap:14px;max-width:760px}
@@ -238,11 +250,13 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           <button type="button" role="tab" id="g2" aria-selected="false" aria-controls="frame">Busca de artigo</button>
           <button type="button" role="tab" id="g3" aria-selected="false" aria-controls="frame">Margem de leitura</button>
         </div>
+        <input type="checkbox" id="gzoom" class="gzcb" aria-label="Ampliar a tela mostrada">
         <div class="frame" id="frame" role="tabpanel">
           <img src="img/mtw-grifos.webp" alt="Artigos do Código Civil grifados em amarelo e laranja, com sublinhado, círculo, retângulo e a barra de ferramentas aberta" width="1280" height="800">
           <img src="img/mtw-sumario.webp" alt="Sumário navegável da lei ao lado do texto, destacando o artigo 1.240" width="1280" height="800" aria-hidden="true" loading="lazy">
           <img src="img/mtw-busca.webp" alt="Busca pela palavra usucapião com três resultados no sumário" width="1280" height="800" aria-hidden="true" loading="lazy">
           <img src="img/mtw-margens.webp" alt="Painel de margem com as opções Estreita, Normal e Larga" width="1280" height="800" aria-hidden="true" loading="lazy">
+          <label for="gzoom" class="gzhit"><span class="zhint"><span class="zin">Clique para ampliar</span><span class="zout">Fechar</span></span></label>
         </div>
         <p class="caption" id="caption" aria-live="polite">8 cores, sublinhado, círculo, colchetes, “Revisar” e post-its do STF e STJ. Tudo fica salvo na página.</p>
       </div>
@@ -501,7 +515,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   let cur=0, auto=!matchMedia('(prefers-reduced-motion: reduce)').matches;
   function show(i){cur=i;tabs.forEach((t,j)=>t.setAttribute('aria-selected',j===i));imgs.forEach((im,j)=>im.setAttribute('aria-hidden',j!==i));document.getElementById('frame').setAttribute('aria-labelledby','g'+i);cap.textContent=caps[i];}
   tabs.forEach((t,i)=>t.addEventListener('click',()=>{auto=false;show(i)}));
-  setInterval(()=>{if(auto)show((cur+1)%tabs.length)},5000);
+  setInterval(()=>{if(auto&&!document.getElementById('gzoom').checked)show((cur+1)%tabs.length)},5000);
 })();
 </script>
 </body>

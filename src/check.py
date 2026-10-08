@@ -25,6 +25,8 @@ def check(name):
         if f not in idset: problems.append(f'{name}: label sem alvo for="{f}"')
     for m in re.finditer(r'<script>(.*?)</script>', html, re.S):
         if '</' in m.group(1): problems.append(f'{name}: "</" dentro de <script>')
+    n_title = html.count('<title>')
+    if n_title != 1: problems.append(f'{name}: {n_title} tags <title> (deve haver só 1)')
     for src in re.findall(r'src="([^"]+)"', html):
         if src.startswith(('data:', 'http')): continue
         if not os.path.exists(os.path.join(ROOT, src)): problems.append(f'{name}: imagem não encontrada {src}')

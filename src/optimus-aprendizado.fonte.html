@@ -982,7 +982,7 @@ if(!reduce){
   const cb=document.getElementById('mtw-open'); if(!cb) return;
   const panel=document.getElementById('marca-texto');
   document.addEventListener('keydown',e=>{
-    if(e.key==='Escape'){ const z=document.querySelector('#marca-texto .m-zcb:checked, #marca-texto .m-dcb:checked'); if(z){ z.checked=false; return; } if(cb.checked){ cb.checked=false; return; } }
+    if(e.key==='Escape'){ const z=document.querySelector('#marca-texto .m-zcb:checked, #marca-texto .m-dcb:checked, #marca-texto .m-gzcb:checked'); if(z){ z.checked=false; return; } if(cb.checked){ cb.checked=false; return; } }
     const t=e.target;
     if((e.key==='Enter'||e.key===' ') && t && t.matches && t.matches('label[for="mtw-open"]')){ e.preventDefault(); cb.checked=!cb.checked; }
   });
