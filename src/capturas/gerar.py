@@ -20,18 +20,23 @@ from PIL import Image, ImageFilter
 AQUI = os.path.dirname(os.path.abspath(__file__))
 RAIZ = os.path.dirname(os.path.dirname(AQUI))
 NOMES = ['sumario', 'busca', 'margens']
-W, H = 2358, 1250          # área útil da janela do navegador no canvas 2560x1600 (já em 2x)
+# faixa (em px da captura original) tirada do fundo: a captura do sumário termina no meio da linha
+# "2.083 artigos · 782 divisões", com o texto cortado ao meio; sem essa faixa o painel termina limpo.
+# Se refizer a captura um pouco mais alta (mostrando o rodapé inteiro), zere este valor.
+RECORTE_BAIXO = {'sumario': 26}
+W, H = 2358, 1214          # área máxima da janela do navegador no canvas 2560x1600 (já em 2x); sobra uma folga embaixo
 
 def preparar(nome, pasta):
-    """Ajusta a captura à janela (cobre a área, corta a sobra à direita/embaixo) com LANCZOS,
-    para o navegador não precisar esticar a imagem."""
+    """Encaixa a captura INTEIRA na área da janela (sem cortar nada) com LANCZOS, para o navegador
+    não precisar esticar a imagem. A moldura do navegador se ajusta ao tamanho resultante."""
     im = Image.open(os.path.join(AQUI, nome + '.png')).convert('RGBA')
     fundo = Image.new('RGBA', im.size, (255, 255, 255, 255)); fundo.alpha_composite(im); im = fundo.convert('RGB')
-    s = max(W / im.width, H / im.height)
+    if RECORTE_BAIXO.get(nome): im = im.crop((0, 0, im.width, im.height - RECORTE_BAIXO[nome]))
+    s = min(W / im.width, H / im.height)
     up = im.resize((round(im.width * s), round(im.height * s)), Image.LANCZOS)
-    up = up.filter(ImageFilter.UnsharpMask(radius=1.0, percent=60, threshold=2)).crop((0, 0, W, H))
+    up = up.filter(ImageFilter.UnsharpMask(radius=1.0, percent=60, threshold=2))
     up.save(os.path.join(pasta, f'prep-{nome}.png'))
-    print(f'{nome}: captura {im.size[0]}x{im.size[1]} (escala {s:.2f}x)')
+    print(f'{nome}: captura {im.size[0]}x{im.size[1]} (escala {s:.2f}x -> {up.size[0]}x{up.size[1]})')
 
 def main():
     try:

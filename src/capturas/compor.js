@@ -6,7 +6,7 @@ const TELAS = {
   busca:   { titulo: 'Ache qualquer artigo <mark>em segundos</mark>', sub: 'Busque pelo número (1.238, 44-A) ou por palavra (promessa de fato) e vá direto ao dispositivo.' },
   margens: { titulo: 'Leia do seu jeito: <mark>3 margens</mark>', sub: 'Estreita, Normal ou Larga — e a mesma margem vale na hora de imprimir em A4.' },
 };
-const html = (t, img) => `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
+const html = (t, img, cw, ch) => `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Instrument+Sans:wght@400..700&display=swap">
 <style>
 *{box-sizing:border-box}
@@ -17,12 +17,12 @@ h1 mark{background:linear-gradient(transparent 52%,#FDE27D 52%,#FDE27D 94%,trans
 .sub{position:absolute;left:50px;top:72px;font:400 17.5px/1.3 'Instrument Sans';color:#4E5566;white-space:nowrap}
 .logo{position:absolute;right:50px;top:34px;display:flex;align-items:center;gap:9px;font:700 15.5px 'Bricolage Grotesque';letter-spacing:-.01em;color:#14213D}
 .logo svg{width:20px;height:20px;display:block}
-.win{position:absolute;left:50px;top:140px;width:1180px;height:700px;border-radius:14px;overflow:hidden;background:#fff;border:1px solid #D2CEC8;box-shadow:0 24px 50px -24px rgba(70,50,0,.35)}
+.win{position:absolute;left:${50 + (1180 - (cw + 2)) / 2}px;top:140px;width:${cw + 2}px;border-radius:14px;overflow:hidden;background:#fff;border:1px solid #D2CEC8;box-shadow:0 24px 50px -24px rgba(70,50,0,.35)}
 .bar{height:35px;background:#EDEDF0;display:flex;align-items:center;padding:0 14px;gap:7px;border-bottom:1px solid #DEDEE2}
 .dot{width:11px;height:11px;border-radius:50%}
 .url{margin-left:14px;height:22px;width:640px;border-radius:11px;background:#fff;display:flex;align-items:center;gap:7px;padding:0 12px;font:400 12.6px 'Instrument Sans';color:#505050}
 .url svg{width:10px;height:11px}
-.shot{display:block;width:1178px;height:625px}
+.shot{display:block;width:${cw}px;height:${ch}px}
 </style></head><body>
 <h1>${t.titulo}</h1><div class="sub">${t.sub}</div>
 <div class="logo"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><clipPath id="cp"><rect x="3.4" y="3.4" width="17.2" height="17.2" rx="5.2"/></clipPath></defs><g transform="rotate(-14 12 12)"><g clip-path="url(#cp)"><rect x="3.4" y="3.4" width="17.2" height="17.2" fill="#FFB74D"/><polygon points="3.4,3.4 20.6,3.4 3.4,20.6" fill="#FFE066"/></g></g></svg>Marca-texto Web</div>
@@ -39,8 +39,10 @@ h1 mark{background:linear-gradient(transparent 52%,#FDE27D 52%,#FDE27D 94%,trans
     const ctx = await browser.newContext({ viewport: { width: 1280, height: 800 }, deviceScaleFactor: 2 });
     const page = await ctx.newPage();
     const arq = path.join(dir, `prep-${nome}.png`);
-    const uri = 'data:image/png;base64,' + require('fs').readFileSync(arq).toString('base64');
-    await page.setContent(html(TELAS[nome], uri), { waitUntil: 'load' });
+    const buf = require('fs').readFileSync(arq);
+    const cw = buf.readUInt32BE(16) / 2, ch = buf.readUInt32BE(20) / 2;   // tamanho da captura em px CSS (o canvas é 2x)
+    const uri = 'data:image/png;base64,' + buf.toString('base64');
+    await page.setContent(html(TELAS[nome], uri, cw, ch), { waitUntil: 'load' });
     await page.evaluate(() => document.fonts.ready);
     await page.waitForTimeout(400);
     // largura real do título e do subtítulo (para conferir contra as imagens antigas)
