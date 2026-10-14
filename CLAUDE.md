@@ -88,7 +88,6 @@ src/check.py                       conferência rápida (ids, âncoras, labels, 
 - [ ] Revisão jurídica da Política de Privacidade e dos Termos de Uso.
 - [x] Google Ads: a escolha de legítimo interesse sem banner de cookies e o texto de `privacidade-site.html` foram aprovados pelo dono (out/2026). Se o jurídico passar a exigir consentimento, o próximo passo é um aviso com aceitar/recusar e carregar a tag só após aceitar.
 - [x] Conversão por clique "Clique em Testar grátis" criada no Google Ads e ligada aos links da Chrome Web Store.
-- [ ] Incluir na página uma imagem do PDF grifado (o dono vai enviar a captura).
 - [ ] Quando o Gabarita PDF puder ser divulgado, adicionar um card na seção "Uma ferramenta para cada área de estudo".
 - [ ] Opcional: limpar CSS sem uso na fonte (blocos `/* MÉTODO */` e `/* FUNDADOR */`, de seções que foram removidas).
 
