@@ -165,7 +165,7 @@ body=inline_imgs(body)
 body=re.sub(r'class="([^"]*)"',lambda mm:'class="'+' '.join('m-'+c for c in mm.group(1).split())+'"',body)
 body=re.sub(r'\bid="([^"]+)"',r'id="mtw-\1"',body)
 body=re.sub(r'\bfor="([^"]+)"',r'for="mtw-\1"',body)
-body=body.replace('href="#preco"','href="#mtw-preco"')
+body=body.replace('href="#preco"','href="#mtw-preco"').replace('href="#pdf"','href="#mtw-pdf"')
 # fechar: links para o site viram labels que desmarcam o checkbox
 body=re.sub(r'<a class="([^"]*)" href="\./"( aria-label="[^"]*")?>(.*?)</a>',lambda mm:'<label class="'+mm.group(1)+' m-closer" for="mtw-open" role="button" tabindex="0"'+(mm.group(2) or '')+'>'+mm.group(3)+'</label>',body,flags=re.S)
 body=body.replace('<a href="./">Voltar para o site</a>','<label class="m-closer m-closelink" for="mtw-open" role="button" tabindex="0">Voltar para o site</label>')
