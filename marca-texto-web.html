@@ -58,6 +58,14 @@ p{margin:0}
 .btn.green:hover{box-shadow:0 10px 24px -12px var(--green)}
 .btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
 
+details.inst{position:relative}
+details.inst summary{list-style:none}
+details.inst summary::-webkit-details-marker{display:none}
+details.inst summary svg{transition:transform .2s}
+details.inst[open] summary svg{transform:rotate(180deg)}
+.inst-menu{position:absolute;right:0;top:calc(100% + 8px);min-width:200px;display:grid;gap:2px;padding:6px;background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);z-index:30}
+.inst-menu a{padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600;font-size:15px;white-space:nowrap}
+.inst-menu a:hover,.inst-menu a:focus-visible{background:var(--bg)}
 .hero{padding-block:clamp(36px,6vw,72px) clamp(40px,6vw,72px)}
 .hero-top{display:grid;gap:18px;max-width:820px}
 .hero h1{font-size:clamp(40px,6.4vw,80px)}
@@ -240,7 +248,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13 8H3M7.5 3.5 3 8l4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
       Optimus Aprendizado
     </a>
-    <span style="display:flex;gap:16px;align-items:center"><a class="back" href="https://www.instagram.com/marcatextoweb/" target="_blank" rel="noopener">Instagram</a><a class="btn green" href="https://chromewebstore.google.com/detail/marca-texto-web/fdcjcaonndmhomapbncnaeglaoingboj" id="install-top">Testar grátis</a></span>
+    <span style="display:flex;gap:16px;align-items:center"><a class="back" href="https://www.instagram.com/marcatextoweb/" target="_blank" rel="noopener">Instagram</a><details class="inst" id="install-top"><summary class="btn green">Testar grátis<svg viewBox="0 0 12 8" width="12" height="8" fill="none" aria-hidden="true"><path d="M1 1.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary><div class="inst-menu"><a href="https://chromewebstore.google.com/detail/marca-texto-web/fdcjcaonndmhomapbncnaeglaoingboj">Testar no Chrome</a><a href="https://addons.mozilla.org/pt-BR/firefox/addon/marca-texto-web/">Testar no Firefox</a></div></details></span>
   </div>
 </header>
 
@@ -604,6 +612,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   function show(i){cur=i;tabs.forEach((t,j)=>t.setAttribute('aria-selected',j===i));imgs.forEach((im,j)=>im.setAttribute('aria-hidden',j!==i));document.getElementById('frame').setAttribute('aria-labelledby','g'+i);cap.textContent=caps[i];}
   tabs.forEach((t,i)=>t.addEventListener('click',()=>{auto=false;show(i)}));
   setInterval(()=>{if(auto&&!document.getElementById('gzoom').checked)show((cur+1)%tabs.length)},5000);
+})();
+/* Menu "Testar grátis" do topo (Chrome ou Firefox): fecha ao clicar fora ou com Esc. Sem JavaScript, ele continua abrindo e fechando pelo próprio botão. */
+(function(){
+  const m=document.getElementById('install-top'); if(!m) return;
+  document.addEventListener('click',e=>{ if(m.open&&!m.contains(e.target)) m.open=false; });
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&m.open){ m.open=false; m.querySelector('summary').focus(); } });
 })();
 /* Google Ads: conversão "Clique em Testar grátis" (clique em qualquer link para a Chrome Web Store ou para a loja do Firefox).
    Os links abrem na mesma aba: a página só segue depois de o Google registrar o clique (ou em 600 ms). */
