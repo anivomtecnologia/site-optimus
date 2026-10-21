@@ -507,7 +507,7 @@ footer .wrap>a:hover{color:var(--ink)}
         <div class="built-body">
           <span class="pill">Direito e concursos · Extensão para Chrome e Firefox</span>
           <h3>Marca-texto Web</h3>
-          <p>Grife qualquer site e seus PDFs como você grifa no papel e leve seus grifos organizados para onde você estuda. Nas leis do planalto.gov.br e em outros sites de atos normativos, ganha sumário navegável, busca por artigo e impressão em A4 com os grifos coloridos. E você faz backup das marcações com um clique.</p>
+          <p>Grife qualquer site e seus PDFs como você grifa no papel — e leve seus grifos organizados para onde você estuda. Nas leis do planalto.gov.br e em outros sites de legislação, ganha sumário navegável, busca por artigo e impressão em A4 com os grifos coloridos. Pastas, backup das marcações e teste grátis de 7 dias.</p>
           <div class="feats"><span class="chip">8 cores de marca-texto</span><span class="chip">post-its STF e STJ</span><span class="chip">sumário das leis</span><span class="chip">pastas em A4</span><span class="chip">funciona em sites e em PDFs</span><span class="chip">backup e restauração das marcações</span></div>
           <div class="built-actions">
             <a class="btn brand" href="marca-texto-web.html">Conhecer o Marca-texto Web
@@ -603,7 +603,9 @@ footer .wrap>a:hover{color:var(--ink)}
 #marca-texto .m-news .m-label{color:var(--ink)}
 #marca-texto .m-news h2{font-size:clamp(24px,3vw,32px)}
 #marca-texto .m-news p{color:var(--muted);font-size:16px}
-#marca-texto .m-news a{font-weight:600;color:var(--accent);text-decoration:none;justify-self:start}
+#marca-texto .m-news a{font-weight:600;color:var(--accent);text-decoration:none;white-space:nowrap}
+#marca-texto .m-news-list{margin:0;padding-left:20px;display:grid;gap:8px;color:var(--muted);font-size:16px}
+#marca-texto .m-news-list b{color:var(--ink);font-weight:600}
 #marca-texto .m-news a:hover{text-decoration:underline}
 #marca-texto .m-como{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:clamp(22px,3vw,32px);display:grid;gap:14px}
 #marca-texto .m-como h3{font-size:24px}
@@ -805,19 +807,22 @@ footer .wrap>a:hover{color:var(--ink)}
     <div class="m-wrap">
       <div class="m-hero-top">
         <div class="m-news">
-          <span class="m-label">Novidade</span>
-          <h2>Agora também em PDF</h2>
-          <p>Grife, sublinhe, circule e cole post-its direto nas suas apostilas, informativos e editais em PDF, com a mesma nitidez do original. As marcações ficam guardadas e voltam quando você abre o mesmo PDF de novo.</p>
-          <a href="#mtw-pdf">Ver como funciona →</a>
+          <span class="m-label">Novidades</span>
+          <ul class="m-news-list">
+            <li><b>Teste grátis de 7 dias:</b> tudo liberado, com um clique, sem cadastro e sem cartão.</li>
+            <li><b>Agora também em PDF:</b> grife, sublinhe, circule e cole post-its direto nas suas apostilas, informativos e editais em PDF, com a mesma nitidez do original. As marcações ficam guardadas e voltam quando você abre o mesmo PDF de novo. <a href="#mtw-pdf">Ver como funciona →</a></li>
+            <li><b>Backup das marcações:</b> baixe uma cópia de segurança de tudo com um clique e restaure em outro computador ou navegador.</li>
+            <li>Grifos e anotações acompanham a lei quando o site é atualizado e aparecem mesmo que a lei seja aberta por outro endereço.</li>
+          </ul>
         </div>
         <span class="m-label">Extensão para Chrome e Firefox · Optimus Aprendizado</span>
         <h1>Marca-texto <span class="m-hl">Web</span></h1>
-        <p class="m-lead">Grife qualquer site e seus PDFs como você grifa no papel e leve seus grifos organizados para onde você estuda.</p>
+        <p class="m-lead">Grife qualquer site e seus PDFs como você grifa no papel — e leve seus grifos organizados para onde você estuda.</p>
         <div class="m-actions">
           <a class="m-btn m-green" href="https://chromewebstore.google.com/detail/marca-texto-web/fdcjcaonndmhomapbncnaeglaoingboj">Testar grátis no Chrome</a>
           <a class="m-btn m-green" href="https://addons.mozilla.org/pt-BR/firefox/addon/marca-texto-web/">Testar grátis no Firefox</a>
           <a class="m-btn m-ghost" href="#mtw-preco">Ver preços</a>
-          <small>7 dias de teste, com tudo liberado</small>
+          <small>7 dias de teste grátis, com tudo liberado, sem cadastro e sem cartão</small>
         </div>
       </div>
 
@@ -831,7 +836,7 @@ footer .wrap>a:hover{color:var(--ink)}
           <img src="img/mtw-margens.webp" alt="Painel de margem com as opções Estreita, Normal e Larga" width="1280" height="800" aria-hidden="true" loading="lazy">
           <label for="mtw-gzoom" class="m-gzhit"><span class="m-zhint"><span class="m-zin">Clique para ampliar</span><span class="m-zout">Fechar</span></span></label>
         </div>
-        <p class="m-caption"><span>8 cores, sublinhado, círculo, colchetes, “Revisar” e post-its do STF e STJ. Tudo fica salvo na página.</span><span>Livros, títulos, capítulos e artigos ao lado do texto, e um “você está em” que acompanha a leitura.</span><span>Busque pelo número (1.238, 44-A) ou por palavra (promessa de fato) e vá direto ao dispositivo.</span><span>Estreita, Normal ou Larga. A mesma margem vale na hora de imprimir em A4.</span></p>
+        <p class="m-caption"><span>8 cores, sublinhado, círculo, colchetes, “Revisar” e post-its do STF e STJ. Tudo fica salvo na página.</span><span>Livros, títulos, capítulos e artigos ao lado do texto, e um “você está em” que acompanha a leitura.</span><span>Busque pelo número (1.238, 44-A) ou por palavra (promessa de fato) e vá direto ao dispositivo.</span><span>Margem de leitura ajustável, em 4 opções. A mesma margem vale na hora de imprimir em A4.</span></p>
       </div>
     </div>
   </div>
@@ -840,9 +845,9 @@ footer .wrap>a:hover{color:var(--ink)}
   <section style="padding-top:0">
     <div class="m-wrap">
       <div class="m-sec-head">
-        <span class="m-label">A barrinha</span>
-        <h2>Selecione um trecho e tudo aparece ali mesmo.</h2>
-        <p>Em qualquer página, a barrinha surge junto do texto selecionado. Você escolhe quais 4 cores ficam nela; as outras ficam a um clique.</p>
+        <span class="m-label">Como funciona</span>
+        <h2>Selecione um trecho e uma barrinha aparece ali mesmo.</h2>
+        <p>Em qualquer página, a barrinha surge junto do texto selecionado. Você escolhe quais 4 cores ficam na barrinha, e o post-it aumenta ou diminui do tamanho que você precisar: é só puxar o canto.</p>
       </div>
       <div class="m-tools">
         <div class="m-tool">
@@ -853,16 +858,16 @@ footer .wrap>a:hover{color:var(--ink)}
           <p>Laranja, amarelo, azul claro, verde claro, cinza, rosa, vermelho e roxo.</p>
         </div>
         <div class="m-tool">
-          <h3>Sublinhado e tachado</h3>
+          <h3>Sublinhado e tachado em 3 cores</h3>
           <p class="m-demo"><span class="m-u-b">preto</span> · <span class="m-u-u">azul</span> · <span class="m-u-r">vermelho</span><br><span class="m-s-b">preto</span> · <span class="m-s-u">azul</span> · <span class="m-s-r">vermelho</span></p>
         </div>
         <div class="m-tool">
-          <h3>Colchetes, círculo e retângulo</h3>
+          <h3>Colchetes, parênteses, círculo e retângulo</h3>
           <p class="m-demo">[ trecho ] · ( trecho ) · <span class="m-circ">termo</span> · <span class="m-rect">expressão</span></p>
         </div>
         <div class="m-tool">
           <h3>Post-it</h3>
-          <div class="m-postit">Uma nota amarela ancorada no trecho, sem alterar o texto do site.</div>
+          <div class="m-postit">Uma nota ancorada no trecho, sem alterar o texto.</div>
         </div>
         <div class="m-tool">
           <h3>Post-it para julgados</h3>
@@ -871,7 +876,7 @@ footer .wrap>a:hover{color:var(--ink)}
         </div>
         <div class="m-tool">
           <h3>Revisar</h3>
-          <p>Sinaliza o parágrafo inteiro para estudar depois.</p>
+          <p>Sinaliza o parágrafo inteiro para estudar depois (em sites).</p>
         </div>
       </div>
       <p class="m-note">As marcações reaparecem quando você abrir a mesma página de novo.</p>
@@ -934,17 +939,18 @@ footer .wrap>a:hover{color:var(--ink)}
   <section style="padding-top:0">
     <div class="m-wrap">
       <div class="m-sec-head">
-        <span class="m-label">Leis e atos normativos</span>
+        <span class="m-label">Leis e atos normativos com sumário</span>
         <h2>Lei seca com sumário, busca e margem.</h2>
-        <p>Nas leis do planalto.gov.br e em outros sites cujo conteúdo seja ato normativo (leis, decretos, resoluções, portarias, provimentos), uma aba discreta na lateral esquerda abre:</p>
+        <p>Nas leis do planalto.gov.br e em outros sites de legislação, uma aba discreta na lateral esquerda abre:</p>
       </div>
       <div class="m-split">
         <ul class="m-list">
-          <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Sumário navegável.</b> <span>Partes, Livros, Títulos, Capítulos, Seções e artigos; clique e vá direto ao dispositivo.</span></div></li>
-          <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Busca</b> <span>pelo número do artigo (1.228, 44-A) ou por palavra (usucapião).</span></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Sumário navegável da lei:</b> <span>clique e vá direto ao artigo.</span></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Busca</b> <span>pelo número do artigo ou por palavra.</span></div></li>
           <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>“Você está em…”</b> <span>mostra o artigo e o capítulo que você está lendo.</span></div></li>
           <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Dispositivos revogados escondidos,</b> <span>com opção de mostrar.</span></div></li>
-          <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Margem de leitura:</b> <span>Estreita, Normal ou Larga.</span></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Margem de leitura ajustável,</b> <span>em 4 opções.</span></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Sumário com largura ajustável:</b> <span>é só arrastar a borda.</span></div></li>
           <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Impressão em A4,</b> <span>com os grifos coloridos.</span></div></li>
         </ul>
         <div class="m-shot"><img src="img/mtw-sumario.webp" alt="Sumário da Lei 10.406 aberto ao lado do texto, com o artigo 1.240 em destaque" width="1280" height="800" loading="lazy"></div>
@@ -963,8 +969,8 @@ footer .wrap>a:hover{color:var(--ink)}
       <div class="m-export-grid">
         <div>
           <div class="m-export-copy">
-            <p>Um clique em “Exportar tudo” recolhe todo parágrafo que tenha alguma marcação e guarda numa pasta que você nomeia na hora. A pasta vira uma folha A4: os parágrafos na ordem em que aparecem no site, agrupados pela lei ou página de origem, com cada destaque preservado do jeito que você marcou. Exportar a mesma página de novo não duplica nada.</p>
-            <p>Escolha a margem (Estreita, Normal ou Larga) e imprima ou salve em PDF. Os grifos saem coloridos e as notas do STF/STJ, em destaque.</p>
+            <p>Um clique em “Exportar tudo” recolhe todo parágrafo que tenha alguma marcação e guarda numa pasta que você nomeia na hora: por matéria, por lei, como fizer sentido para você. A pasta vira uma folha A4 só sua: os parágrafos na ordem em que aparecem, agrupados pela lei, página ou PDF de origem, com cada destaque preservado do jeito que você marcou. Exportar a mesma página de novo atualiza o que mudou, sem duplicar nada.</p>
+            <p>Escolha a margem e imprima ou salve em PDF: os grifos saem coloridos.</p>
           </div>
           <div class="m-export-notes">
             <span>Também dá para exportar só o que você marcou com “Revisar”, ou tudo sem os post-its.</span>
@@ -985,16 +991,15 @@ footer .wrap>a:hover{color:var(--ink)}
   <section>
     <div class="m-wrap">
       <div class="m-sec-head">
-        <span class="m-label">Onde ficam as suas marcações</span>
+        <span class="m-label">Privacidade: onde ficam as suas marcações</span>
         <h2>No seu navegador, e em nenhum outro lugar.</h2>
       </div>
       <div class="m-privacy">
         <svg viewBox="0 0 56 56" fill="none" aria-hidden="true"><path d="M28 5 9 12v14c0 12 8 21 19 25 11-4 19-13 19-25V12z" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M20 28.5l5.5 5.5L37 22.5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <div class="m-privacy-body">
-          <p><strong>Seus grifos e anotações ficam guardados somente no seu navegador.</strong> Não vão para nenhum servidor ou nuvem, e ninguém além de você tem acesso a eles, nem nós.</p>
-          <p><strong>Atenção:</strong> desinstalar a extensão apaga as marcações deste navegador — faça o backup antes. Elas também não aparecem sozinhas em outro computador: para levá-las, use o backup, logo abaixo.</p>
-          <p>O teste grátis começa com um clique, sem cadastro. Para assinar, você informa seu e-mail e paga pela Stone, com Pix ou cartão; os dados do cartão nunca passam pela Anivom. Guardamos só o e-mail e a validade do plano, para liberar a extensão.</p>
-        </div>
+          <p><strong>Tudo fica salvo no seu próprio navegador, neste computador.</strong> Nada é enviado para servidor nenhum ou nuvem: nem os trechos que você grifa, nem o que você escreve nas notas, nem os seus PDFs. Ninguém além de você tem acesso a eles, nem nós.</p>
+          <p>Para não perder nada, use o <strong>backup</strong>: baixe um arquivo com todas as suas marcações, post-its e pastas e guarde onde preferir. Para trocar de computador, formatar ou mudar de navegador, é só restaurar o arquivo: as marcações são somadas às que já existem, sem apagar nem duplicar nada. <strong>Atenção:</strong> desinstalar a extensão apaga as marcações deste navegador — faça o backup antes.</p>
+                  </div>
       </div>
     </div>
   </section>
@@ -1021,7 +1026,7 @@ footer .wrap>a:hover{color:var(--ink)}
       <div class="m-sec-head">
         <span class="m-label">Preço</span>
         <h2>7 dias de teste grátis, com tudo liberado.</h2>
-        <p>Depois, escolha o plano:</p>
+        <p>Sem cadastro. Depois, escolha o plano:</p>
       </div>
       <div class="m-prices">
         <div class="m-price">
@@ -1036,9 +1041,9 @@ footer .wrap>a:hover{color:var(--ink)}
           <div class="m-offer">
             <span class="m-offer-tag">Oferta do teste grátis</span>
             <div class="m-offer-amount"><span>R$ 59,90</span> <small>/ ano</small></div>
-            <p>Assinando pela extensão durante os 7 dias de teste. E as renovações continuam por R$ 59,90.</p>
+            <p>Assinando o anual durante os 7 dias de teste. As renovações anuais desse plano também saem por R$ 59,90.</p>
           </div>
-          <div class="m-amount">R$ 89,90 <small>/ ano</small></div>
+          <div class="m-amount">R$ 89,90 <small>/ 12 meses</small></div>
           <p>Preço normal: sai a R$ 7,49 por mês.</p>
           <a class="m-btn m-green" href="https://payment-link-v3.stone.com.br/pl_BE6pWvaQlb7Rb25uxDhqRe2ZMoqj0NKV" target="_blank" rel="noopener">Assinar o anual</a>
         </div>
@@ -1046,10 +1051,11 @@ footer .wrap>a:hover{color:var(--ink)}
       <div class="m-trial">
         <a class="m-btn m-green" href="https://chromewebstore.google.com/detail/marca-texto-web/fdcjcaonndmhomapbncnaeglaoingboj">Começar no Chrome</a>
         <a class="m-btn m-green" href="https://addons.mozilla.org/pt-BR/firefox/addon/marca-texto-web/">Começar no Firefox</a>
-        <p>Pix ou cartão, pela Stone. <strong>Não renova sozinho</strong>: perto do fim, a extensão avisa, e renovar antes de vencer soma os dias que faltavam. Remover marcações nunca é bloqueado, mesmo depois do teste acabar.</p>
+        <p>Nos demais casos, o anual e as renovações seguem o preço normal, salvo promoções de parceiros. Pagamento por Pix ou cartão, pela Stone. <strong>Não há renovação automática nem cobrança surpresa</strong>: perto do fim do plano a extensão avisa, e renovar antes de vencer soma os dias que faltavam. Remover marcações nunca é bloqueado, mesmo sem plano ativo.</p>
       </div>
+      <p class="m-note">O teste grátis começa com um clique, sem e-mail e sem cadastro: para ele, guardamos só um número aleatório da instalação e a data de início do teste. O e-mail só é pedido de quem assina: você informa o e-mail e paga pela Stone, e guardamos o e-mail e a validade do plano para liberar a extensão. Os dados de pagamento ficam com a Stone e nunca passam pela Anivom. Nada disso inclui o conteúdo das suas marcações. O Marca-texto Web é vendido pela Anivom Tecnologia (Optimus Aprendizado), não pelo Google.</p>
       <div class="m-paybox">
-        <span class="m-label">Pagou pelo site, pelo Instagram ou pelo celular?</span>
+        <span class="m-label">Pagou pelo celular ou pelo link de um parceiro?</span>
         <ol>
           <li>Instale a extensão no Chrome ou no Firefox do computador.</li>
           <li>Clique no ícone do Marca-texto Web e em <strong>“já paguei”</strong>.</li>
@@ -1067,7 +1073,7 @@ footer .wrap>a:hover{color:var(--ink)}
         <div><span class="m-label">Precisa de ajuda?</span><p>Dúvidas, problemas ou pedidos sobre a extensão, a assinatura ou os seus dados? É só escrever para o nosso e-mail.</p></div>
         <a class="m-btn m-ghost" href="mailto:marcatextoweb@optimusaprendizado.com">marcatextoweb@optimusaprendizado.com</a>
       </div><!--/HELP-->
-      <p class="m-disclaimer">O Marca-texto Web é uma ferramenta independente, sem vínculo com o Planalto, a Presidência da República ou os tribunais. Ele não altera o texto das leis: as marcações aparecem só para você.</p>
+      <p class="m-disclaimer">O Marca-texto Web é uma ferramenta independente, sem vínculo com o Planalto, a Presidência da República ou os tribunais. Ele não altera o texto das leis nem dos PDFs: as marcações aparecem só para você.</p>
     </div>
   </section>
 </main>
