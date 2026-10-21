@@ -177,7 +177,7 @@ radios=''.join(f'<input type="radio" name="mtwg" id="mtwg{i}" class="m-gr"'+(' c
 body=re.sub(r'<div class="m-tabs"[^>]*>.*?</div>','<div class="m-tabs" aria-label="Telas do Marca-texto Web">'+''.join(f'<label for="mtwg{i}" class="m-gt">{t}</label>' for i,t in enumerate(tabs))+'</div>',body,count=1,flags=re.S)
 body=body.replace('<div class="m-gallery">','<div class="m-gallery">'+radios,1)
 body=re.sub(r' aria-hidden="true"( width="1280" height="800")',r'\1',body)
-CAPS=['8 cores, sublinhado, círculo, colchetes, “Revisar” e post-its do STF e STJ. Tudo fica salvo na página.','Livros, títulos, capítulos e artigos ao lado do texto, e um “você está em” que acompanha a leitura.','Busque pelo número (1.238, 44-A) ou por palavra (promessa de fato) e vá direto ao dispositivo.','Margem de leitura ajustável, em 4 opções. A mesma margem vale na hora de imprimir em A4.']
+CAPS=['8 cores, sublinhado, círculo, colchetes, “Revisar” e post-its do STF e STJ. Tudo fica salvo na página.','Livros, títulos, capítulos e artigos ao lado do texto, e um “você está em” que acompanha a leitura.','Busque pelo número (1.238, 44-A) ou por palavra (promessa de fato) e vá direto ao dispositivo.','Estreita, Normal, Larga ou Extra larga. A mesma margem vale na hora de imprimir em A4.']
 body=re.sub(r'<p class="m-caption"[^>]*>.*?</p>','<p class="m-caption">'+''.join(f'<span>{c}</span>' for c in CAPS)+'</p>',body,count=1,flags=re.S)
 body=re.sub(r'<div class="m-frame"[^>]*>','<div class="m-frame">',body,count=1)
 

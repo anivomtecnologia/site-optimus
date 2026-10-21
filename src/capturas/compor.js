@@ -4,7 +4,7 @@ const path = require('path');
 const TELAS = {
   sumario: { titulo: 'Sumário navegável <mark>nas leis do Planalto</mark>', sub: 'Livros, títulos, capítulos e artigos ao lado do texto — e um “você está em” que acompanha a leitura.' },
   busca:   { titulo: 'Ache qualquer artigo <mark>em segundos</mark>', sub: 'Busque pelo número (1.238, 44-A) ou por palavra (promessa de fato) e vá direto ao dispositivo.' },
-  margens: { titulo: 'Leia do seu jeito: <mark>3 margens</mark>', sub: 'Estreita, Normal ou Larga — e a mesma margem vale na hora de imprimir em A4.' },
+  margens: { titulo: 'Leia do seu jeito: <mark>4 margens</mark>', sub: 'Estreita, Normal, Larga ou Extra larga — e a mesma margem vale na hora de imprimir em A4.', url: 'planalto.gov.br/ccivil_03/_ato2004-2006/2004/lei/l11079.htm' },
 };
 const html = (t, img, cw, ch) => `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Instrument+Sans:wght@400..700&display=swap">
@@ -27,7 +27,7 @@ h1 mark{background:linear-gradient(transparent 52%,#FDE27D 52%,#FDE27D 94%,trans
 <h1>${t.titulo}</h1><div class="sub">${t.sub}</div>
 <div class="logo"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><clipPath id="cp"><rect x="3.4" y="3.4" width="17.2" height="17.2" rx="5.2"/></clipPath></defs><g transform="rotate(-14 12 12)"><g clip-path="url(#cp)"><rect x="3.4" y="3.4" width="17.2" height="17.2" fill="#FFB74D"/><polygon points="3.4,3.4 20.6,3.4 3.4,20.6" fill="#FFE066"/></g></g></svg>Marca-texto Web</div>
 <div class="win"><div class="bar"><span class="dot" style="background:#FA5E57"></span><span class="dot" style="background:#FBB42A"></span><span class="dot" style="background:#25C239"></span>
-<div class="url"><svg viewBox="0 0 10 11" fill="#6B6B6B"><path d="M5 0a2.6 2.6 0 0 0-2.6 2.6V4H1.6C1 4 .5 4.5.5 5.1v4.3c0 .6.5 1.1 1.1 1.1h6.8c.6 0 1.1-.5 1.1-1.1V5.1C9.5 4.5 9 4 8.4 4h-.8V2.6A2.6 2.6 0 0 0 5 0zm-1.4 4V2.6a1.4 1.4 0 0 1 2.8 0V4H3.6z"/></svg>planalto.gov.br/ccivil_03/leis/2002/l10406compilada.htm</div></div>
+<div class="url"><svg viewBox="0 0 10 11" fill="#6B6B6B"><path d="M5 0a2.6 2.6 0 0 0-2.6 2.6V4H1.6C1 4 .5 4.5.5 5.1v4.3c0 .6.5 1.1 1.1 1.1h6.8c.6 0 1.1-.5 1.1-1.1V5.1C9.5 4.5 9 4 8.4 4h-.8V2.6A2.6 2.6 0 0 0 5 0zm-1.4 4V2.6a1.4 1.4 0 0 1 2.8 0V4H3.6z"/></svg>${t.url||'planalto.gov.br/ccivil_03/leis/2002/l10406compilada.htm'}</div></div>
 <img class="shot" src="${img}" alt=""></div>
 </body></html>`;
 
