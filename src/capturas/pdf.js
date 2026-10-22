@@ -1,5 +1,5 @@
 // Monta img/mtw-pdf.webp (2560x1600): como abrir um PDF no Marca-texto Web.
-// Usa as capturas pdf-popup.png (menu da extensão; e-mail desfocado) e pdf-pagina.png (tela "Grife seus PDFs", sem a barra do Chrome, recortada no centro: x 250–1550, y 46–806 da captura de 1691x989).
+// Usa as capturas pdf-popup.png (menu da extensão; no e-mail, o "an" foi trocado: fica só ***@gmail.com) e pdf-pagina.png (tela "Grife seus PDFs", sem a barra do Chrome, recortada no centro: x 250–1550, y 46–806 da captura de 1691x989).
 // A janela de escolher arquivo é desenhada aqui (genérica, sem pastas reais do usuário).
 // Uso (na raiz):  NODE_PATH=$(npm root -g) node src/capturas/pdf.js && python3 -c "from PIL import Image; Image.open('/tmp/mtw-pdf.png').convert('RGB').save('img/mtw-pdf.webp','WEBP',quality=85,method=6)"
 const { chromium } = require('playwright');
