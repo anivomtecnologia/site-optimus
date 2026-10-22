@@ -73,14 +73,29 @@ details.inst[open] summary svg{transform:rotate(180deg)}
 .hero .actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:6px}
 .hero .actions small{color:var(--muted);font-size:14px}
 
-.news{display:grid;gap:8px;max-width:62ch;margin-bottom:8px;padding:18px 22px 18px 26px;border-radius:20px;background:var(--surface);border:1px solid var(--line);box-shadow:inset 6px 0 0 var(--green),var(--shadow)}
-.news .label{color:var(--ink)}
-.news h2{font-size:clamp(24px,3vw,32px)}
-.news p{color:var(--muted);font-size:16px}
-.news a{font-weight:600;color:var(--accent);text-decoration:none;white-space:nowrap}
-.news-list{margin:0;padding-left:20px;display:grid;gap:8px;color:var(--muted);font-size:16px}
-.news-list b{color:var(--ink);font-weight:600}
-.news a:hover{text-decoration:underline}
+.news{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:4px}
+.news-tag{font:600 11px var(--f-mono);letter-spacing:.12em;text-transform:uppercase;background:var(--green);color:var(--green-ink);padding:5px 10px;border-radius:999px}
+.news a{font:500 14px var(--f-body);color:var(--ink);text-decoration:none;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface)}
+.news a::after{content:" →";color:var(--muted)}
+.news a:hover{border-color:var(--ink)}
+.toc{position:sticky;top:61px;z-index:15;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-block:1px solid var(--line)}
+.toc .wrap{display:flex;gap:6px;overflow-x:auto;padding-block:10px;scrollbar-width:none}
+.toc .wrap::-webkit-scrollbar{display:none}
+.toc a{flex:none;font:500 14px var(--f-body);color:var(--muted);text-decoration:none;padding:6px 12px;border-radius:999px}
+.toc a:hover{color:var(--ink);background:var(--surface)}
+section[id]{scroll-margin-top:120px}
+@media (max-width:620px){.toc{top:73px}section[id]{scroll-margin-top:140px}}
+.pb{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,48px);align-items:start;margin-top:36px}
+.pb .privacy{margin-top:0}
+.pb .list{margin-top:0}
+.pb h3{font-size:22px;margin-bottom:12px}
+@media (max-width:900px){.pb{grid-template-columns:1fr}}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:28px}
+.fact{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:20px 22px;display:grid;gap:8px;align-content:start}
+.fact h3{font-size:18px}
+.fact p{color:var(--muted);font-size:15px}
+.fact strong{color:var(--ink)}
+@media (max-width:900px){.facts{grid-template-columns:1fr}}
 .como{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:clamp(22px,3vw,32px);display:grid;gap:14px}
 .como h3{font-size:24px}
 .como ol{margin:0;padding-left:22px;display:grid;gap:12px;color:var(--muted)}
@@ -264,15 +279,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   <div class="hero">
     <div class="wrap">
       <div class="hero-top">
-        <div class="news">
-          <span class="label">Novidades</span>
-          <ul class="news-list">
-            <li><b>Teste grátis de 7 dias:</b> tudo liberado, com um clique, sem cadastro e sem cartão.</li>
-            <li><b>Agora também em PDF:</b> grife, sublinhe, circule e cole post-its direto nas suas apostilas, informativos e editais em PDF, com a mesma nitidez do original. As marcações ficam guardadas e voltam quando você abre o mesmo PDF de novo. <a href="#pdf">Ver como funciona →</a></li>
-            <li><b>Backup das marcações:</b> baixe uma cópia de segurança de tudo com um clique e restaure em outro computador ou navegador.</li>
-            <li>Grifos e anotações acompanham a lei quando o site é atualizado e aparecem mesmo que a lei seja aberta por outro endereço.</li>
-          </ul>
-        </div>
         <span class="label">Extensão para Chrome e Firefox · Optimus Aprendizado</span>
         <h1>Marca-texto <span class="hl">Web</span></h1>
         <p class="lead">Grife qualquer site e seus PDFs como você grifa no papel — e leve seus grifos organizados para onde você estuda.</p>
@@ -281,6 +287,13 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           <a class="btn green" href="https://addons.mozilla.org/pt-BR/firefox/addon/marca-texto-web/">Testar grátis no Firefox</a>
           <a class="btn ghost" href="#preco">Ver preços</a>
           <small>7 dias de teste grátis, com tudo liberado, sem cadastro e sem cartão</small>
+        </div>
+        <div class="news" aria-label="Novidades">
+          <span class="news-tag">Novidades</span>
+          <a href="#pdf">Agora também em PDF</a>
+          <a href="#backup">Backup das marcações</a>
+          <a href="#leis">Grifos que acompanham a lei</a>
+          <a href="#preco">Teste grátis de 7 dias</a>
         </div>
       </div>
 
@@ -304,8 +317,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     </div>
   </div>
 
+  <nav class="toc" aria-label="Nesta página"><div class="wrap">
+    <a href="#como">Como funciona</a><a href="#pdf">PDF</a><a href="#julgados">Julgados</a><a href="#leis">Leis e sumário</a><a href="#pastas">Pastas e A4</a><a href="#backup">Privacidade e backup</a><a href="#preco">Preço</a>
+  </div></nav>
+
   <!-- FERRAMENTAS -->
-  <section style="padding-top:0">
+  <section id="como">
     <div class="wrap">
       <div class="sec-head">
         <span class="label">Como funciona</span>
@@ -372,7 +389,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   </section>
 
   <!-- JULGADOS -->
-  <section style="padding-top:0">
+  <section id="julgados" style="padding-top:0">
     <div class="wrap">
       <div class="sec-head">
         <span class="label">Post-its de julgados</span>
@@ -401,7 +418,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   </section>
 
   <!-- PLANALTO -->
-  <section style="padding-top:0">
+  <section id="leis" style="padding-top:0">
     <div class="wrap">
       <div class="sec-head">
         <span class="label">Leis e atos normativos com sumário</span>
@@ -425,7 +442,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   </section>
 
   <!-- EXPORTAR -->
-  <section class="export">
+  <section id="pastas" class="export">
     <div class="wrap">
       <div class="sec-head">
         <span class="label">Exporte e organize em pastas</span>
@@ -452,36 +469,31 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     </div>
   </section>
 
-  <!-- PRIVACIDADE -->
-  <section>
+  <!-- PRIVACIDADE E BACKUP -->
+  <section id="backup">
     <div class="wrap">
       <div class="sec-head">
-        <span class="label">Privacidade: onde ficam as suas marcações</span>
-        <h2>No seu navegador, e em nenhum outro lugar.</h2>
+        <span class="label">Privacidade e backup</span>
+        <h2>No seu navegador, com cópia de segurança a um clique.</h2>
       </div>
-      <div class="privacy">
-        <svg viewBox="0 0 56 56" fill="none" aria-hidden="true"><path d="M28 5 9 12v14c0 12 8 21 19 25 11-4 19-13 19-25V12z" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M20 28.5l5.5 5.5L37 22.5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <div class="privacy-body">
-          <p><strong>Tudo fica salvo no seu próprio navegador, neste computador.</strong> Nada é enviado para servidor nenhum ou nuvem: nem os trechos que você grifa, nem o que você escreve nas notas, nem os seus PDFs. Ninguém além de você tem acesso a eles, nem nós.</p>
-          <p>Para não perder nada, use o <strong>backup</strong>: baixe um arquivo com todas as suas marcações, post-its e pastas e guarde onde preferir. Para trocar de computador, formatar ou mudar de navegador, é só restaurar o arquivo: as marcações são somadas às que já existem, sem apagar nem duplicar nada. <strong>Atenção:</strong> desinstalar a extensão apaga as marcações deste navegador — faça o backup antes.</p>
-                  </div>
+      <div class="pb">
+        <div class="privacy">
+          <svg viewBox="0 0 56 56" fill="none" aria-hidden="true"><path d="M28 5 9 12v14c0 12 8 21 19 25 11-4 19-13 19-25V12z" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M20 28.5l5.5 5.5L37 22.5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="privacy-body">
+            <p><strong>Tudo fica salvo no seu próprio navegador, neste computador.</strong> Nada é enviado para servidor nenhum ou nuvem: nem os trechos que você grifa, nem o que você escreve nas notas, nem os seus PDFs. Ninguém além de você tem acesso a eles, nem nós.</p>
+            <p><strong>Atenção:</strong> desinstalar a extensão apaga as marcações deste navegador — faça o backup antes.</p>
+          </div>
+        </div>
+        <div>
+          <h3>Backup das marcações</h3>
+          <p class="note" style="margin:0 0 14px">Com um clique, baixe uma cópia de segurança com todas as suas marcações, post-its e pastas e guarde onde preferir (pendrive, Google Drive, e-mail, computador).</p>
+          <ul class="list">
+            <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>O arquivo fica com você.</b> <span>Ele é gerado no seu computador e não passa por nós nem por servidor nenhum.</span></div></li>
+            <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Troque de computador, formate ou mude de navegador.</b> <span>Do Chrome para o Firefox, ou o contrário: é só restaurar o arquivo.</span></div></li>
+            <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Restaurar não bagunça nada.</b> <span>As marcações do arquivo são somadas às que já existem, sem apagar nem duplicar nada.</span></div></li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </section>
-
-  <!-- BACKUP -->
-  <section style="padding-top:0">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="label">Backup das marcações</span>
-        <h2>Uma cópia de segurança, com um clique.</h2>
-        <p>Com um clique, baixe uma cópia de segurança com todas as suas marcações, post-its e pastas e guarde onde preferir (pendrive, Google Drive, e-mail, computador).</p>
-      </div>
-      <ul class="list" style="max-width:760px;margin-top:32px">
-        <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>O arquivo fica com você.</b> <span>Ele é gerado no seu computador e não passa por nós nem por servidor nenhum.</span></div></li>
-        <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Troque de computador, formate ou mude de navegador.</b> <span>Do Chrome para o Firefox, ou o contrário: é só restaurar o arquivo.</span></div></li>
-        <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Restaurar não bagunça nada.</b> <span>As marcações do arquivo são somadas às que já existem, sem apagar nem duplicar nada.</span></div></li>
-      </ul>
     </div>
   </section>
 
@@ -516,9 +528,13 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <div class="trial">
         <a class="btn green" href="https://chromewebstore.google.com/detail/marca-texto-web/fdcjcaonndmhomapbncnaeglaoingboj">Começar no Chrome</a>
         <a class="btn green" href="https://addons.mozilla.org/pt-BR/firefox/addon/marca-texto-web/">Começar no Firefox</a>
-        <p>Nos demais casos, o anual e as renovações seguem o preço normal, salvo promoções de parceiros. Pagamento por Pix ou cartão, pela Stone. <strong>Não há renovação automática nem cobrança surpresa</strong>: perto do fim do plano a extensão avisa, e renovar antes de vencer soma os dias que faltavam. Remover marcações nunca é bloqueado, mesmo sem plano ativo.</p>
+        <small style="color:var(--muted);font-size:14px">7 dias grátis, sem cadastro e sem cartão</small>
       </div>
-      <p class="note">O teste grátis começa com um clique, sem e-mail e sem cadastro: para ele, guardamos só um número aleatório da instalação e a data de início do teste. O e-mail só é pedido de quem assina: você informa o e-mail e paga pela Stone, e guardamos o e-mail e a validade do plano para liberar a extensão. Os dados de pagamento ficam com a Stone e nunca passam pela Anivom. Nada disso inclui o conteúdo das suas marcações.</p>
+      <div class="facts">
+        <div class="fact"><h3>Pagamento</h3><p>Pagamento por Pix ou cartão, pela Stone. <strong>Não há renovação automática nem cobrança surpresa</strong>: perto do fim do plano a extensão avisa, e renovar antes de vencer soma os dias que faltavam.</p></div>
+        <div class="fact"><h3>Preços e renovação</h3><p>Nos demais casos, o anual e as renovações seguem o preço normal, salvo promoções de parceiros. Remover marcações nunca é bloqueado, mesmo sem plano ativo.</p></div>
+        <div class="fact"><h3>Seus dados</h3><p>O teste grátis começa com um clique, sem e-mail e sem cadastro: para ele, guardamos só um número aleatório da instalação e a data de início do teste. O e-mail só é pedido de quem assina: você informa o e-mail e paga pela Stone, e guardamos o e-mail e a validade do plano para liberar a extensão. Os dados de pagamento ficam com a Stone e nunca passam pela Anivom. Nada disso inclui o conteúdo das suas marcações.</p></div>
+      </div>
       <div class="paybox">
         <span class="label">Pagou pelo celular ou pelo link de um parceiro?</span>
         <ol>
