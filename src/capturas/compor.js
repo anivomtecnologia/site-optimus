@@ -5,6 +5,7 @@ const TELAS = {
   sumario: { titulo: 'Sumário navegável <mark>nas leis do Planalto</mark>', sub: 'Livros, títulos, capítulos e artigos ao lado do texto — e um “você está em” que acompanha a leitura.' },
   busca:   { titulo: 'Ache qualquer artigo <mark>em segundos</mark>', sub: 'Busque pelo número (1.238, 44-A) ou por palavra (promessa de fato) e vá direto ao dispositivo.' },
   margens: { titulo: 'Leia do seu jeito: <mark>4 margens</mark>', sub: 'Estreita, Normal, Larga ou Extra larga — e a mesma margem vale na hora de imprimir em A4.', url: 'planalto.gov.br/ccivil_03/_ato2004-2006/2004/lei/l11079.htm' },
+  pdfuso:  { titulo: 'Grife seus PDFs <mark>com a nitidez do original</mark>', sub: 'Marca-texto, sublinhado e post-its no PDF, com zoom e busca no arquivo inteiro.', url: 'Marca-texto PDF · agencias-reguladoras.pdf' },
 };
 const html = (t, img, cw, ch) => `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Instrument+Sans:wght@400..700&display=swap">

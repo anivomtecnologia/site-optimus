@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """Gera as imagens da galeria do Marca-texto Web: img/mtw-sumario.webp, mtw-busca.webp e
-mtw-margens.webp (2560x1600), a partir das capturas de tela originais desta pasta.
+mtw-margens.webp e mtw-pdfuso.webp (2560x1600), a partir das capturas de tela originais desta pasta.
 
 Uso (na raiz do repositório):  python3 src/capturas/gerar.py
 
-Para trocar uma imagem: salve a nova captura aqui com o mesmo nome (sumario.png, busca.png ou
-margens.png; quanto maior a captura, mais nítida a imagem) e rode o comando. Depois rode
+Para trocar uma imagem: salve a nova captura aqui com o mesmo nome (sumario.png, busca.png,
+margens.png ou pdfuso.png; quanto maior a captura, mais nítida a imagem) e rode o comando. Depois rode
 python3 src/build.py e python3 src/check.py como sempre.
 
 Título, subtítulo, logo e moldura do navegador vêm do modelo em compor.js (texto de verdade,
@@ -19,7 +19,7 @@ from PIL import Image, ImageFilter
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
 RAIZ = os.path.dirname(os.path.dirname(AQUI))
-NOMES = ['sumario', 'busca', 'margens']
+NOMES = ['sumario', 'busca', 'margens', 'pdfuso']
 # faixa (em px da captura original) tirada do fundo: a captura do sumário termina no meio da linha
 # "2.083 artigos · 782 divisões", com o texto cortado ao meio; sem essa faixa o painel termina limpo.
 # Se refizer a captura um pouco mais alta (mostrando o rodapé inteiro), zere este valor.

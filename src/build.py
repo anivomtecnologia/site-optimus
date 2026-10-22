@@ -100,7 +100,7 @@ def uri(name):
     return 'data:image/webp;base64,'+base64.b64encode(open(os.path.join(ROOT,'img',name),'rb').read()).decode()
 # As capturas grandes da galeria ficam como arquivos em img/ (loading=lazy: só baixam quando precisam)
 # em vez de embutidas em base64; senão o index.html passa de 4 MB. As imagens pequenas continuam embutidas.
-SOLTAS={'mtw-grifos.webp','mtw-sumario.webp','mtw-busca.webp','mtw-margens.webp','mtw-pdf.webp'}
+SOLTAS={'mtw-grifos.webp','mtw-sumario.webp','mtw-busca.webp','mtw-margens.webp','mtw-pdf.webp','mtw-pdfuso.webp'}
 def inline_imgs(t):
     def tag(m):
         im=m.group(0); n=re.search(r'src="img/([\w-]+\.webp)"',im)
