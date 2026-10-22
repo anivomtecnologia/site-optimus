@@ -1,5 +1,5 @@
 // Monta img/mtw-pdf.webp (2560x1600): como abrir um PDF no Marca-texto Web.
-// Usa as capturas pdf-popup.png (menu da extensão) e pdf-pagina.png (tela "Grife seus PDFs", sem a barra do Chrome, recortada no centro: x 250–1550, y 46–806 da captura de 1691x989).
+// Usa as capturas pdf-popup.png (menu da extensão; e-mail desfocado) e pdf-pagina.png (tela "Grife seus PDFs", sem a barra do Chrome, recortada no centro: x 250–1550, y 46–806 da captura de 1691x989).
 // A janela de escolher arquivo é desenhada aqui (genérica, sem pastas reais do usuário).
 // Uso (na raiz):  NODE_PATH=$(npm root -g) node src/capturas/pdf.js && python3 -c "from PIL import Image; Image.open('/tmp/mtw-pdf.png').convert('RGB').save('img/mtw-pdf.webp','WEBP',quality=85,method=6)"
 const { chromium } = require('playwright');
@@ -18,7 +18,7 @@ h1 mark{background:linear-gradient(transparent 52%,#FDE27D 52%,#FDE27D 94%,trans
 .sub{position:absolute;left:50px;top:72px;font:400 17.5px/1.3 'Instrument Sans';color:#4E5566;white-space:nowrap}
 .logo{position:absolute;right:50px;top:34px;display:flex;align-items:center;gap:9px;font:700 15.5px 'Bricolage Grotesque';letter-spacing:-.01em;color:#14213D}
 .logo svg{width:20px;height:20px;display:block}
-.pop{position:absolute;left:60px;top:140px;width:334px;border-radius:12px;overflow:hidden;border:1px solid #D2CEC8;box-shadow:0 24px 50px -24px rgba(70,50,0,.45)}
+.pop{position:absolute;left:80px;top:150px;width:300px;border-radius:12px;overflow:hidden;border:1px solid #D2CEC8;box-shadow:0 24px 50px -24px rgba(70,50,0,.45)}
 .pop img{display:block;width:100%}
 .win{position:absolute;left:440px;top:150px;width:790px;border-radius:14px;overflow:hidden;background:#fff;border:1px solid #D2CEC8;box-shadow:0 24px 50px -24px rgba(70,50,0,.35)}
 .bar{height:35px;background:#EDEDF0;display:flex;align-items:center;padding:0 14px;gap:7px;border-bottom:1px solid #DEDEE2}
@@ -41,8 +41,8 @@ h1 mark{background:linear-gradient(transparent 52%,#FDE27D 52%,#FDE27D 94%,trans
 <div class="sub">Ícone do Marca-texto → “Abrir PDF no Marca-texto” → escolha o arquivo no computador (ou arraste o PDF para a tela).</div>
 <div class="logo"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><clipPath id="cp"><rect x="3.4" y="3.4" width="17.2" height="17.2" rx="5.2"/></clipPath></defs><g transform="rotate(-14 12 12)"><g clip-path="url(#cp)"><rect x="3.4" y="3.4" width="17.2" height="17.2" fill="#FFB74D"/><polygon points="3.4,3.4 20.6,3.4 3.4,20.6" fill="#FFE066"/></g></g></svg>Marca-texto Web</div>
 <div class="pop"><img src="${uri('pdf-popup.png')}" alt=""></div>
-<div class="n" style="left:30px;top:${140 + 381 * 334 / 352 - 17}px">1</div>
-<svg class="cur" style="left:${60 + 200 * 334 / 352}px;top:${140 + 392 * 334 / 352}px" viewBox="0 0 16 24"><path d="M1 1v19l5-5 3.5 7.5 3-1.4L9 13.8h7z" fill="#111" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg>
+<div class="n" style="left:36px;top:${150 + 82 * 300 / 293 - 17}px">1</div>
+<svg class="cur" style="left:${80 + 215 * 300 / 293}px;top:${150 + 88 * 300 / 293}px" viewBox="0 0 16 24"><path d="M1 1v19l5-5 3.5 7.5 3-1.4L9 13.8h7z" fill="#111" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg>
 <div class="win"><div class="bar"><span class="dot" style="background:#FA5E57"></span><span class="dot" style="background:#FBB42A"></span><span class="dot" style="background:#25C239"></span><div class="url">Marca-texto Web · Grife seus PDFs</div></div>
 <img src="${uri('pdf-pagina.png')}" alt=""></div>
 <div class="n" id="n2">2</div>
