@@ -47,7 +47,7 @@ h1 mark{background:linear-gradient(transparent 52%,#FDE27D 52%,#FDE27D 94%,trans
 <img src="${uri('pdf-pagina.png')}" alt=""></div>
 <div class="n" id="n2">2</div>
 <div class="dlg"><div class="t">Abrir</div><div class="path">Documentos › Estudos</div>
-<ul><li>${pdfIco}Apostila de Direito.pdf</li><li class="sel">${pdfIco}Edital do concurso.pdf</li><li>${pdfIco}Informativo STJ.pdf</li></ul>
+<ul><li>${pdfIco}Apostila de Direito.pdf</li><li class="sel">${pdfIco}agencias-reguladoras.pdf</li><li>${pdfIco}Informativo STJ.pdf</li></ul>
 <div class="bt"><span class="b">Cancelar</span><span class="b p">Abrir</span></div></div>
 <div class="n" id="n3">3</div>
 </body></html>`;
