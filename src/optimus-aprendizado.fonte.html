@@ -251,6 +251,10 @@ section{padding-block:clamp(72px,10vw,136px)}
 .built-body{display:grid;gap:16px;padding:clamp(4px,1vw,12px)}
 .built-body h3{font-size:clamp(28px,3.2vw,40px)}
 .mtw-h3{display:flex;align-items:center;gap:12px}
+.gab-h3{font-family:Georgia,'Times New Roman',serif;font-weight:700;letter-spacing:-.01em}
+.gab-h3 i{color:#6E1A2B}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .gab-h3 i{color:#E9A3B1}}
+:root[data-theme="dark"] .gab-h3 i{color:#E9A3B1}
 .mtw-h3 .mtw-logo{width:1.25em;height:auto;flex:none;color:var(--ink)}
 .built-body p{color:var(--muted)}
 .pill{justify-self:start;font:500 12px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;background:color-mix(in srgb,var(--brand,var(--mark)) 40%,transparent);color:var(--ink);padding:6px 12px;border-radius:999px}
@@ -476,7 +480,7 @@ footer .wrap>a:hover{color:var(--ink)}
       <div class="sec-head rv">
         <span class="label">Nossas ferramentas</span>
         <h2>Uma ferramenta para cada área de estudo.</h2>
-        <p>Cada ferramenta da Optimus é pensada para uma área específica, com recursos feitos sob medida para quem estuda aquele conteúdo. A primeira já está disponível.</p>
+        <p>Cada ferramenta da Optimus é pensada para uma área específica, com recursos feitos sob medida para quem estuda aquele conteúdo. Duas já estão disponíveis.</p>
       </div>
       <article class="built rv" style="--brand:#F2C230">
         <div class="built-shot" id="shots">
@@ -495,6 +499,21 @@ footer .wrap>a:hover{color:var(--ink)}
               <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M8.5 3.5 13 8l-4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
             <a class="ig" href="https://www.instagram.com/marcatextoweb/" target="_blank" rel="noopener">Instagram @marcatextoweb</a>
+          </div>
+        </div>
+      </article>
+      <article class="built rv" style="--brand:#6E1A2B">
+        <div class="built-shot">
+          <img class="on" src="img/gab-questao.webp" alt="Exemplo de questão de Certo ou Errado do gabaritaPDF, com o gabarito, a explicação e o trecho do material" width="1280" height="800" loading="lazy">
+        </div>
+        <div class="built-body">
+          <span class="pill">Concursos · Questões com IA</span>
+          <h3 class="gab-h3">gabarita<i>PDF</i></h3>
+          <p>Transforme apostilas, informativos e legislação em questões de Certo ou Errado, Múltipla Escolha e Discursivas, com gabarito fundamentado e o trecho do material de onde cada uma saiu. Do seu PDF para a questão, sem inventar conteúdo.</p>
+          <div class="feats"><span class="chip">questões do seu PDF</span><span class="chip">legislação seca</span><span class="chip">simulados com várias matérias</span><span class="chip">discursivas com espelho</span><span class="chip">resumos de revisão</span></div>
+          <div class="built-actions">
+            <a class="btn brand" href="gabarita-pdf.html" style="color:#fff">Conhecer o gabaritaPDF
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M8.5 3.5 13 8l-4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           </div>
         </div>
       </article>
