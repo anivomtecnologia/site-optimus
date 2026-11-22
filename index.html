@@ -272,6 +272,28 @@ section{padding-block:clamp(72px,10vw,136px)}
 .built-body{display:grid;gap:16px;padding:clamp(4px,1vw,12px)}
 .built-body h3{font-size:clamp(28px,3.2vw,40px)}
 .mtw-h3{display:flex;align-items:center;gap:12px}
+/* Ferramentas em passos (protótipo B aprovado pelo dono, nov/2026) */
+.tflow{margin-top:36px;display:flex;flex-wrap:wrap;align-items:center;gap:14px 18px;background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:18px 22px}
+.tstep{display:flex;align-items:center;gap:12px}
+.tstep b{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font:800 16px var(--f-display);flex:none}
+.tstep .n1{background:#F2C230;color:#1D1D1F}.tstep .n2{background:#6E1A2B;color:#fff}
+.tname{display:block;font:800 18px/1.2 var(--f-display);letter-spacing:-.01em}
+.tlab{display:block;font:500 12px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.tarrow{font-size:22px;color:var(--muted)}
+.tflow p{flex:1 1 280px;color:var(--muted);font-size:15px}
+#projetos .built{margin-top:20px;border-top:1px solid var(--line);border-left:6px solid var(--brand)}
+#projetos .built.flip{grid-template-columns:minmax(0,1fr) minmax(0,1.15fr)}
+#projetos .built.flip .built-shot{order:2}
+.tprom{font-size:clamp(16px,1.4vw,18px)}
+.tpts{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.tpts li{display:grid;grid-template-columns:22px 1fr;gap:8px;font-size:15.5px}
+.tpts svg{width:18px;height:18px;margin-top:3px;color:var(--brand)}
+#projetos .built[style*="F2C230"] .tpts svg{color:#C79A12}
+.tprice{font-size:14px;color:var(--muted);flex-basis:100%}
+.gab-h3{display:flex;align-items:center;gap:12px}
+.gab-h3 .opt-o{width:1.05em;height:auto;flex:none;color:var(--ink)}
+@media (max-width:900px){#projetos .built.flip{grid-template-columns:1fr}#projetos .built.flip .built-shot{order:0}}
+@media (max-width:620px){.tarrow{display:none}}
 .gab-h3{font-family:Georgia,'Times New Roman',serif;font-weight:700;letter-spacing:-.01em}
 .gab-h3 i{color:#6E1A2B}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .gab-h3 i{color:#E9A3B1}}
@@ -500,8 +522,14 @@ footer .wrap>a:hover{color:var(--ink)}
     <div class="wrap">
       <div class="sec-head rv">
         <span class="label">Nossas ferramentas</span>
-        <h2>Uma ferramenta para cada área de estudo.</h2>
-        <p>Cada ferramenta da Optimus é pensada para uma área específica, com recursos feitos sob medida para quem estuda aquele conteúdo. Duas já estão disponíveis.</p>
+        <h2>Uma ferramenta para cada etapa do estudo.</h2>
+        <p>Cada ferramenta da Optimus resolve uma parte do caminho, com recursos feitos sob medida para quem estuda. Duas já estão disponíveis.</p>
+      </div>
+      <div class="tflow rv">
+        <div class="tstep"><b class="n1">1</b><div><span class="tlab">Leia e grife</span><span class="tname">Marca-texto Web</span></div></div>
+        <span class="tarrow" aria-hidden="true">→</span>
+        <div class="tstep"><b class="n2">2</b><div><span class="tlab">Treine com questões</span><span class="tname">gabaritaPDF</span></div></div>
+        <p>Grife a lei e a apostila no Marca-texto Web. Depois, transforme o mesmo PDF em questões no gabaritaPDF.</p>
       </div>
       <article class="built rv" style="--brand:#F2C230">
         <div class="built-shot" id="shots">
@@ -511,36 +539,38 @@ footer .wrap>a:hover{color:var(--ink)}
           <img src="img/mtw-margens.webp" alt="Escolha de margem de leitura: estreita, normal, larga ou extra larga" width="1280" height="800" loading="lazy">
         </div>
         <div class="built-body">
-          <span class="pill">Direito e concursos · Extensão para Chrome e Firefox</span>
+          <span class="tlab">Passo 1 · Leia e grife</span>
           <h3 class="mtw-h3"><svg class="mtw-logo" viewBox="84 108 156 148" aria-hidden="true"><rect x="91" y="203" width="141" height="34" rx="5" transform="rotate(-4 161.5 220)" fill="#F7DC74"/><circle cx="161.5" cy="187" r="49" fill="none" stroke="currentColor" stroke-width="22"/><circle cx="218" cy="131" r="15" fill="#F2C230"/></svg>Marca-texto Web</h3>
-          <p>Grife qualquer site e seus PDFs como você grifa no papel — e leve seus grifos organizados para onde você estuda. Nas leis do planalto.gov.br e em outros sites de legislação, ganha sumário navegável, busca por artigo e impressão em A4 com os grifos coloridos. Pastas, backup das marcações e teste grátis de 7 dias.</p>
-          <div class="feats"><span class="chip">8 cores de marca-texto</span><span class="chip">post-its STF e STJ</span><span class="chip">sumário das leis</span><span class="chip">pastas em A4</span><span class="chip">funciona em sites e em PDFs</span><span class="chip">backup e restauração das marcações</span></div>
+          <p class="tprom">Grife sites, leis e PDFs como no papel e leve tudo organizado para onde você estuda.</p>
+          <ul class="tpts"><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Marca-texto em 8 cores, post-its e julgados do STF e STJ</span></li><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Sumário, busca e margens nas leis do Planalto</span></li><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Pastas em A4, PDFs e backup das marcações</span></li></ul>
           <div class="built-actions">
             <a class="btn brand" href="marca-texto-web.html">Conhecer o Marca-texto Web
               <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M8.5 3.5 13 8l-4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
+            <span class="tprice">7 dias grátis · depois, a partir de R$ 9,90</span>
             <a class="ig" href="https://www.instagram.com/marcatextoweb/" target="_blank" rel="noopener">Instagram @marcatextoweb</a>
           </div>
         </div>
       </article>
-      <article class="built rv" style="--brand:#6E1A2B">
+      <article class="built rv flip" style="--brand:#6E1A2B">
         <div class="built-shot">
           <img class="on" src="img/gab-questao.webp" alt="Exemplo de questão de Certo ou Errado do gabaritaPDF, com o gabarito, a explicação e o trecho do material" width="1280" height="800" loading="lazy">
         </div>
         <div class="built-body">
-          <span class="pill">Concursos · Questões com IA</span>
-          <h3 class="gab-h3">gabarita<i>PDF</i></h3>
-          <p>Transforme apostilas, informativos e legislação em questões de Certo ou Errado, Múltipla Escolha e Discursivas, com gabarito fundamentado e o trecho do material de onde cada uma saiu. Do seu PDF para a questão, sem inventar conteúdo.</p>
-          <div class="feats"><span class="chip">questões do seu PDF</span><span class="chip">legislação seca</span><span class="chip">simulados com várias matérias</span><span class="chip">discursivas com espelho</span></div>
+          <span class="tlab">Passo 2 · Treine com questões</span>
+          <h3 class="gab-h3"><svg class="opt-o" viewBox="0 0 30 26" aria-hidden="true"><circle cx="11" cy="15.5" r="8.3" fill="none" stroke="currentColor" stroke-width="3.6"/><circle cx="21.6" cy="4.2" r="2.9" fill="#6E1A2B"/></svg><span>gabarita<i>PDF</i></span></h3>
+          <p class="tprom">Do seu PDF para a questão, sem inventar conteúdo: cada gabarito com o trecho e a página do material.</p>
+          <ul class="tpts"><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Certo ou Errado, Múltipla Escolha e Discursivas</span></li><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Questões de PDFs, legislação seca e várias matérias</span></li><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Gabarito conferido contra o seu material</span></li></ul>
           <div class="built-actions">
             <a class="btn brand" href="gabarita-pdf.html" style="color:#fff">Conhecer o gabaritaPDF
               <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M8.5 3.5 13 8l-4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <span class="tprice">Planos a partir de R$ 21,90 por 30 dias</span>
           </div>
         </div>
       </article>
       <div class="soon rv">
         <span class="label">Em breve</span>
-        <p>Novas áreas de estudo estão a caminho. As próximas ferramentas vão aparecer aqui.</p>
+        <p>Novas ferramentas estão a caminho e vão aparecer aqui.</p>
         <span class="dots" aria-hidden="true"><i style="background:var(--faint)"></i><i style="background:var(--faint)"></i><i style="background:var(--faint)"></i></span>
       </div>
     </div>
