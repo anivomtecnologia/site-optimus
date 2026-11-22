@@ -26,7 +26,7 @@ h1 mark{background:linear-gradient(transparent 52%,#FDE27D 52%,#FDE27D 94%,trans
 .shot{display:block;width:${cw}px;height:${ch}px}
 </style></head><body>
 <h1>${t.titulo}</h1><div class="sub">${t.sub}</div>
-<div class="logo"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><clipPath id="cp"><rect x="3.4" y="3.4" width="17.2" height="17.2" rx="5.2"/></clipPath></defs><g transform="rotate(-14 12 12)"><g clip-path="url(#cp)"><rect x="3.4" y="3.4" width="17.2" height="17.2" fill="#FFB74D"/><polygon points="3.4,3.4 20.6,3.4 3.4,20.6" fill="#FFE066"/></g></g></svg>Marca-texto Web</div>
+<div class="logo"><svg viewBox="84 108 156 148" aria-hidden="true" style="width:24px;height:auto;color:#181B2E"><rect x="91" y="203" width="141" height="34" rx="5" transform="rotate(-4 161.5 220)" fill="#F7DC74"/><circle cx="161.5" cy="187" r="49" fill="none" stroke="currentColor" stroke-width="22"/><circle cx="218" cy="131" r="15" fill="#F2C230"/></svg>Marca-texto Web</div>
 <div class="win"><div class="bar"><span class="dot" style="background:#FA5E57"></span><span class="dot" style="background:#FBB42A"></span><span class="dot" style="background:#25C239"></span>
 <div class="url"><svg viewBox="0 0 10 11" fill="#6B6B6B"><path d="M5 0a2.6 2.6 0 0 0-2.6 2.6V4H1.6C1 4 .5 4.5.5 5.1v4.3c0 .6.5 1.1 1.1 1.1h6.8c.6 0 1.1-.5 1.1-1.1V5.1C9.5 4.5 9 4 8.4 4h-.8V2.6A2.6 2.6 0 0 0 5 0zm-1.4 4V2.6a1.4 1.4 0 0 1 2.8 0V4H3.6z"/></svg>${t.url||'planalto.gov.br/ccivil_03/leis/2002/l10406compilada.htm'}</div></div>
 <img class="shot" src="${img}" alt=""></div>

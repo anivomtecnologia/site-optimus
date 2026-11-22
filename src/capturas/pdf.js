@@ -39,7 +39,7 @@ h1 mark{background:linear-gradient(transparent 52%,#FDE27D 52%,#FDE27D 94%,trans
 </style></head><body>
 <h1>Abra seus PDFs <mark>em poucos cliques</mark></h1>
 <div class="sub">Ícone do Marca-texto → “Abrir PDF no Marca-texto” → escolha o arquivo no computador (ou arraste o PDF para a tela).</div>
-<div class="logo"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><clipPath id="cp"><rect x="3.4" y="3.4" width="17.2" height="17.2" rx="5.2"/></clipPath></defs><g transform="rotate(-14 12 12)"><g clip-path="url(#cp)"><rect x="3.4" y="3.4" width="17.2" height="17.2" fill="#FFB74D"/><polygon points="3.4,3.4 20.6,3.4 3.4,20.6" fill="#FFE066"/></g></g></svg>Marca-texto Web</div>
+<div class="logo"><svg viewBox="84 108 156 148" aria-hidden="true" style="width:24px;height:auto;color:#181B2E"><rect x="91" y="203" width="141" height="34" rx="5" transform="rotate(-4 161.5 220)" fill="#F7DC74"/><circle cx="161.5" cy="187" r="49" fill="none" stroke="currentColor" stroke-width="22"/><circle cx="218" cy="131" r="15" fill="#F2C230"/></svg>Marca-texto Web</div>
 <div class="pop"><img src="${uri('pdf-popup.png')}" alt=""></div>
 <div class="n" style="left:36px;top:${150 + 82 * 300 / 293 - 17}px">1</div>
 <svg class="cur" style="left:${80 + 215 * 300 / 293}px;top:${150 + 88 * 300 / 293}px" viewBox="0 0 16 24"><path d="M1 1v19l5-5 3.5 7.5 3-1.4L9 13.8h7z" fill="#111" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg>

@@ -62,6 +62,7 @@ src/check.py                       conferência rápida (ids, âncoras, labels, 
 
 - **Site da Optimus:** azul `#2B5BD7`, cinza `#626A7A`, off-white `#F4F5F7`, texto `#15192B`, azul-claro de grifo `#C4D6FF`. Tem modo escuro (tokens em `:root`). O visual deve ser sóbrio e tecnológico, nunca infantil, e sem cores demais.
 - **Logo:** um "O" em traço com um ponto azul no alto à direita, seguido de "Optimus" e "Aprendizado".
+- **Logo do Marca-texto Web (nov/2026):** “O” azul-marinho em traço grosso, ponto amarelo `#F2C230` no alto à direita e uma faixa amarela clara `#F7DC74` levemente inclinada atrás da parte de baixo. Arquivo `img/mtw-logo.svg`; o mesmo desenho está inline (classe `mtw-logo`, o “O” usa `currentColor` para virar claro no modo escuro) no título da página do Marca-texto, no card da página principal, no favicon de `marca-texto-web.html` e no canto das imagens da galeria (`compor.js` e `pdf.js`). A captura antiga `img/mtw-grifos.webp` e os prints da própria extensão ainda mostram o ícone antigo.
 - **Amarelo é exclusivo do Marca-texto Web**: `#F2C230` e `#F7D04A`, com azul-marinho `#1E3A6E`. Não usar amarelo no restante do site.
 - Post-it do **STF em azul** e do **STJ em verde**, como na extensão.
 
