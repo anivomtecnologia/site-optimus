@@ -89,7 +89,7 @@ section[id]{scroll-margin-top:80px}
 .trust-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:36px}
 .trust-item{background:color-mix(in srgb,var(--panel-ink) 10%,var(--panel));border:1px solid color-mix(in srgb,var(--panel-ink) 22%,var(--panel));border-radius:18px;padding:20px 22px;display:grid;gap:6px}
 .trust-item b{font:700 19px var(--f-display)} .trust-item span{opacity:.88;font-size:16px}
-.tools{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:40px}
+.tools{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:40px}
 .tool{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:24px;display:grid;gap:10px;align-content:start}
 .tool h3{font-size:24px} .tool h3 i{color:var(--accent)}
 .tool .for{font:500 12px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);background:var(--tint);justify-self:start;padding:5px 10px;border-radius:999px}
@@ -111,8 +111,8 @@ section[id]{scroll-margin-top:80px}
 .plan-card ul{margin:0;padding-left:18px;display:grid;gap:6px;font-size:15px;color:var(--muted)}
 @media (max-width:1000px){.plans{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:620px){.plans,.steps,.tools,.trust-grid{grid-template-columns:1fr}.toc{top:73px}}
-@media (max-width:900px){.steps{grid-template-columns:1fr}}
-.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:20px}
+@media (max-width:900px){.steps,.tools{grid-template-columns:1fr}}
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:20px}
 .fact{background:var(--soft);border:1px solid var(--line);border-radius:20px;padding:20px 22px;display:grid;gap:8px;align-content:start}
 .fact h3{font-size:18px} .fact p,.fact li{color:var(--muted);font-size:15px}
 .fact ul{margin:0;padding-left:18px;display:grid;gap:4px} .fact b{color:var(--ink);font-weight:600}
@@ -210,13 +210,12 @@ footer a{color:var(--muted)}
       <div class="sec-head">
         <span class="label">Ferramentas</span>
         <h2>Uma ferramenta para cada tipo de material.</h2>
-        <p>No topo do gerador há três ferramentas de questões. Os resumos de revisão são um pacote à parte.</p>
+        <p>No topo do gerador há três ferramentas de questões. Toque em cada uma no site para ver quando usar.</p>
       </div>
       <div class="tools">
         <div class="tool"><span class="for">Seu material</span><h3>questões<i>PDF</i></h3><p>Apostilas, livros e resumos em PDF, ou texto colado. As questões saem só do seu material, cada uma com a página e o trecho de onde foi tirada.</p><p class="plan">Planos <b>Concurseiro Básico, Focado e Avançado</b>.</p></div>
         <div class="tool"><span class="for">Legislação seca</span><h3>questões<i>LEGIS</i></h3><p>Leis, decretos, resoluções e outros atos normativos. Questões focadas na letra da lei, com o artigo e o dispositivo citados. Para leis, copie o texto do site do Planalto.</p><p class="plan">Planos <b>Concurseiro Básico, Focado e Avançado</b>.</p></div>
         <div class="tool"><span class="for">Várias matérias</span><h3>questões<i>PDF+</i></h3><p>PDF com várias matérias, como informativos e revisões de véspera. O site lê o sumário, mostra as matérias com as páginas de cada uma e você confere antes de gerar. As questões já saem separadas por matéria.</p><p class="plan">Exclusivo do <b>Concurseiro Avançado</b>.</p></div>
-        <div class="tool"><span class="for">Resumos de revisão</span><h3>revisão<i>PDF</i></h3><p>Transforma o material num resumo de revisão fiel, em Revisão Profunda ou Resumão (mais curto), com os dispositivos e julgados citados. Cada linha mostra as páginas de onde saiu. Pronto para baixar em PDF e guardado em Meus resumos.</p><p class="plan">Pacote à parte, para quem tem <b>qualquer plano</b>.</p></div>
       </div>
     </div>
   </section>
@@ -233,7 +232,6 @@ footer a{color:var(--muted)}
         <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Resolver:</b> <span>marque a matéria ou só alguns assuntos para treinar.</span></div></li>
         <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Histórico:</b> <span>acertos e erros por matéria e por assunto.</span></div></li>
         <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Imprimir:</b> <span>caderno de prova filtrado por matéria e assunto.</span></div></li>
-        <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Meus resumos:</b> <span>resumos agrupados por matéria e assunto.</span></div></li>
         <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Concurso ou prova:</b> <span>dê um nome, como o do seu concurso, e use o mesmo nome em vários PDFs para fazer todas as questões de uma vez.</span></div></li>
         <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Em qualquer aparelho:</b> <span>questões e histórico ficam salvos na sua conta.</span></div></li>
       </ul>
@@ -261,7 +259,6 @@ footer a{color:var(--muted)}
       <p class="free">Para conhecer, a conta gratuita mostra o site e o passo a passo em “Como usar”. Para gerar questões, assine um plano.</p>
       <div class="facts">
         <div class="fact"><h3>Como o plano é contado</h3><ul><li><b>Certo ou Errado:</b> 1</li><li><b>Múltipla Escolha:</b> 2</li><li><b>Discursiva curta:</b> 3</li><li><b>Discursiva longa:</b> 5</li><li><b>PDF escaneado:</b> 1 a cada 5 páginas lidas</li></ul><p>Discursivas só nos planos Focado e Avançado.</p></div>
-        <div class="fact"><h3>Resumos (revisãoPDF)</h3><ul><li><b>Revisão 100:</b> R$ 10,90 · 100 páginas</li><li><b>Revisão 300:</b> R$ 29,90 · 300 páginas</li><li><b>Revisão 500:</b> R$ 47,90 · 500 páginas</li><li><b>+100 páginas:</b> R$ 11,90, para quem tem pacote em dia</li></ul><p>Pacote pré-pago, vale 30 dias, para quem tem qualquer plano.</p></div>
         <div class="fact"><h3>Pagamento</h3><p>Pela Stone, com Pix ou cartão, e o plano libera na hora. <b>Não há cobrança automática:</b> para continuar, é só pagar de novo. O que não usar em 30 dias não passa para o mês seguinte. Dá para trocar de plano quando quiser.</p></div>
       </div>
       <div class="actions" style="margin-top:28px"><a class="btn" href="https://gabaritapdf.com.br/">Começar agora no gabaritaPDF</a></div>
