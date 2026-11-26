@@ -171,7 +171,7 @@ section{padding-block:clamp(56px,8vw,104px)}
 .zthumb{position:absolute;inset:0;display:block;overflow:hidden;cursor:zoom-in}
 .zthumb img{display:block;width:100%;height:100%;object-fit:cover;image-rendering:auto}
 .jul .stf .zthumb img{object-position:right center}
-.jul .stj .zthumb img{object-position:center 45%}
+.jul .stj .zthumb img{object-position:right top}
 .zhint{position:absolute;right:12px;top:12px;font:600 12px var(--f-body);background:rgba(19,33,49,.8);color:#fff;padding:6px 12px;border-radius:999px;pointer-events:none}
 .zout{display:none}
 .zthumb:hover .zhint{background:#132131}
@@ -289,7 +289,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           <a class="btn green" href="https://chromewebstore.google.com/detail/marca-texto-web/fdcjcaonndmhomapbncnaeglaoingboj">Testar grátis no Chrome</a>
           <a class="btn green" href="https://addons.mozilla.org/pt-BR/firefox/addon/marca-texto-web/">Testar grátis no Firefox</a>
           <a class="btn ghost" href="#preco">Ver preços</a>
-          <small>7 dias de teste grátis, com tudo liberado, sem cadastro e sem cartão</small>
+          <small>7 dias de teste grátis, com tudo liberado, só com o seu e-mail e sem cartão</small>
         </div>
         <div class="news" aria-label="Novidades">
           <span class="news-tag">Novidades</span>
@@ -309,8 +309,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         </div>
         <input type="checkbox" id="gzoom" class="gzcb" aria-label="Ampliar a tela mostrada">
         <div class="frame" id="frame" role="tabpanel">
-          <img src="img/mtw-grifos.webp" alt="Artigos do Código Civil grifados em amarelo e laranja, com sublinhado, círculo, retângulo e a barra de ferramentas aberta" width="1280" height="800">
-          <img src="img/mtw-sumario.webp" alt="Sumário navegável da lei ao lado do texto, destacando o artigo 1.240" width="1280" height="800" aria-hidden="true" loading="lazy">
+          <img src="img/mtw-grifos.webp" alt="Artigo sobre o princípio da legalidade, num site qualquer, com trechos grifados em amarelo, laranja e azul, um círculo e um post-it amarelo ao lado" width="1280" height="800">
+          <img src="img/mtw-sumario.webp" alt="Código de Processo Civil no Planalto, com o sumário e a busca por “prazo” ao lado e o texto do art. 229 aparecendo ao passar o mouse" width="1280" height="800" aria-hidden="true" loading="lazy">
           <img src="img/mtw-busca.webp" alt="Busca por “promessa de fato” com dois resultados no sumário" width="1280" height="800" aria-hidden="true" loading="lazy">
           <img src="img/mtw-margens.webp" alt="Painel de margem com as opções Estreita, Normal, Larga e Extra larga, numa lei do Planalto" width="1280" height="800" aria-hidden="true" loading="lazy">
           <label for="gzoom" class="gzhit"><span class="zhint"><span class="zin">Clique para ampliar</span><span class="zout">Fechar</span></span></label>
@@ -387,7 +387,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         </div>
       </div>
       <div class="shot" style="margin-top:32px"><img src="img/mtw-pdf.webp" alt="Como abrir um PDF: no menu do Marca-texto Web, clique em “Abrir PDF no Marca-texto”, depois em “Escolher PDF no computador” e escolha o arquivo na janela Abrir" width="1280" height="800" loading="lazy"></div>
-      <div class="shot" style="margin-top:32px"><img src="img/mtw-pdfuso.webp" alt="PDF de Agências Reguladoras aberto no Marca-texto, com trechos grifados em amarelo, azul, laranja e verde, sublinhados, zoom de 134% e busca pela palavra colegiada" width="1280" height="800" loading="lazy"></div>
+      <div class="shot" style="margin-top:32px"><img src="img/mtw-pdfuso.webp" alt="PDF de Agências Reguladoras aberto no Marca-texto, com trechos grifados, a marcação “Revisar”, números 1) e 2) e a busca no PDF" width="1280" height="800" loading="lazy"></div>
     </div>
   </section>
 
@@ -409,10 +409,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           <figcaption><b>STF.</b> O post-it azul abre ao lado do artigo, com a tese do julgado.</figcaption>
         </figure>
         <figure class="stj">
-          <div class="jul-law"><span>Código de Processo Civil</span><small>art. 139</small></div>
+          <div class="jul-law"><span>Código Civil</span><small>art. 50</small></div>
           <div class="zbox">
             <input type="checkbox" id="zoom-stj" class="zcb" aria-label="Ampliar a imagem do post-it do STJ">
-            <label for="zoom-stj" class="zthumb"><img src="img/mtw-postit-stj.webp" alt="Artigo 139 do Código de Processo Civil com o post-it verde “O STJ decidiu que” e a barra de formatação aberta" width="874" height="694" loading="lazy"><span class="zhint"><span class="zin">Clique para ampliar</span><span class="zout">Fechar</span></span></label>
+            <label for="zoom-stj" class="zthumb"><img src="img/mtw-postit-stj.webp" alt="Artigo 50 do Código Civil grifado, com o post-it verde “O STJ decidiu:” trazendo a tese do Tema 1210 e a barra de formatação" width="1180" height="937" loading="lazy"><span class="zhint"><span class="zin">Clique para ampliar</span><span class="zout">Fechar</span></span></label>
           </div>
           <figcaption><b>STJ.</b> O post-it verde tem barra para formatar o texto e apagar a nota.</figcaption>
         </figure>
@@ -438,7 +438,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Sumário com largura ajustável:</b> <span>é só arrastar a borda.</span></div></li>
           <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Impressão em A4,</b> <span>com os grifos coloridos.</span></div></li>
         </ul>
-        <div class="shot"><img src="img/mtw-sumario.webp" alt="Sumário da Lei 10.406 aberto ao lado do texto, com o artigo 1.240 em destaque" width="1280" height="800" loading="lazy"></div>
+        <div class="shot"><img src="img/mtw-sumario.webp" alt="Sumário do Código de Processo Civil aberto ao lado do texto, com a busca por “prazo” e o artigo citado aparecendo ao passar o mouse" width="1280" height="800" loading="lazy"></div>
       </div>
       <p class="note">Grifos e anotações acompanham a lei quando o site é atualizado e aparecem mesmo que a lei seja aberta por outro endereço.</p>
     </div>
@@ -469,6 +469,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           <div class="folder"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="currentColor" stroke-width="2"/></svg>O que fizer sentido para você</div>
         </div>
       </div>
+      <div class="shot" style="margin-top:32px"><img src="img/mtw-pastas.webp" alt="Pasta “Processo Civil — prazos” pronta para imprimir em A4, com os trechos marcados dos artigos 212, 219, 228 e 229 do CPC e a escolha da margem" width="1280" height="800" loading="lazy"></div>
     </div>
   </section>
 
@@ -506,7 +507,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <div class="sec-head">
         <span class="label">Preço</span>
         <h2>7 dias de teste grátis, com tudo liberado.</h2>
-        <p>Sem cadastro. Depois, escolha o plano:</p>
+        <p>Só com o seu e-mail, sem cartão. Depois, escolha o plano ou siga na versão gratuita (marca-texto amarelo e sublinhado nos sites):</p>
       </div>
       <div class="prices">
         <div class="price">
@@ -531,12 +532,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <div class="trial">
         <a class="btn green" href="https://chromewebstore.google.com/detail/marca-texto-web/fdcjcaonndmhomapbncnaeglaoingboj">Começar no Chrome</a>
         <a class="btn green" href="https://addons.mozilla.org/pt-BR/firefox/addon/marca-texto-web/">Começar no Firefox</a>
-        <small style="color:var(--muted);font-size:14px">7 dias grátis, sem cadastro e sem cartão</small>
+        <small style="color:var(--muted);font-size:14px">7 dias grátis, só com o seu e-mail e sem cartão</small>
       </div>
       <div class="facts">
         <div class="fact"><h3>Pagamento</h3><p>Pagamento por Pix ou cartão, pela Stone. <strong>Não há renovação automática nem cobrança surpresa</strong>: perto do fim do plano a extensão avisa, e renovar antes de vencer soma os dias que faltavam.</p></div>
         <div class="fact"><h3>Preços e renovação</h3><p>Nos demais casos, o anual e as renovações seguem o preço normal, salvo promoções de parceiros. Remover marcações nunca é bloqueado, mesmo sem plano ativo.</p></div>
-        <div class="fact"><h3>Seus dados</h3><p>O teste grátis começa com um clique, sem e-mail e sem cadastro: para ele, guardamos só um número aleatório da instalação e a data de início do teste. O e-mail só é pedido de quem assina: você informa o e-mail e paga pela Stone, e guardamos o e-mail e a validade do plano para liberar a extensão. Os dados de pagamento ficam com a Stone e nunca passam pela Anivom. Nada disso inclui o conteúdo das suas marcações.</p></div>
+        <div class="fact"><h3>Seus dados</h3><p>Para o teste grátis, você informa o seu e-mail e confirma um código enviado a ele: guardamos o e-mail, um número aleatório da instalação e a data de início do teste, para que cada e-mail tenha um único teste. O único e-mail que mandamos é o do código. Quem assina informa o e-mail e paga pela Stone, e guardamos o e-mail e a validade do plano para liberar a extensão. Os dados de pagamento ficam com a Stone e nunca passam pela Anivom. Nada disso inclui o conteúdo das suas marcações.</p></div>
       </div>
       <div class="paybox">
         <span class="label">Pagou pelo celular ou pelo link de um parceiro?</span>
@@ -578,7 +579,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
 <h3>2. Teste grátis e planos</h3>
 <ul>
-  <li><strong>Teste grátis:</strong> 7 dias, com todos os recursos liberados. Começa com um clique na extensão, sem cadastro e sem cartão.</li>
+  <li><strong>Teste grátis:</strong> 7 dias, com todos os recursos liberados. Para começar, você informa o seu e-mail e confirma um código de 6 números enviado a ele. Cada e-mail tem um único teste. Sem cartão.</li>
+  <li><strong>Versão gratuita:</strong> depois do teste, quem não assina continua usando, sem prazo, o marca-texto amarelo e o sublinhado preto nos sites, a remoção de marcações, a exportação para pastas, a impressão em A4 e o backup. Os PDFs continuam abrindo para leitura, com as marcações já feitas. Os demais recursos (todas as cores, post-its, colchetes e formas, numeração, Revisar, marcar PDFs, sumário, margem de leitura e artigo citado) fazem parte da assinatura.</li>
   <li><strong>Plano mensal:</strong> R$ 9,90 por 30 dias de acesso.</li>
   <li><strong>Plano anual:</strong> R$ 89,90 por 12 meses de acesso (sai a R$ 7,49 por mês).</li>
   <li><strong>Oferta do teste:</strong> quem assina o plano anual durante os 7 dias do teste grátis paga R$ 59,90 pelo plano anual, na primeira assinatura, e renova o plano anual pelo mesmo valor, usando o mesmo e-mail. Promoções e cupons de parceiros, quando houver, valem nas condições divulgadas em cada caso. Fora dessas situações, vale o preço normal do plano anual.</li>
