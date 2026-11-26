@@ -134,7 +134,7 @@ section{padding-block:clamp(56px,8vw,104px)}
 .tool{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:22px;display:grid;gap:10px;align-content:start}
 .tool h3{font-size:20px;letter-spacing:-.015em}
 .tool p{color:var(--muted);font-size:15px}
-.sw{display:flex;flex-wrap:wrap;gap:6px}
+.sw{display:grid;grid-template-columns:repeat(5,22px);gap:6px}
 .sw i{width:22px;height:22px;border-radius:6px;display:block;border:1px solid rgba(0,0,0,.08)}
 .demo{font-size:15px;line-height:2}
 .u-b{text-decoration:underline 2px #132131;text-underline-offset:3px}.u-u{text-decoration:underline 2px #2F6FD6;text-underline-offset:3px}.u-r{text-decoration:underline 2px #D64545;text-underline-offset:3px}
@@ -315,7 +315,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           <img src="img/mtw-margens.webp" alt="Painel de margem com as opções Estreita, Normal, Larga e Extra larga, numa lei do Planalto" width="1280" height="800" aria-hidden="true" loading="lazy">
           <label for="gzoom" class="gzhit"><span class="zhint"><span class="zin">Clique para ampliar</span><span class="zout">Fechar</span></span></label>
         </div>
-        <p class="caption" id="caption" aria-live="polite">8 cores, sublinhado, círculo, colchetes, “Revisar” e post-its do STF e STJ. Tudo fica salvo na página.</p>
+        <p class="caption" id="caption" aria-live="polite">15 cores, sublinhado, círculo, colchetes, “Revisar” e post-its do STF e STJ. Tudo fica salvo na página.</p>
       </div>
     </div>
   </div>
@@ -334,11 +334,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       </div>
       <div class="tools">
         <div class="tool">
-          <h3>Marca-texto em 8 cores</h3>
-          <div class="sw" aria-label="Laranja, amarelo, azul claro, verde claro, cinza, rosa, vermelho e roxo">
-            <i style="background:#FFC48A"></i><i style="background:#FFE680"></i><i style="background:#B9DCFF"></i><i style="background:#C3EFC9"></i><i style="background:#D5D8DC"></i><i style="background:#FFC2DC"></i><i style="background:#FF9C9C"></i><i style="background:#D8C2FF"></i>
+          <h3>Marca-texto em 15 cores</h3>
+          <div class="sw" aria-label="15 cores de marca-texto, em tons claros">
+            <i style="background:#FFD9A0"></i><i style="background:#FFF2A8"></i><i style="background:#D6ECFF"></i><i style="background:#DCF2DD"></i><i style="background:#E0E0E0"></i><i style="background:#FFD6E8"></i><i style="background:#FFABAB"></i><i style="background:#E4D6F5"></i><i style="background:#BEF2EC"></i><i style="background:#ECF8B3"></i><i style="background:#FFCFBE"></i><i style="background:#BEDDFF"></i><i style="background:#CFECBC"></i><i style="background:#FFCAE0"></i><i style="background:#DACCF8"></i>
           </div>
-          <p>Laranja, amarelo, azul claro, verde claro, cinza, rosa, vermelho e roxo.</p>
+          <p>Tons claros, que não escondem o texto. Você escolhe as 4 favoritas que ficam na barrinha.</p>
         </div>
         <div class="tool">
           <h3>Sublinhado e tachado em 3 cores</h3>
@@ -354,8 +354,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         </div>
         <div class="tool">
           <h3>Post-it para julgados</h3>
-          <div class="postit stf"><b>O STF decidiu que:</b>a tese do julgado fica ao lado do artigo.</div>
-          <div class="postit stj" style="transform:rotate(.8deg)"><b>O STJ decidiu que:</b>a tese do julgado fica ao lado do artigo.</div>
+          <div class="postit stf"><b>O STF decidiu:</b>a tese do julgado fica ao lado do artigo.</div>
+          <div class="postit stj" style="transform:rotate(.8deg)"><b>O STJ decidiu:</b>a tese do julgado fica ao lado do artigo.</div>
         </div>
         <div class="tool">
           <h3>Revisar</h3>
@@ -404,7 +404,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           <div class="jul-law"><span>Código Civil</span><small>art. 20</small></div>
           <div class="zbox">
             <input type="checkbox" id="zoom-stf" class="zcb" aria-label="Ampliar a imagem do post-it do STF">
-            <label for="zoom-stf" class="zthumb"><img src="img/mtw-postit-stf.webp" alt="Artigo 20 do Código Civil grifado em várias cores, com o post-it azul “O STF decidiu que” aberto ao lado do texto" width="1261" height="826" loading="lazy"><span class="zhint"><span class="zin">Clique para ampliar</span><span class="zout">Fechar</span></span></label>
+            <label for="zoom-stf" class="zthumb"><img src="img/mtw-postit-stf.webp" alt="Artigo 20 do Código Civil grifado em várias cores, com o post-it azul “O STF decidiu” aberto ao lado do texto" width="1261" height="826" loading="lazy"><span class="zhint"><span class="zin">Clique para ampliar</span><span class="zout">Fechar</span></span></label>
           </div>
           <figcaption><b>STF.</b> O post-it azul abre ao lado do artigo, com a tese do julgado.</figcaption>
         </figure>
@@ -647,7 +647,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
 <script>
 (function(){
-  const caps=['8 cores, sublinhado, círculo, colchetes, “Revisar” e post-its do STF e STJ. Tudo fica salvo na página.','Livros, títulos, capítulos e artigos ao lado do texto, e um “você está em” que acompanha a leitura.','Busque pelo número (1.238, 44-A) ou por palavra (promessa de fato) e vá direto ao dispositivo.','Estreita, Normal, Larga ou Extra larga. A mesma margem vale na hora de imprimir em A4.'];
+  const caps=['15 cores, sublinhado, círculo, colchetes, “Revisar” e post-its do STF e STJ. Tudo fica salvo na página.','Livros, títulos, capítulos e artigos ao lado do texto, e um “você está em” que acompanha a leitura.','Busque pelo número (1.238, 44-A) ou por palavra (promessa de fato) e vá direto ao dispositivo.','Estreita, Normal, Larga ou Extra larga. A mesma margem vale na hora de imprimir em A4.'];
   const tabs=[...document.querySelectorAll('#gtabs button')], imgs=[...document.querySelectorAll('#frame img')], cap=document.getElementById('caption');
   let cur=0, auto=!matchMedia('(prefers-reduced-motion: reduce)').matches;
   function show(i){cur=i;tabs.forEach((t,j)=>t.setAttribute('aria-selected',j===i));imgs.forEach((im,j)=>im.setAttribute('aria-hidden',j!==i));document.getElementById('frame').setAttribute('aria-labelledby','g'+i);cap.textContent=caps[i];}
