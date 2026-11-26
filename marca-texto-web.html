@@ -16,7 +16,7 @@
 </script>
 <!--/GTAG-->
 <title>Marca-texto Web · Optimus Aprendizado</title>
-<meta name="description" content="Grife e anote em sites e PDFs. Sumário em leis e atos normativos. Pastas, backup e impressão em A4. Teste grátis de 7 dias.">
+<meta name="description" content="Grife e anote em qualquer site e nos seus PDFs. Nas leis e atos normativos, ainda tem sumário e o artigo citado na hora. Pastas, backup e impressão em A4. Teste grátis de 7 dias com o seu e-mail.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
@@ -137,6 +137,7 @@ section{padding-block:clamp(56px,8vw,104px)}
 .sw{display:grid;grid-template-columns:repeat(5,22px);gap:6px}
 .sw i{width:22px;height:22px;border-radius:6px;display:block;border:1px solid rgba(0,0,0,.08)}
 .demo{font-size:15px;line-height:2}
+.num{display:inline-block;font:600 12px var(--f-mono);border:1px solid var(--line);border-radius:6px;padding:0 5px;background:var(--bg)}
 .u-b{text-decoration:underline 2px #132131;text-underline-offset:3px}.u-u{text-decoration:underline 2px #2F6FD6;text-underline-offset:3px}.u-r{text-decoration:underline 2px #D64545;text-underline-offset:3px}
 .s-b{text-decoration:line-through 2px #132131}.s-u{text-decoration:line-through 2px #2F6FD6}.s-r{text-decoration:line-through 2px #D64545}
 .dark-text .u-b,.dark-text .s-b{text-decoration-color:currentColor}
@@ -295,7 +296,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           <span class="news-tag">Novidades</span>
           <a href="#pdf">Agora também em PDF</a>
           <a href="#backup">Backup das marcações</a>
-          <a href="#leis">Grifos que acompanham a lei</a>
+          <a href="#leis">Artigo citado na hora</a>
+          <a href="#gratis">Versão gratuita</a>
           <a href="#preco">Teste grátis de 7 dias</a>
         </div>
       </div>
@@ -321,7 +323,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   </div>
 
   <nav class="toc" aria-label="Nesta página"><div class="wrap">
-    <a href="#como">Como funciona</a><a href="#pdf">PDF</a><a href="#julgados">Julgados</a><a href="#leis">Leis e sumário</a><a href="#pastas">Pastas e A4</a><a href="#backup">Privacidade e backup</a><a href="#preco">Preço</a>
+    <a href="#como">Como funciona</a><a href="#pdf">PDF</a><a href="#julgados">Julgados</a><a href="#leis">Leis e sumário</a><a href="#pastas">Pastas e A4</a><a href="#gratis">Gratuita ou assinatura</a><a href="#backup">Privacidade e backup</a><a href="#preco">Preço</a>
   </div></nav>
 
   <!-- FERRAMENTAS -->
@@ -330,7 +332,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <div class="sec-head">
         <span class="label">Como funciona</span>
         <h2>Selecione um trecho e uma barrinha aparece ali mesmo.</h2>
-        <p>Em qualquer página, a barrinha surge junto do texto selecionado. Você escolhe quais 4 cores ficam na barrinha, e o post-it aumenta ou diminui do tamanho que você precisar: é só puxar o canto. Para mudar o post-it de lugar, segure e arraste.</p>
+        <p>Em qualquer página, a barrinha surge junto do texto selecionado. Você escolhe quais 5 cores ficam na barrinha, e o post-it aumenta ou diminui do tamanho que você precisar: é só puxar o canto. Para mudar o post-it de lugar, segure e arraste.</p>
       </div>
       <div class="tools">
         <div class="tool">
@@ -338,10 +340,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           <div class="sw" aria-label="15 cores de marca-texto, em tons claros">
             <i style="background:#FFD9A0"></i><i style="background:#FFF2A8"></i><i style="background:#D6ECFF"></i><i style="background:#DCF2DD"></i><i style="background:#E0E0E0"></i><i style="background:#FFD6E8"></i><i style="background:#FFABAB"></i><i style="background:#E4D6F5"></i><i style="background:#BEF2EC"></i><i style="background:#ECF8B3"></i><i style="background:#FFCFBE"></i><i style="background:#BEDDFF"></i><i style="background:#CFECBC"></i><i style="background:#FFCAE0"></i><i style="background:#DACCF8"></i>
           </div>
-          <p>Tons claros, que não escondem o texto. Você escolhe as 4 favoritas que ficam na barrinha.</p>
+          <p>Tons claros, que não escondem o texto. Você escolhe as 5 favoritas que ficam na barrinha.</p>
         </div>
         <div class="tool">
-          <h3>Sublinhado e tachado em 3 cores</h3>
+          <h3>Sublinhado e tachado em 5 cores</h3>
           <p class="demo"><span class="u-b">preto</span> · <span class="u-u">azul</span> · <span class="u-r">vermelho</span><br><span class="s-b">preto</span> · <span class="s-u">azul</span> · <span class="s-r">vermelho</span></p>
         </div>
         <div class="tool">
@@ -349,20 +351,24 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           <p class="demo">[ trecho ] · ( trecho ) · <span class="circ">termo</span> · <span class="rect">expressão</span></p>
         </div>
         <div class="tool">
+          <h3>Nº</h3>
+          <p class="demo">Numera requisitos de <b class="num">1)</b> a <b class="num">9)</b>.</p>
+        </div>
+        <div class="tool">
           <h3>Post-it</h3>
           <div class="postit">Uma nota ancorada no trecho, sem alterar o texto.</div>
         </div>
         <div class="tool">
           <h3>Post-it para julgados</h3>
-          <div class="postit stf"><b>O STF decidiu:</b>a tese do julgado fica ao lado do artigo.</div>
-          <div class="postit stj" style="transform:rotate(.8deg)"><b>O STJ decidiu:</b>a tese do julgado fica ao lado do artigo.</div>
+          <div class="postit stf"><b>O STF decidiu:</b>cole a tese do julgado ao lado do artigo.</div>
+          <div class="postit stj" style="transform:rotate(.8deg)"><b>O STJ decidiu:</b>cole a tese do julgado ao lado do artigo.</div>
         </div>
         <div class="tool">
           <h3>Revisar</h3>
-          <p>Sinaliza o parágrafo inteiro para estudar depois (em sites).</p>
+          <p>Sinaliza o trecho para estudar depois.</p>
         </div>
       </div>
-      <p class="note">As marcações reaparecem quando você abrir a mesma página de novo.</p>
+      <p class="note">As marcações reaparecem quando você abre a mesma página de novo e acompanham o texto quando o site é atualizado. Nas leis, aparecem mesmo que a lei seja aberta por outro endereço.</p>
     </div>
   </section>
 
@@ -377,7 +383,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <div class="split">
         <ul class="list">
           <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Mesma nitidez do PDF original:</b> <span>o grifo fica como marca-texto de verdade sobre o papel.</span></div></li>
-          <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Precisão na palavra certa,</b> <span>em qualquer zoom.</span></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Precisão na palavra certa,</b> <span>em qualquer zoom, e busca no PDF inteiro.</span></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Revisar e números de requisito</b> <span>também no PDF.</span></div></li>
           <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Exporte os trechos marcados</b> <span>para suas pastas, com o número da página de cada um.</span></div></li>
           <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>O PDF é aberto só no seu computador:</b> <span>nada é enviado para servidor nenhum.</span></div></li>
         </ul>
@@ -431,15 +438,16 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <div class="split">
         <ul class="list">
           <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Sumário navegável da lei:</b> <span>clique e vá direto ao artigo.</span></div></li>
-          <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Busca</b> <span>pelo número do artigo ou por palavra.</span></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Busca</b> <span>pelo número do artigo ou por palavra (a busca também encontra os dispositivos revogados).</span></div></li>
           <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>“Você está em…”</b> <span>mostra o artigo e o capítulo que você está lendo.</span></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Sumário limpo,</b> <span>sem os dispositivos revogados.</span></div></li>
           <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Margem de leitura ajustável,</b> <span>em 4 opções.</span></div></li>
           <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Sumário com largura ajustável:</b> <span>é só arrastar a borda.</span></div></li>
           <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Impressão em A4,</b> <span>com os grifos coloridos.</span></div></li>
         </ul>
         <div class="shot"><img src="img/mtw-sumario.webp" alt="Sumário do Código de Processo Civil aberto ao lado do texto, com a busca por “prazo” e o artigo citado aparecendo ao passar o mouse" width="1280" height="800" loading="lazy"></div>
       </div>
-      <p class="note">Grifos e anotações acompanham a lei quando o site é atualizado e aparecem mesmo que a lei seja aberta por outro endereço.</p>
+      <p class="note"><b style="color:var(--ink)">Artigo citado na hora:</b> no meio do texto, passe o mouse sobre um artigo citado (“art. 229”, “arts. 212 e 219”) para ver o texto dele numa janelinha, com o botão “Ir para o artigo”. Vale para artigos da mesma lei aberta na página.</p>
     </div>
   </section>
 
@@ -472,6 +480,22 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     </div>
   </section>
 
+  <!-- GRATUITA OU ASSINATURA -->
+  <section id="gratis" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="label">Versão gratuita ou assinatura</span>
+        <h2>Teste tudo por 7 dias. Depois, siga de graça ou assine.</h2>
+        <p>Teste: 7 dias com tudo liberado, a partir do seu e-mail.</p>
+      </div>
+      <div class="pb">
+        <div><h3>Versão gratuita, depois do teste e sem prazo</h3><ul class="list"><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><span style="color:var(--ink)">Grifo amarelo e sublinhado preto nos sites</span></div></li><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><span style="color:var(--ink)">Remover marcações</span></div></li><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><span style="color:var(--ink)">Exportar para pastas e imprimir em A4</span></div></li><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><span style="color:var(--ink)">Baixar o backup</span></div></li><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><span style="color:var(--ink)">Abrir os seus PDFs para ler, com as marcações que você já fez</span></div></li></ul></div>
+        <div><h3>Com a assinatura, você tem também</h3><ul class="list"><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><span style="color:var(--ink)">As outras cores de grifo, o sublinhado colorido e o tachado</span></div></li><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><span style="color:var(--ink)">Post-its, colchetes, parênteses, círculo, retângulo, Nº e Revisar</span></div></li><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><span style="color:var(--ink)">Grifar e anotar PDFs</span></div></li><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><span style="color:var(--ink)">Sumário, margem de leitura e artigo citado nas leis</span></div></li><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><span style="color:var(--ink)">Restaurar o backup</span></div></li></ul></div>
+      </div>
+      <p class="note">As marcações feitas durante o teste ou a assinatura continuam aparecendo na versão gratuita, em todas as cores.</p>
+    </div>
+  </section>
+
   <!-- PRIVACIDADE E BACKUP -->
   <section id="backup">
     <div class="wrap">
@@ -492,7 +516,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           <p class="note" style="margin:0 0 14px">Com um clique, baixe uma cópia de segurança com todas as suas marcações, post-its e pastas e guarde onde preferir (pendrive, Google Drive, e-mail, computador).</p>
           <ul class="list">
             <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>O arquivo fica com você.</b> <span>Ele é gerado no seu computador e não passa por nós nem por servidor nenhum.</span></div></li>
-            <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Troque de computador, formate ou mude de navegador.</b> <span>Do Chrome para o Firefox, ou o contrário: é só restaurar o arquivo.</span></div></li>
+            <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Troque de computador, formate ou mude de navegador.</b> <span>Do Chrome para o Firefox, ou o contrário: é só restaurar o arquivo (para assinantes).</span></div></li>
             <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Restaurar não bagunça nada.</b> <span>As marcações do arquivo são somadas às que já existem, sem apagar nem duplicar nada.</span></div></li>
           </ul>
         </div>
@@ -506,7 +530,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <div class="sec-head">
         <span class="label">Preço</span>
         <h2>7 dias de teste grátis, com tudo liberado.</h2>
-        <p>Só com o seu e-mail, sem cartão. Depois, escolha o plano ou siga na versão gratuita (marca-texto amarelo e sublinhado nos sites):</p>
+        <p>Só com o seu e-mail e sem cartão. Depois, siga na <a href="#gratis">versão gratuita</a> ou assine:</p>
       </div>
       <div class="prices">
         <div class="price">
@@ -536,7 +560,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <div class="facts">
         <div class="fact"><h3>Pagamento</h3><p>Pagamento por Pix ou cartão, pela Stone. <strong>Não há renovação automática nem cobrança surpresa</strong>: perto do fim do plano a extensão avisa, e renovar antes de vencer soma os dias que faltavam.</p></div>
         <div class="fact"><h3>Preços e renovação</h3><p>Nos demais casos, o anual e as renovações seguem o preço normal, salvo promoções de parceiros. Remover marcações nunca é bloqueado, mesmo sem plano ativo.</p></div>
-        <div class="fact"><h3>Seus dados</h3><p>Para o teste grátis, você informa o seu e-mail e confirma um código enviado a ele: guardamos o e-mail, um número aleatório da instalação e a data de início do teste, para que cada e-mail tenha um único teste. O único e-mail que mandamos é o do código. Quem assina informa o e-mail e paga pela Stone, e guardamos o e-mail e a validade do plano para liberar a extensão. Os dados de pagamento ficam com a Stone e nunca passam pela Anivom. Nada disso inclui o conteúdo das suas marcações.</p></div>
+        <div class="fact"><h3>Seus dados</h3><p>Para o teste, você informa o seu e-mail e confirma um código de 6 números enviado a ele. Guardamos o e-mail, um número aleatório da instalação e a data de início do teste (também num cookie do nosso servidor, para o teste não recomeçar se a extensão for reinstalada). Cada e-mail tem um único teste. O único e-mail que mandamos no teste é o do código: o prazo aparece na própria extensão, e não enviamos propaganda. Quem assina informa o e-mail e paga pela Stone, e guardamos o e-mail e a validade do plano para liberar a extensão. Os dados de pagamento ficam com a Stone e nunca passam pela Anivom. Nada disso inclui o conteúdo das suas marcações.</p></div>
       </div>
       <div class="paybox">
         <span class="label">Pagou pelo celular ou pelo link de um parceiro?</span>
@@ -570,7 +594,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 </footer>
 <!--DOCS-->
 <input type="checkbox" id="doc-termos" class="dcb" aria-label="Abrir Termos de Uso"><div class="docov" role="dialog" aria-label="Termos de Uso"><div class="docbox"><div class="dochead"><span>Marca-texto Web · Termos de Uso</span><label for="doc-termos" class="docclose" role="button" tabindex="0">Fechar ✕</label></div><article class="doc"><h2>Termos de Uso</h2>
-<p class="doc-meta">Marca-texto Web · Última atualização: 21 de outubro de 2026</p>
+<p class="doc-meta">Marca-texto Web · Última atualização: 26 de novembro de 2026</p>
 <p>Estes termos regem o uso da extensão <strong>Marca-texto Web</strong>, oferecida pela <strong>ANIVOM TECNOLOGIA LTDA</strong>, CNPJ 69.199.407/0001-96, responsável pela marca Optimus Aprendizado. Ao instalar ou usar a extensão, você concorda com eles.</p>
 
 <h3>1. O que é o serviço</h3>
@@ -579,7 +603,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 <h3>2. Teste grátis e planos</h3>
 <ul>
   <li><strong>Teste grátis:</strong> 7 dias, com todos os recursos liberados. Para começar, você informa o seu e-mail e confirma um código de 6 números enviado a ele. Cada e-mail tem um único teste. Sem cartão.</li>
-  <li><strong>Versão gratuita:</strong> depois do teste, quem não assina continua usando, sem prazo, o marca-texto amarelo e o sublinhado preto nos sites, a remoção de marcações, a exportação para pastas, a impressão em A4 e o backup. Os PDFs continuam abrindo para leitura, com as marcações já feitas. Os demais recursos (todas as cores, post-its, colchetes e formas, numeração, Revisar, marcar PDFs, sumário, margem de leitura e artigo citado) fazem parte da assinatura.</li>
+  <li><strong>Versão gratuita:</strong> depois do teste, quem não assina continua usando, sem prazo, o marca-texto amarelo e o sublinhado preto nos sites, a remoção de marcações, a exportação para pastas, a impressão em A4 e o download do backup. Os PDFs continuam abrindo para leitura, com as marcações já feitas. Os demais recursos (as outras cores de grifo, o sublinhado colorido e o tachado, post-its, colchetes, parênteses, círculo, retângulo, numeração, Revisar, marcar PDFs, sumário, margem de leitura, artigo citado e a restauração do backup) fazem parte da assinatura. As marcações feitas durante o teste ou a assinatura continuam aparecendo na versão gratuita, em todas as cores.</li>
   <li><strong>Plano mensal:</strong> R$ 9,90 por 30 dias de acesso.</li>
   <li><strong>Plano anual:</strong> R$ 89,90 por 12 meses de acesso (sai a R$ 7,49 por mês).</li>
   <li><strong>Oferta do teste:</strong> quem assina o plano anual durante os 7 dias do teste grátis paga R$ 59,90 pelo plano anual, na primeira assinatura, e renova o plano anual pelo mesmo valor, usando o mesmo e-mail. Promoções e cupons de parceiros, quando houver, valem nas condições divulgadas em cada caso. Fora dessas situações, vale o preço normal do plano anual.</li>
@@ -637,7 +661,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 <p>Clique no ícone do Marca-texto Web → <strong>“Abrir PDF no Marca-texto”</strong> e escolha o arquivo no computador (ou arraste o PDF para a tela). PDF de um site? Baixe para o computador e abra por aqui. O PDF é aberto só no seu computador, e as marcações voltam quando você abrir o mesmo PDF de novo.</p>
 
 <h3>Quero levar minhas marcações para outro computador ou navegador</h3>
-<p>Use o backup da extensão: baixe o arquivo com as suas marcações, post-its e pastas, guarde onde preferir (pendrive, Google Drive, e-mail) e restaure o arquivo na extensão do outro computador ou navegador, por exemplo do Chrome para o Firefox. As marcações do arquivo são somadas às que já existem, sem apagar nem duplicar nada. O backup fica só com você: nós não recebemos o arquivo.</p>
+<p>Use o backup da extensão: baixe o arquivo com as suas marcações, post-its e pastas, guarde onde preferir (pendrive, Google Drive, e-mail) e restaure o arquivo na extensão do outro computador ou navegador (restaurar é para assinantes), por exemplo do Chrome para o Firefox. As marcações do arquivo são somadas às que já existem, sem apagar nem duplicar nada. O backup fica só com você: nós não recebemos o arquivo.</p>
 
 <h3>Para agilizar o atendimento</h3>
 <p>Conte o que aconteceu e em qual site (por exemplo, a lei do Planalto que você estava lendo). Se puder, mande um print da tela. Se o assunto for a assinatura, informe o e-mail usado na compra.</p>
